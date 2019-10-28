@@ -9,12 +9,9 @@ import java.util.List;
 public interface CharacterManagerLocal {
 
     List<Character> findAllCharacters();
-
     boolean addCharacter(String username, String password);
-
     Character getCharacterById(int id);
-
     Character getCharacterByUsername(String username);
-
+    boolean checkPassword(String username, String password);
     boolean isUsernameFree(String username);
 }

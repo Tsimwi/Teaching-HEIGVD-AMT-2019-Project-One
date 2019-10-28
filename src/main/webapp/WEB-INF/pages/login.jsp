@@ -47,6 +47,14 @@
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+        <c:if test="${errors != null}">
+            Errors:
+            <ul>
+                <c:forEach items="${errors}" var="error">
+                    <li>${error}</li>
+                </c:forEach>
+            </ul>
+        </c:if>
     </div>
 </div>
 
