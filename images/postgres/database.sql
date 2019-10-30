@@ -19,7 +19,7 @@ CREATE TABLE public.character (
     password varchar(64) NOT NULL,
     mount_id integer,
     class_id integer,
-    isAdmin boolean NOT NULL DEFAULT FALSE
+    isadmin boolean NOT NULL DEFAULT FALSE
 
 );
 
