@@ -254,7 +254,8 @@ public class CharacterManager implements CharacterManagerLocal {
                 int mount_speed = rs.getInt("mount_speed");
                 int class_id = rs.getInt("class_id");
                 String class_name = rs.getString("class_name");
-                character = Character.builder().id(id).name(name).level(level).health(health).stamina(stamina).mana(mana).mount(Mount.builder().id(mount_id).name(mount_name).speed(mount_speed).build()).myClass(Class.builder().id(class_id).name(class_name).build()).build();
+                boolean isAdmin = rs.getBoolean("isAdmin");
+                character = Character.builder().id(id).name(name).level(level).health(health).stamina(stamina).mana(mana).mount(Mount.builder().id(mount_id).name(mount_name).speed(mount_speed).build()).myClass(Class.builder().id(class_id).name(class_name).build()).isAdmin(isAdmin).build();
 
             }
             connection.close();
