@@ -7,15 +7,13 @@ import java.util.List;
 @Local
 public interface CharacterManagerLocal {
 
-    public int countRows(String table, String pattern);
-
-    List<Character> findAllCharacters();
+    int countRows(String table, String pattern);
 
     List<Character> getCharactersByPattern(String letter, int pageNumber);
 
     List<Character> getCharactersByPage(int pageNumber);
 
-    boolean addCharacter(String username, String password);
+    boolean addCharacter(String username, String password, boolean isAdmin);
 
     Character getCharacterById(int id);
 
@@ -24,4 +22,6 @@ public interface CharacterManagerLocal {
     boolean isUsernameFree(String username);
 
     boolean checkPassword(String username, String password);
+
+    boolean deleteCharacter(int id);
 }

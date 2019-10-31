@@ -16,15 +16,10 @@ public class SessionFilter implements Filter {
         HttpServletResponse filteredResp = (HttpServletResponse) resp;
 
         if (filteredReq.getSession().getAttribute("character") != null) {
-            //filteredResp.sendRedirect(filteredReq.getContextPath() + "/home");
             chain.doFilter(req, resp);
         } else {
-            chain.doFilter(req, resp);
-            //filteredResp.sendRedirect(filteredReq.getContextPath() + "/login");
-            //req.getRequestDispatcher("/WEB-INF/pages/login.jsp").forward(req, resp);
+            filteredResp.sendRedirect(filteredReq.getContextPath() + "/login");
         }
-
-        //chain.doFilter(req, resp);
     }
 
     public void init(FilterConfig config) throws ServletException {
