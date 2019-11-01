@@ -144,8 +144,10 @@ public class CharacterManager implements CharacterManagerLocal {
             pstmt.setObject(2, authenticationService.hashPassword(password));
             pstmt.setObject(3, getRandomNumber(1, countRows("mount", "") + 1));
             pstmt.setObject(4, getRandomNumber(1, countRows("class", "") + 1));
-            if (isAdmin)
+
+            if (isAdmin) {
                 pstmt.setBoolean(5, isAdmin);
+            }
 
             int row = pstmt.executeUpdate();
 
@@ -159,6 +161,39 @@ public class CharacterManager implements CharacterManagerLocal {
         }
         return false;
 
+    }
+
+    @Override
+    public boolean updateCharacter(int id, String username, String password, boolean isAdmin, boolean updatePassword) {
+
+        try {
+            String request;
+            if(updatePassword){
+                request = "UPDATE character SET name=?, isadmin=?, password=? WHERE id=?;";
+            }else{
+                request = "UPDATE character SET name=?, isadmin=? WHERE id=?;";
+            }
+            Connection connection = dataSource.getConnection();
+            PreparedStatement pstmt = connection.prepareStatement(request);
+            pstmt.setObject(1, username);
+            pstmt.setObject(2, isAdmin);
+            int i = 3;
+            if(updatePassword){
+                pstmt.setObject(i++, authenticationService.hashPassword(password));
+            }
+            pstmt.setObject(i, id);
+
+            int row = pstmt.executeUpdate();
+
+            connection.close();
+
+            return row > 0;
+
+
+        } catch (SQLException ex) {
+            Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 
     @Override

@@ -45,7 +45,7 @@ public class RegistrationServlet extends HttpServlet {
         if (!characterManager.isUsernameFree(name)) {
             errors.add("This name is already taken");
         }
-
+        req.setAttribute("name", name);
         if (errors.size() == 0) {
             if(!characterManager.addCharacter(name, password, false)){
                 errors.add("Unable to create Character, contact an administrator");

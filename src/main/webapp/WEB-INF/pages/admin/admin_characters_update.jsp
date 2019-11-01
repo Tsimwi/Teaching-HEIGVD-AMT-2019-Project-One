@@ -4,6 +4,7 @@
 
     <div class="container-fluid">
         <form method="post">
+            <input type="hidden" name="id" value="${requestScope.character.id}">
             <div class="form-group">
                 <label for="nameField">Name</label>
                 <input type="text" class="form-control" id="nameField" name="name" value="${requestScope.character.name}">
@@ -22,6 +23,14 @@
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+        <c:if test="${errors != null}">
+            Errors:
+            <ul>
+                <c:forEach items="${errors}" var="error">
+                    <li>${error}</li>
+                </c:forEach>
+            </ul>
+        </c:if>
     </div>
 
 

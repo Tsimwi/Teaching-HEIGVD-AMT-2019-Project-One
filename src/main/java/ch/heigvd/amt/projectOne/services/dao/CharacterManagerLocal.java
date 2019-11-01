@@ -1,6 +1,7 @@
 package ch.heigvd.amt.projectOne.services.dao;
 
 import ch.heigvd.amt.projectOne.model.Character;
+
 import javax.ejb.Local;
 import java.util.List;
 
@@ -14,6 +15,8 @@ public interface CharacterManagerLocal {
     List<Character> getCharactersByPage(int pageNumber);
 
     boolean addCharacter(String username, String password, boolean isAdmin);
+
+    boolean updateCharacter(int id, String username, String password, boolean isAdmin, boolean updatePassword);
 
     Character getCharacterById(int id);
 
