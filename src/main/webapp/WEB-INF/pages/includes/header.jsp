@@ -23,6 +23,7 @@
     <link href="./bootstrap4/css/bootstrap-reboot.css" rel="stylesheet"/>
     <link href="./bootstrap4/css/bootstrap-theme.css" rel="stylesheet"/>
     <link href="./bootstrap4/css/font-awesome.css" rel="stylesheet"/>
+    <link href="./bootstrap4/css/custom.css" rel="stylesheet"/>
 
     <link href="./select2/css/select2.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
