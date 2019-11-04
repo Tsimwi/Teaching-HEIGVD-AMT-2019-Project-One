@@ -37,7 +37,7 @@
     <div class="container-fluid">
         <img class="mySlides" src="./images/banner.jpg" style="width:100%">
     </div>
-    <div class="container" style="background-color: orange">
+    <div class="container">
         <form action="${pageContext.request.contextPath}/register" method="post">
             <div class="form-group">
                 <label for="nameField">Name</label>
@@ -51,7 +51,7 @@
                 <label for="passwordFieldVerify">Repeat Password</label>
                 <input type="password" class="form-control" id="passwordFieldVerify" name="passwordVerify">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Sign up</button>
         </form>
         <c:if test="${errors != null}">
             Errors:
@@ -63,7 +63,7 @@
         </c:if>
     </div>
 
-    <div class="container" style="background-color: orange">
+    <div class="container">
         <a href="${pageContext.request.contextPath}/login" style="color: #2C93FF">Back to login</a>
     </div>
 
