@@ -40,7 +40,7 @@
         <form method="post">
             <input type="hidden" name="id" value="${requestScope.character.id}">
             <label for="id_select_guilds"> Select memberships of this user
-                <select id="id_select_guilds" class="js-example-basic-multiple form-control" name="membershipsSelect"
+                <select id="id_select_guilds" class="js-example-basic-multiple select2-search select2-search-inline form-control" name="membershipsSelect"
                         multiple="multiple" style="width: 100%">
                     <c:forEach items="${guilds}" var="guilds">
                         <option value="${guilds.id}"
@@ -62,7 +62,7 @@
 </div>
 <script>
     $(document).ready(function () {
-        $('.js-example-basic-multiple').select2();
+        $('.js-example-basic-multiple').select2(        );
     });
 </script>
 

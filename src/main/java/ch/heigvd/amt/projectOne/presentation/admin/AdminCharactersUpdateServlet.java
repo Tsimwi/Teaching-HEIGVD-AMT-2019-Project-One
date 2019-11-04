@@ -107,11 +107,22 @@ public class AdminCharactersUpdateServlet extends HttpServlet {
 
     private void updateMembership(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");
+
+        /* Fetch the old membership of the character */
         List<Membership> memberships = membershipManager.getMembershipsByUserId(Integer.parseInt(id));
+
+        /* If the select2 get value we will check if we need to update membership*/
         if (req.getParameterMap().containsKey("membershipsSelect")) {
+            /* Get values of select2 */
             String[] guildsSelected = req.getParameterValues("membershipsSelect");
+
+            /* We make a list with new selection of guild from the html page */
             List<String> newGuildId = new LinkedList<>(Arrays.asList(guildsSelected));
 
+            /* For each "old membership" we look if it's still in te new selection. If not we remove
+            *  it from previous membership. And if it was already in the membership we remove the id
+            *  from the list newGuildId. At the end of the loop we will have all the new membership
+            *  in the table newGuildID */
             for (Membership membership : memberships) {
                 if (newGuildId.contains(Integer.toString(membership.getGuild().getId()))) {
                     newGuildId.remove(Integer.toString(membership.getGuild().getId()));
@@ -121,15 +132,19 @@ public class AdminCharactersUpdateServlet extends HttpServlet {
             }
 
             if (newGuildId.size() > 0) {
-                //add the membership
-                System.out.println("ouyou");
+                Membership newMembership;
+                for (String guildId: newGuildId) {
+                    newMembership = Membership.builder().character(Character.builder().id(Integer.parseInt(id)).build()).guild(Guild.builder().id(Integer.parseInt(guildId)).build()).build();
+                    membershipManager.addMembership(newMembership);
+                }
+
             }
-        } else {
+        } else { // We remove all membership because the selection is empty
             for (Membership membership : memberships) {
                 membershipManager.removeMembership(membership.getId());
             }
         }
-
+        resp.sendRedirect(req.getContextPath() + "/admin/characters");
     }
 }
 
