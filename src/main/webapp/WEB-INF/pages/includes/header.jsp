@@ -25,7 +25,7 @@
     <link href="./bootstrap4/css/font-awesome.css" rel="stylesheet"/>
     <link href="./bootstrap4/css/custom.css" rel="stylesheet"/>
 
-    <link href="./select2/css/select2.css" rel="stylesheet" />
+    <link href="./select2/css/select2.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
 
@@ -40,10 +40,12 @@
 <div class="wrapper">
 
     <div class="container-fluid">
-        <a href="${pageContext.request.contextPath}/logout" style="color: orange">Logout</a>
-        <c:if test="${sessionScope.character.isadmin}">
-            <a href="${pageContext.request.contextPath}/admin" style="color: orange">admin</a>
-        </c:if>
+        <div class="container-absolute">
+            <c:if test="${sessionScope.character.isadmin}">
+                <a href="${pageContext.request.contextPath}/admin" style="color: orange">Administration</a>  /
+            </c:if>
+            <a href="${pageContext.request.contextPath}/logout" style="color: orange">Logout</a>
+        </div>
         <img class="mySlides" src="./images/banner.jpg" style="width:100%">
 
         <ul class="nav nav-pills nav-fill" style="background-color: orange">

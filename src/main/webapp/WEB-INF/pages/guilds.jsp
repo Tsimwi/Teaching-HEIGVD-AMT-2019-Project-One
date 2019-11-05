@@ -12,7 +12,7 @@
                     <table class="table">
                         <tr>
                             <td><img src="./images/${fn:replace(fn:toLowerCase(guild.name), ' ','')}.jpg"
-                                     style="background-color: white; border-radius: 10px"></td>
+                                     onerror="this.onerror=null; this.src='./images/default.jpg'" style="background-color: white; border-radius: 10px"></td>
                             <td>
                                 <h3>${guild.name}</h3><br/>
                                 <a class="btn btn-primary" href="${pageContext.request.contextPath}/guilds/info?id=${guild.id}">Learn more</a></br>

@@ -585,6 +585,15 @@ pre code {
   margin-left: auto;
 }
 
+.container-absolute {
+  position: absolute;
+  top: 5px;
+  right: 25px;
+  width: 200px;
+  height: 30px;
+  text-align: right;
+}
+
 .row {
   display: -ms-flexbox;
   display: flex;
