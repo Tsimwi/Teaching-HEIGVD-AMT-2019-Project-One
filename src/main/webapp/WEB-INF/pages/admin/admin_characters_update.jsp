@@ -23,7 +23,7 @@
                 <input type="checkbox" id="isAdminCheckbox"
                        name="isAdminCheckbox" ${requestScope.character.isadmin ? 'checked' : ''}>
             </div>
-            <button type="submit" class="btn btn-primary" name="updateCharacter">Submit</button>
+            <button type="submit" class="btn btn-primary" name="updateCharacter">Update</button>
         </form>
         <c:if test="${errors != null}">
             Errors:

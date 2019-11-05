@@ -97,7 +97,7 @@ public class GuildManager implements GuildManagerLocal {
             PreparedStatement pstmt = connection.prepareStatement("UPDATE guild SET name=?, description=? WHERE id=?;");
             pstmt.setObject(1, guild.getName());
             pstmt.setObject(2, guild.getDescription());
-            pstmt.setObject(2, guild.getId());
+            pstmt.setObject(3, guild.getId());
 
             int row = pstmt.executeUpdate();
 
@@ -130,5 +130,26 @@ public class GuildManager implements GuildManagerLocal {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
+    }
+
+    @Override
+    public boolean isNameFree(String name) {
+
+        try {
+            Connection connection = dataSource.getConnection();
+            PreparedStatement pstmt = connection.prepareStatement("SELECT id FROM guild WHERE name=?");
+            pstmt.setObject(1, name);
+
+            ResultSet rs = pstmt.executeQuery();
+
+            connection.close();
+            return !rs.next();
+
+
+        } catch (SQLException ex) {
+            Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return true;
     }
 }

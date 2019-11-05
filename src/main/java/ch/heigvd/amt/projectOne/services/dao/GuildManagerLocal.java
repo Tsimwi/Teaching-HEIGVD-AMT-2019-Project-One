@@ -19,4 +19,6 @@ public interface GuildManagerLocal {
 
     boolean deleteGuild(Guild guild);
 
+    boolean isNameFree(String name);
+
 }
