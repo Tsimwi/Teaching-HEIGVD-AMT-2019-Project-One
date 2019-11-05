@@ -197,7 +197,7 @@ INSERT INTO public.class(name, weapon, armor, description) VALUES ('Wizard', 'Ca
 
 -- Test user
 
-INSERT INTO public."character"(stamina, name, level, id, health, mana, password, mount_id, class_id) VALUES (80, 'test', 100, 1, 80, 80, '$2a$10$PYyJXwPKBOzic3JIHCVd5uNIS5.DplEyWtkDPnhseetf0Sv8LovAC', 1, 1);
+INSERT INTO public."character"(stamina, name, level, id, health, mana, password, mount_id, class_id, isadmin) VALUES (80, 'test', 100, 1, 80, 80, '$2a$10$PYyJXwPKBOzic3JIHCVd5uNIS5.DplEyWtkDPnhseetf0Sv8LovAC', 1, 1, true);
 INSERT INTO public.membership(character_id, guild_id, rank) VALUES (1, 1, 'Guildmaster');
 INSERT INTO public.membership(character_id, guild_id, rank) VALUES (1, 3, 'Initiate');
 INSERT INTO public.membership(character_id, guild_id, rank) VALUES (1, 5, 'Warden');
