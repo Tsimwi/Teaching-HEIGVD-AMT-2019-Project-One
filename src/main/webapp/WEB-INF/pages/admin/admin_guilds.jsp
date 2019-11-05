@@ -2,6 +2,9 @@
 
 <div class="container">
     <div class="container">
+        <a href="${pageContext.request.contextPath}/admin/guilds/add" class="btn btn-primary">Add new guild</a>
+    </div>
+    <div class="container">
         <c:if test="${sessionScope.deleteStatus != null}">
             ${sessionScope.deleteStatus}
         </c:if>

@@ -45,7 +45,7 @@ public class AdminCharactersAddServlet extends HttpServlet {
                 errors.add("Password are not the same");
             }
         }
-        if(isadmin != null && isadmin.equals("on")){
+        if (isadmin != null && isadmin.equals("on")) {
             isAdminBool = true;
         }
         if (!characterManager.isUsernameFree(name)) {
@@ -53,12 +53,12 @@ public class AdminCharactersAddServlet extends HttpServlet {
         }
 
         if (errors.size() == 0) {
-            if(!characterManager.addCharacter(name, password, isAdminBool)){
+            if (!characterManager.addCharacter(name, password, isAdminBool)) {
                 errors.add("Unable to create Character, contact an administrator");
                 req.setAttribute("errors", errors);
                 req.getRequestDispatcher("/WEB-INF/pages/admin/admin_characters_add.jsp").forward(req, resp);
 
-            }else {
+            } else {
                 resp.sendRedirect(req.getContextPath() + "/admin/characters");
             }
         } else {
