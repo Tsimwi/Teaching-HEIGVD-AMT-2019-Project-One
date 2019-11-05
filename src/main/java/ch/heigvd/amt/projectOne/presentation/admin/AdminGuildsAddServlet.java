@@ -18,7 +18,7 @@ import java.util.List;
 public class AdminGuildsAddServlet extends HttpServlet {
 
     @EJB
-    private GuildManagerLocal guildManager;
+    GuildManagerLocal guildManager;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -37,7 +37,7 @@ public class AdminGuildsAddServlet extends HttpServlet {
             errors.add("Name cannot be empty");
         }
 
-        if (description == null || name.trim().equals("")) {
+        if (description == null || description.trim().equals("")) {
             errors.add("Description cannot be empty");
         }
 

@@ -10,9 +10,13 @@ import java.util.List;
 @Local
 public interface MembershipManagerLocal {
 
+    public int getNumberOfMembershipsForGuild(int id);
+
     public boolean addMembership(Membership membership);
 
     public List<Membership> getMembershipsByUserId(int id);
+
+    public List<Membership> getMembershipsByGuildIdByPage(int id, int pageNumber);
 
     public boolean removeMembership(int id);
 

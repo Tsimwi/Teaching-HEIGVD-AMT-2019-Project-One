@@ -17,12 +17,14 @@ import java.util.List;
 public class CharactersServlet extends HttpServlet {
 
     @EJB
-    private CharacterManagerLocal characterManager;
+    CharacterManagerLocal characterManager;
 
+    int pageNumberInt;
+
+    int numberOfUser;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int pageNumberInt;
-        int numberOfUser;
+
         List<Character> characters;
 
         if (!req.getParameterMap().containsKey("page")) {

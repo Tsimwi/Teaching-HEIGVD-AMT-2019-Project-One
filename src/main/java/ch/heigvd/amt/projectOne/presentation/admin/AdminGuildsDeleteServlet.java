@@ -16,7 +16,7 @@ import java.io.IOException;
 public class AdminGuildsDeleteServlet extends HttpServlet {
 
     @EJB
-    private GuildManagerLocal guildManager;
+    GuildManagerLocal guildManager;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -27,8 +27,10 @@ public class AdminGuildsDeleteServlet extends HttpServlet {
             }else{
                 session.setAttribute("deleteStatus", "Guild deleted");
             }
-            resp.sendRedirect(req.getContextPath() + "/admin/guilds");
+
         }
+
+        resp.sendRedirect(req.getContextPath() + "/admin/guilds");
 
     }
 
