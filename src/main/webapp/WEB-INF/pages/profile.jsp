@@ -84,7 +84,8 @@
                     <table>
                         <tr>
                             <td>
-                                <img src="./images/${fn:replace(fn:toLowerCase(membership.guild.name), ' ', '')}.jpg"/>
+                                <img src="./images/${fn:replace(fn:toLowerCase(membership.guild.name), ' ', '')}.jpg"
+                                     onerror="this.onerror=null; this.src='./images/default.jpg'"/>
                             </td>
                             <td>
                                 <h4>${membership.guild.name}</h4></br>

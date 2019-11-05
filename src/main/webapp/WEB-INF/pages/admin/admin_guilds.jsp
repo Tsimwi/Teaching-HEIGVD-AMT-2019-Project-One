@@ -2,6 +2,9 @@
 
 <div class="container">
     <div class="container">
+        <a href="${pageContext.request.contextPath}/admin/guilds/add" class="btn btn-primary">Add new guild</a>
+    </div>
+    <div class="container">
         <c:if test="${sessionScope.deleteStatus != null}">
             ${sessionScope.deleteStatus}
         </c:if>
@@ -16,7 +19,7 @@
             <tbody>
             <c:forEach items="${guilds}" var="guild" varStatus="loop">
                 <tr style="background-color: black">
-                    <td><h2>${guild.name}</h2></td>
+                    <td><h2><a href="${pageContext.request.contextPath}/guilds/info?id=${guild.id}">${guild.name}</a></h2></td>
                     <td>
                         <a data-toggle="modal" data-target="#modal${guild.id}"><i
                                 class="fas fa-trash-alt"></i></a>

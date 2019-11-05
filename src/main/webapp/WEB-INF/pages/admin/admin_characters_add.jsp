@@ -1,7 +1,7 @@
 <%@include file="../includes/header.jsp" %>
 
 <div class="container-fluid">
-    <div class="container" style="background-color: orange">
+    <div class="container">
         <form method="post">
             <div class="form-group">
                 <label for="nameField">Name</label>
@@ -12,7 +12,7 @@
                 <input type="password" class="form-control" id="passwordField" name="password">
             </div>
             <div class="form-group">
-                <label for="passwordFieldVerify">Password</label>
+                <label for="passwordFieldVerify">Repeat password</label>
                 <input type="password" class="form-control" id="passwordFieldVerify" name="passwordVerify">
             </div>
             <div class="form-group">

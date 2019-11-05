@@ -25,6 +25,7 @@
             </td>
             <td>
                 <img src="./images/${fn:replace(fn:toLowerCase(guild.name), ' ','')}.jpg"
+                     onerror="this.onerror=null; this.src='./images/default.jpg'"
                      style="background-color: white; border-radius: 10px">
             </td>
         </tr>

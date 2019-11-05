@@ -1,7 +1,6 @@
 <%@include file="../includes/header.jsp" %>
 
 <div class="container-fluid">
-
     <div class="container-fluid">
         <form method="post">
             <input type="hidden" name="id" value="${requestScope.character.id}">
@@ -15,7 +14,7 @@
                 <input type="password" class="form-control" id="passwordField" name="password">
             </div>
             <div class="form-group">
-                <label for="passwordFieldVerify">Password</label>
+                <label for="passwordFieldVerify">Repeat password</label>
                 <input type="password" class="form-control" id="passwordFieldVerify" name="passwordVerify">
             </div>
             <div class="form-group">
@@ -23,7 +22,7 @@
                 <input type="checkbox" id="isAdminCheckbox"
                        name="isAdminCheckbox" ${requestScope.character.isadmin ? 'checked' : ''}>
             </div>
-            <button type="submit" class="btn btn-primary" name="updateCharacter">Submit</button>
+            <button type="submit" class="btn btn-primary" name="updateCharacter">Update</button>
         </form>
         <c:if test="${errors != null}">
             Errors:
