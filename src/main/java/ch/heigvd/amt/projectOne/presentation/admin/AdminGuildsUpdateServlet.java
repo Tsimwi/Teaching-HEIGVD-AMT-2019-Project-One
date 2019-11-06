@@ -29,7 +29,7 @@ public class AdminGuildsUpdateServlet extends HttpServlet {
 
         String guildId = req.getParameter("id");
         Guild guild = guildManager.getGuildById(Integer.parseInt(guildId));
-        List<Membership> memberships = membershipManager.getMembershipsByGuildId(Integer.parseInt(guildId));
+        List<Membership> memberships = membershipManager.getMembershipsByGuildIdWithPage(Integer.parseInt(guildId),0 );
         req.setAttribute("guild", guild);
         req.setAttribute("memberships", memberships);
 
