@@ -54,9 +54,31 @@
     </table>
     <div class="container">
         <div class="text-center">
-            <c:forEach begin="1" end="${numberOfPage}" varStatus="loop">
-                <a href="${pageContext.request.contextPath}/admin/characters?<%=parameters%>page=${loop.index}">${loop.index}</a>
-            </c:forEach>
+            <a class="btn btn-primary" href="${pageContext.request.contextPath}/characters?<%=parameters%>page=1">First
+                page</a>
+            <c:if test="${pageContext.request.getParameter(\"page\") > 1}">
+                <a class="btn btn-primary"
+                   href="${pageContext.request.contextPath}/characters?<%=parameters%>page=${pageContext.request.getParameter("page")-1}">Previous
+                    page</a>
+            </c:if>
+
+            <c:if test="${pageContext.request.getParameter(\"page\") < numberOfPage || pageContext.request.getParameter(\"page\") == null}">
+                <c:choose>
+                    <c:when test="${pageContext.request.getParameter(\"page\") == null}">
+                        <a class="btn btn-primary"
+                           href="${pageContext.request.contextPath}/characters?<%=parameters%>page=2">Next
+                            page</a>
+                    </c:when>
+                    <c:otherwise>
+                        <a class="btn btn-primary"
+                           href="${pageContext.request.contextPath}/characters?<%=parameters%>page=${pageContext.request.getParameter("page")+1}">Next
+                            page</a>
+                    </c:otherwise>
+                </c:choose>
+            </c:if>
+
+            <a class="btn btn-primary"
+               href="${pageContext.request.contextPath}/characters?<%=parameters%>page=${numberOfPage}">Last page</a>
         </div>
     </div>
 
