@@ -62,7 +62,7 @@ class ClassesServletTest {
 
     @Test
     void weShouldBeAbleToGetAllClasses() throws ServletException, IOException {
-        when(classManager.fetchAllClass()).thenReturn(classes);
+        when(classManager.fetchAllClasses()).thenReturn(classes);
 
         servlet.doGet(request, response);
         verify(request, atLeastOnce()).setAttribute("classes", classes);

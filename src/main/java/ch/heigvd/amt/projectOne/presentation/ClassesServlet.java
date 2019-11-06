@@ -20,7 +20,7 @@ public class ClassesServlet extends HttpServlet {
 
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    List<Class> classes = classManager.fetchAllClass();
+    List<Class> classes = classManager.fetchAllClasses();
     req.setAttribute("classes", classes);
     req.getRequestDispatcher("/WEB-INF/pages/classes.jsp").forward(req, resp);
   }

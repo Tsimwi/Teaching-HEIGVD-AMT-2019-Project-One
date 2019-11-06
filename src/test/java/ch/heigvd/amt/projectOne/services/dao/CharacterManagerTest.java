@@ -8,6 +8,7 @@ import org.jboss.arquillian.transaction.api.annotation.TransactionMode;
 import org.jboss.arquillian.transaction.api.annotation.Transactional;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
 import javax.ejb.EJB;
 
 import static org.junit.Assert.*;
@@ -28,7 +29,8 @@ public class CharacterManagerTest {
         String password = "test";
         boolean isAdmin = false;
 
-        characterManager.addCharacter(name, password, isAdmin);
+        boolean characterCreated = characterManager.addCharacter(name, password, isAdmin);
+        assertTrue(characterCreated);
     }
 
     @Test
@@ -39,11 +41,10 @@ public class CharacterManagerTest {
         boolean isAdmin = false;
 
         /* Character creation */
-        if (characterManager.addCharacter(name, password, isAdmin)) {
-            Character cake = characterManager.getCharacterByUsername(name);
+        characterManager.addCharacter(name, password, isAdmin);
+        Character cake = characterManager.getCharacterByUsername(name);
 
-            assertNotNull(cake);
-        }
+        assertNotNull(cake);
     }
 
     @Test
@@ -54,13 +55,12 @@ public class CharacterManagerTest {
         boolean isAdmin = false;
 
         /* Character creation */
-        if (characterManager.addCharacter(name, password, isAdmin)) {
-            Character cakeByName = characterManager.getCharacterByUsername(name);
-            int id = cakeByName.getId();
-            Character cakeById = characterManager.getCharacterById(id);
+        characterManager.addCharacter(name, password, isAdmin);
+        Character cakeByName = characterManager.getCharacterByUsername(name);
+        int id = cakeByName.getId();
+        Character cakeById = characterManager.getCharacterById(id);
 
-            assertEquals(cakeByName, cakeById);
-        }
+        assertEquals(cakeByName, cakeById);
     }
 
     @Test
@@ -71,19 +71,17 @@ public class CharacterManagerTest {
         boolean isAdmin = false;
 
         /* Character creation */
-        if (characterManager.addCharacter(name, password, isAdmin)) {
-            Character cake = characterManager.getCharacterByUsername(name);
-            String newName = "Lie";
-            String newPassword = "bye";
+        characterManager.addCharacter(name, password, isAdmin);
+        Character cake = characterManager.getCharacterByUsername(name);
+        String newName = "Lie";
+        String newPassword = "bye";
 
-            /* Character update */
-            if (characterManager.updateCharacter(cake.getId(), newName, newPassword, isAdmin, true)) {
-                Character newCake = characterManager.getCharacterByUsername("Lie");
+        /* Character update */
+        characterManager.updateCharacter(cake.getId(), newName, newPassword, isAdmin, true);
+        Character newCake = characterManager.getCharacterByUsername("Lie");
 
-                assertEquals(newCake.getName(), newName);
-                assertNotEquals(newCake.getName(), name);
-            }
-        }
+        assertEquals(newCake.getName(), newName);
+        assertNotEquals(newCake.getName(), name);
     }
 
     @Test
@@ -94,12 +92,11 @@ public class CharacterManagerTest {
         boolean isAdmin = false;
 
         /* Character creation */
-        if (characterManager.addCharacter(name, password, isAdmin)) {
-            Character cake = characterManager.getCharacterByUsername("Cake");
-            boolean checkSuccess = characterManager.checkPassword(cake.getName(), password);
+        characterManager.addCharacter(name, password, isAdmin);
+        Character cake = characterManager.getCharacterByUsername("Cake");
+        boolean checkSuccess = characterManager.checkPassword(cake.getName(), password);
 
-            assertTrue(checkSuccess);
-        }
+        assertTrue(checkSuccess);
     }
 
     @Test
@@ -110,11 +107,10 @@ public class CharacterManagerTest {
         boolean isAdmin = false;
 
         /* Character creation */
-        if (characterManager.addCharacter(name, password, isAdmin)) {
-            boolean freeUsername = characterManager.isUsernameFree(name);
+        characterManager.addCharacter(name, password, isAdmin);
+        boolean freeUsername = characterManager.isUsernameFree(name);
 
-            assertFalse(freeUsername);
-        }
+        assertFalse(freeUsername);
     }
 
     @Test
@@ -125,15 +121,14 @@ public class CharacterManagerTest {
         boolean isAdmin = false;
 
         /* Character creation */
-        if (characterManager.addCharacter(name, password, isAdmin)) {
-            Character cake = characterManager.getCharacterByUsername(name);
+        characterManager.addCharacter(name, password, isAdmin);
+        Character cake = characterManager.getCharacterByUsername(name);
 
-            /* Character deletion */
-            boolean deletedCharacter = characterManager.deleteCharacter(cake.getId());
-            cake = characterManager.getCharacterById(cake.getId());
+        /* Character deletion */
+        boolean deletedCharacter = characterManager.deleteCharacter(cake.getId());
+        cake = characterManager.getCharacterById(cake.getId());
 
-            assertNull(cake);
-            assertTrue(deletedCharacter);
-        }
+        assertNull(cake);
+        assertTrue(deletedCharacter);
     }
 }
