@@ -45,6 +45,29 @@ public class GuildManager implements GuildManagerLocal {
     }
 
     @Override
+    public Guild getGuildByName(String name) {
+        try {
+            Connection connection = dataSource.getConnection();
+            PreparedStatement pstmt = connection.prepareStatement("SELECT * FROM guild WHERE name=?");
+            pstmt.setObject(1, name);
+
+            ResultSet rs = pstmt.executeQuery();
+
+            rs.next();
+            int id = rs.getInt("id");
+            String description = rs.getString("description");
+
+            connection.close();
+            return Guild.builder().id(id).name(name).description(description).build();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return null;
+    }
+
+    @Override
     public Guild getGuildById(int id) {
         try {
             Connection connection = dataSource.getConnection();
