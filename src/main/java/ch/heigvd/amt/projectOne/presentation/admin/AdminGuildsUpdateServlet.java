@@ -1,7 +1,9 @@
 package ch.heigvd.amt.projectOne.presentation.admin;
 
 import ch.heigvd.amt.projectOne.model.Guild;
+import ch.heigvd.amt.projectOne.model.Membership;
 import ch.heigvd.amt.projectOne.services.dao.GuildManagerLocal;
+import ch.heigvd.amt.projectOne.services.dao.MembershipManagerLocal;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -19,12 +21,17 @@ public class AdminGuildsUpdateServlet extends HttpServlet {
     @EJB
     GuildManagerLocal guildManager;
 
+    @EJB
+    MembershipManagerLocal membershipManager;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String guildId = req.getParameter("id");
         Guild guild = guildManager.getGuildById(Integer.parseInt(guildId));
+        List<Membership> memberships = membershipManager.getMembershipsByGuildId(Integer.parseInt(guildId));
         req.setAttribute("guild", guild);
+        req.setAttribute("memberships", memberships);
 
         req.getRequestDispatcher("/WEB-INF/pages/admin/admin_guilds_update.jsp").forward(req, resp);
     }

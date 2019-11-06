@@ -33,11 +33,9 @@ public class GuildInfoServlet extends HttpServlet {
         Guild guild = guildManager.getGuildById(Integer.parseInt(req.getParameter("id")));
         boolean isCharacterMemberOfThisGuild = membershipManager.checkCharacterMembership(
                 (Character) req.getSession().getAttribute("character"), guild);
-        int numberOfCharacter = membershipManager.getNumberOfMembershipsForGuild(Integer.parseInt(req.getParameter("id")));
+        List<Membership> memberships = membershipManager.getMembershipsByGuildId(Integer.parseInt(req.getParameter("id")));
 
-
-        req.setAttribute("numberOfCharacter", numberOfCharacter);
-        req.setAttribute("numberOfPage", ((numberOfCharacter - 1) / 25) + 1);
+        req.setAttribute("memberships", memberships);
         req.setAttribute("currentCharMembership", isCharacterMemberOfThisGuild);
         req.setAttribute("guild", guild);
         req.getRequestDispatcher("/WEB-INF/pages/guild_info.jsp").forward(req, resp);
@@ -48,7 +46,7 @@ public class GuildInfoServlet extends HttpServlet {
         Gson gson = new Gson();
         int pageNumber = Integer.parseInt(req.getParameter("page"));
         int guildId = Integer.parseInt(req.getParameter("guildId"));
-        List<Membership> memberships = membershipManager.getMembershipsByGuildIdByPage(guildId, pageNumber -1);
+        List<Membership> memberships = membershipManager.getMembershipsByGuildId(guildId);
 
         PrintWriter out = resp.getWriter();
         out.print(gson.toJson(memberships));

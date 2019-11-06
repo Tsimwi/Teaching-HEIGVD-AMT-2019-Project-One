@@ -1,3 +1,3 @@
 FROM postgres:11
 
-ADD database.sql /docker-entrypoint-initdb.d/
+ADD databaseProd.sql /docker-entrypoint-initdb.d/

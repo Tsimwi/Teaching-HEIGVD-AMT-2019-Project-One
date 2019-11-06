@@ -40,6 +40,38 @@
         </tbody>
     </table>
 
-</div>
+    <div class="text-center">
+        <h1>Guild memberships :</h1>
+    </div>
+    <table class="table" id="guildsTable" style="background-color: black; color: white">
+        <thead>
+        <tr>
+            <th>Character name</th>
+            <th>Rank</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach items="${memberships}" var="membership" varStatus="loop">
+            <tr style="background-color: black">
+                <td><h2><a
+                        href="${pageContext.request.contextPath}/profile?id=${membership.character.id}">${membership.character.name}</a>
+                </h2></td>
+                <td>
+                    <c:if test="${currentCharMembership == true}">
+                        <h2>${membership.rank}</h2>
+                    </c:if>
+                </td>
 
+
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+
+</div>
+<script>
+    $(document).ready(function () {
+        $('#guildsTable').DataTable();
+    });
+</script>
 <%@include file="includes/footer.jsp" %>

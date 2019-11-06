@@ -104,15 +104,14 @@ public class MembershipManager implements MembershipManagerLocal {
     }
 
     @Override
-    public List<Membership> getMembershipsByGuildIdByPage(int id, int pageNumber) {
+    public List<Membership> getMembershipsByGuildId(int id) {
         List<Membership> memberships = new ArrayList<>();
 
         try {
             Connection connection = dataSource.getConnection();
             PreparedStatement pstmt = connection.prepareStatement(
-                    "SELECT membership.id, rank, character.name, character_id FROM membership INNER JOIN character on membership.guild_id = character.id WHERE guild_id=? ORDER BY character.name LIMIT 25 OFFSET ? ");
+                    "SELECT membership.id, rank, character.name, guild_id, character_id FROM membership INNER JOIN character on membership.character_id = character.id WHERE guild_id=? ORDER BY character.name");
             pstmt.setObject(1, id);
-            pstmt.setObject(2, pageNumber);
 
             ResultSet rs = pstmt.executeQuery();
 

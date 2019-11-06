@@ -1,7 +1,9 @@
 package ch.heigvd.amt.projectOne.presentation.admin;
 
 import ch.heigvd.amt.projectOne.model.Guild;
+import ch.heigvd.amt.projectOne.model.Membership;
 import ch.heigvd.amt.projectOne.services.dao.GuildManagerLocal;
+import ch.heigvd.amt.projectOne.services.dao.MembershipManagerLocal;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -27,6 +29,9 @@ class AdminGuildsUpdateServletTest {
     Guild guild;
 
     @Mock
+    Membership membership;
+
+    @Mock
     HttpServletRequest request;
 
     @Mock
@@ -34,6 +39,9 @@ class AdminGuildsUpdateServletTest {
 
     @Mock
     GuildManagerLocal guildManager;
+
+    @Mock
+    MembershipManagerLocal membershipManager;
 
     @Mock
     RequestDispatcher requestDispatcher;
@@ -44,22 +52,31 @@ class AdminGuildsUpdateServletTest {
     private AdminGuildsUpdateServlet servlet;
 
     private List<String> errors;
+    private List<Membership> memberships;
 
     @BeforeEach
     void setUp() {
         servlet = new AdminGuildsUpdateServlet();
         servlet.guildManager = guildManager;
+        servlet.membershipManager = membershipManager;
         errors = new ArrayList<>();
+        memberships = new ArrayList<>();
+        memberships.add(membership);
+        memberships.add(membership);
+        memberships.add(membership);
     }
 
     @Test
     void itShouldBePossibleToLoadThePage() throws ServletException, IOException {
         when(request.getRequestDispatcher("/WEB-INF/pages/admin/admin_guilds_update.jsp")).thenReturn(requestDispatcher);
         when(request.getParameter("id")).thenReturn("1");
+
         when(guildManager.getGuildById(1)).thenReturn(guild);
+        when(membershipManager.getMembershipsByGuildId(1)).thenReturn(memberships);
         servlet.doGet(request, response);
 
         verify(request, atLeastOnce()).setAttribute("guild", guild);
+        verify(request, atLeastOnce()).setAttribute("memberships", memberships);
         verify(requestDispatcher, atLeastOnce()).forward(request, response);
     }
 
