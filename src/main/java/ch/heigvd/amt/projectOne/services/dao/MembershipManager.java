@@ -22,6 +22,26 @@ public class MembershipManager implements MembershipManagerLocal {
     @Resource(lookup = "jdbc/amt")
     private DataSource dataSource;
 
+    public int getNumberOfMembershipsForGuild(int id){
+
+        try {
+            Connection connection = dataSource.getConnection();
+            PreparedStatement pstmt = connection.prepareStatement("SELECT COUNT(*) AS counter FROM membership WHERE guild_id=?");
+            pstmt.setObject(1, id);
+            ResultSet rs = pstmt.executeQuery();
+
+            rs.next();
+            connection.close();
+
+            return rs.getInt("counter");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return -1;
+
+    }
 
     @Override
     public boolean addMembership(Membership membership) {
@@ -72,6 +92,45 @@ public class MembershipManager implements MembershipManagerLocal {
                         .guild(Guild.builder()
                                 .id(guildId)
                                 .name(guildName)
+                                .build())
+                        .rank(rank).build());
+            }
+            connection.close();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return memberships;
+    }
+
+    @Override
+    public List<Membership> getMembershipsByGuildIdByPage(int id, int pageNumber) {
+        List<Membership> memberships = new ArrayList<>();
+
+        try {
+            Connection connection = dataSource.getConnection();
+            PreparedStatement pstmt = connection.prepareStatement(
+                    "SELECT membership.id, rank, character.name, character_id FROM membership INNER JOIN character on membership.guild_id = character.id WHERE guild_id=? ORDER BY character.name LIMIT 25 OFFSET ? ");
+            pstmt.setObject(1, id);
+            pstmt.setObject(2, pageNumber);
+
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                int membershipId = rs.getInt("id");
+                int guildId = rs.getInt("guild_id");
+                int characterId = rs.getInt("character_id");
+                String rank = rs.getString("rank");
+                String characterName = rs.getString("name");
+
+                memberships.add(Membership.builder()
+                        .id(membershipId)
+                        .character(Character.builder()
+                                .id(characterId)
+                                .name(characterName)
+                                .build())
+                        .guild(Guild.builder()
+                                .id(guildId)
                                 .build())
                         .rank(rank).build());
             }

@@ -19,7 +19,7 @@ import java.util.List;
 public class LoginServlet extends HttpServlet {
 
     @EJB
-    private CharacterManagerLocal characterManager;
+    CharacterManagerLocal characterManager;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -40,8 +40,7 @@ public class LoginServlet extends HttpServlet {
             errors.add("Password cannot be empty.");
         }
 
-        if (errors.size() < 1 && (
-                characterManager.isUsernameFree(username) || !characterManager.checkPassword(username, password))) {
+        if (errors.size() < 1 && (characterManager.isUsernameFree(username) || !characterManager.checkPassword(username, password))) {
             errors.add("Wrong username or password.");
         }
 

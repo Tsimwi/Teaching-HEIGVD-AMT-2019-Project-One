@@ -18,30 +18,6 @@ public class AdminServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        int pageNumberInt;
-//        int numberOfUser;
-//        List<Character> characters = new ArrayList<>();
-//
-//        if (!req.getParameterMap().containsKey("page")) {
-//            pageNumberInt = 1;
-//        } else {
-//            pageNumberInt = Integer.parseInt(req.getParameter("page"));
-//        }
-//
-//        if (req.getParameterMap().containsKey("letter")) {
-//            characters = characterManager.getCharactersByPattern(req.getParameter("letter"),pageNumberInt -1 );
-//            numberOfUser = characterManager.countRows("character", "WHERE character.name ILIKE '" + req.getParameter("letter") + "%'");
-//        } else if(req.getParameterMap().containsKey("searchBar")) {
-//            characters = characterManager.getCharactersByPattern(req.getParameter("searchBar"),pageNumberInt -1 );
-//            numberOfUser = characterManager.countRows("character", "WHERE character.name ILIKE '" + req.getParameter("searchBar") + "%'");
-//        }else{
-//            numberOfUser = characterManager.countRows("character", "");
-//            characters = characterManager.getCharactersByPage(pageNumberInt - 1);
-//        }
-//
-//        req.setAttribute("numberOfPage", ((numberOfUser - 1) / 25) + 1);
-//        req.setAttribute("characters", characters);
-//
         req.getRequestDispatcher("/WEB-INF/pages/admin/admin.jsp").forward(req, resp);
     }
 

@@ -14,7 +14,7 @@ import java.io.IOException;
 public class AdminGuildsServlet extends HttpServlet {
 
     @EJB
-    private GuildManagerLocal guildManager;
+    GuildManagerLocal guildManager;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

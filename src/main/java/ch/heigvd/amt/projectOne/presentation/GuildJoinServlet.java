@@ -29,6 +29,7 @@ public class GuildJoinServlet extends HttpServlet {
                 .character((Character) req.getSession().getAttribute("character"))
                 .build();
 
+        //TODO gerer s'il y a une erreur ?
         membershipManager.addMembership(membership);
 
         resp.sendRedirect(req.getContextPath() + "/profile");

@@ -18,7 +18,7 @@ import java.util.List;
 public class AdminCharactersDeleteServlet extends HttpServlet {
 
     @EJB
-    private CharacterManagerLocal characterManager;
+    CharacterManagerLocal characterManager;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -29,6 +29,8 @@ public class AdminCharactersDeleteServlet extends HttpServlet {
             }else{
                 session.setAttribute("deleteStatus", "User deleted");
             }
+            resp.sendRedirect(req.getContextPath() + "/admin/characters");
+        } else {
             resp.sendRedirect(req.getContextPath() + "/admin/characters");
         }
 

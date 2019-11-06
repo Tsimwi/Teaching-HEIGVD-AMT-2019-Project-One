@@ -24,13 +24,13 @@ import java.util.List;
 public class AdminCharactersUpdateServlet extends HttpServlet {
 
     @EJB
-    private CharacterManagerLocal characterManager;
+    CharacterManagerLocal characterManager;
 
     @EJB
-    private MembershipManagerLocal membershipManager;
+    MembershipManagerLocal membershipManager;
 
     @EJB
-    private GuildManagerLocal guildManager;
+    GuildManagerLocal guildManager;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

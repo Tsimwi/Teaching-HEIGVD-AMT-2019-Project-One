@@ -20,14 +20,15 @@ import java.util.List;
 public class ProfileServlet extends HttpServlet {
 
   @EJB
-  private MembershipManagerLocal membershipManager;
+  MembershipManagerLocal membershipManager;
   @EJB
-  private CharacterManagerLocal characterManager;
+  CharacterManagerLocal characterManager;
+
+  Character character;
 
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-    Character character;
     HttpSession session = req.getSession();
 
     if (req.getParameterMap().containsKey("id")) {

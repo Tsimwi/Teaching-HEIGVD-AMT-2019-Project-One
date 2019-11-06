@@ -17,7 +17,9 @@ import java.util.List;
 public class AdminCharactersAddServlet extends HttpServlet {
 
     @EJB
-    private CharacterManagerLocal characterManager;
+    public CharacterManagerLocal characterManager;
+
+    boolean isAdminBool;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -31,7 +33,7 @@ public class AdminCharactersAddServlet extends HttpServlet {
         String password = req.getParameter("password");
         String passwordVerify = req.getParameter("passwordVerify");
         String isadmin = req.getParameter("isAdminCheckbox");
-        boolean isAdminBool = false;
+        isAdminBool = false;
 
         List<String> errors = new ArrayList<>();
 
