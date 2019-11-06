@@ -77,7 +77,7 @@ public class ClassManagerTest {
         String weapon = "Spoon";
         String armor = "Hat";
         String description = "Delicious and moist...";
-        List<Class> goodGuys = null;
+        List<Class> goodGuys;
 
         Class chef = Class.builder().name(className1).weapon(weapon).armor(armor).description(description).build();
         Class baker = Class.builder().name(className2).weapon(weapon).armor(armor).description(description).build();

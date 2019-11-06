@@ -108,9 +108,16 @@ public class CharacterManagerTest {
 
         /* Character creation */
         characterManager.addCharacter(name, password, isAdmin);
+        Character cake = characterManager.getCharacterByUsername(name);
         boolean freeUsername = characterManager.isUsernameFree(name);
 
         assertFalse(freeUsername);
+
+        /* Character deletion */
+        characterManager.deleteCharacter(cake.getId());
+        freeUsername = characterManager.isUsernameFree(name);
+
+        assertTrue(freeUsername);
     }
 
     @Test
