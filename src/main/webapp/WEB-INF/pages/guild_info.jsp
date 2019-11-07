@@ -12,6 +12,7 @@
 %>
 
 <div class="container">
+    Number of page: ${numberOfPage}
     <table class="table">
         <thead>
         <tr>

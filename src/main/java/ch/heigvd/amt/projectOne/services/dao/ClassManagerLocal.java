@@ -8,7 +8,11 @@ import java.util.List;
 @Local
 public interface ClassManagerLocal {
 
-    public List<Class> fetchAllClass();
+    public List<Class> fetchAllClasses();
 
     public Class getClassById(int id);
+
+    public Class getClassByName(String name);
+
+    public boolean addClass(Class myClass);
 }
