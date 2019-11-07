@@ -7,10 +7,14 @@
             <c:if test="${loop.index % 2 == 0}">
                 <tr>
             </c:if>
-            <td>
+            <td class="text-center">
             <a href="${pageContext.request.contextPath}/classInfo?id=${class.id}">
                 <button class="btn btn-outline-dark" style="width: 50%">
-                    <h2 style="color: white"><img src="./images/icons/${fn:toLowerCase(class.name)}.jpeg" style="background-color: white; border-radius: 10px"> ${class.name}</h2>
+                    <div class="row">
+                        <img src="./images/icons/${fn:toLowerCase(class.name)}.jpeg" style="background-color: white; border-radius: 10px; margin-left: 20px">
+                        <h2 style="color: white; margin-left: 60px;margin-top: 35px "> ${class.name}</h2>
+                    </div>
+
                 </button>
             </a>
 

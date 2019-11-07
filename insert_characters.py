@@ -17,13 +17,13 @@ base_line = "INSERT INTO public.\"character\"({}) VALUES\n"
 
 
 def generateNewName(length):
-    return "\'{}\'".format(''.join([chr(random.randint(65, 90)) for i in range(length)]))
+    return "\'{}\'".format(''.join([chr(random.randint(97, 122)) for i in range(length)]))
 
 
 def generateLine():
     data_line = [
         ('stamina', str(80)),
-        ('name', generateNewName(16)),
+        ('name', generateNewName(14)),
         ('level', str(100)),
         ('health', str(80)),
         ('mana', str(80)),

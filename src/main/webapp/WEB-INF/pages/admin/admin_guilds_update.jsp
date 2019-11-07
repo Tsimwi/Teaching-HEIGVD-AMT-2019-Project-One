@@ -14,7 +14,7 @@
             </div>
             <div class="form-group">
                 <label for="descriptionField">Description</label>
-                <textarea rows="20" cols="50" class="form-control" id="descriptionField"
+                <textarea rows="10" cols="20" class="form-control" id="descriptionField"
                           name="description">${requestScope.guild.description}
                 </textarea>
             </div>
@@ -31,8 +31,8 @@
     </div>
 
     <div class="container">
-        <div class="text-center">
-            <h1>Guild memberships :</h1>
+        <div class="text-center bg-danger">
+            <h1>Guild members :</h1>
         </div>
         <table class="table" id="guildsTable" style="background-color: black; color: white">
             <thead>
@@ -65,20 +65,20 @@
 
     <div class="container">
         <div class="text-center">
-            <div class="d-inline">
+            <div>
                 <button id="buttonFirstPage" class="btn btn-primary" onclick="getPagination(setPageNumber(1))">First
                     Page
                 </button>
                 <button id="buttonPreviousPage" class="btn btn-primary" onclick="getPagination(deincr())" style="display: none">
                     Previous page
                 </button>
-                <h5 class="d-inline">Page number: <i id="pageNumberDisplayed">1/${numberOfPage}</i></h5>
                 <button id="buttonNextPage" class="btn btn-primary" onclick="getPagination(inc())">Next
                     page
                 </button>
                 <button id="buttonLastPage" class="btn btn-primary"
                         onclick="getPagination(setPageNumber(${numberOfPage}))">Last page
-                </button>
+                </button><br/>
+                <h5 class="d-inline">Page number: <i id="pageNumberDisplayed">1 / ${numberOfPage}</i></h5>
             </div>
         </div>
     </div>

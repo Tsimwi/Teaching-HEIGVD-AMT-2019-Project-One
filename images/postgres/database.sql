@@ -1,4 +1,4 @@
-                                                                                         CREATE DATABASE amt
+CREATE DATABASE amt
     WITH
     OWNER = postgres
     ENCODING = 'UTF8'
