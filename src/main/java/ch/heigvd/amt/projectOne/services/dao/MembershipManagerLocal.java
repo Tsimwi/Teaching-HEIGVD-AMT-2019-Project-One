@@ -18,8 +18,6 @@ public interface MembershipManagerLocal {
 
     List<Membership> getMembershipsByGuildIdWithPage(int id, int pageNumber);
 
-    List<Membership> getMembershipsByGuildId(int id);
-
     boolean removeMembership(int id);
 
     boolean checkCharacterMembership(Character character, Guild guild);
