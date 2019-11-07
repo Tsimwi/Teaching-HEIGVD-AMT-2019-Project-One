@@ -20,28 +20,26 @@ import java.util.List;
 @WebServlet(urlPatterns = "/guilds/info")
 public class GuildInfoServlet extends HttpServlet {
 
-    private static final long serialVersionUID = 1L;
-
     @EJB
     GuildManagerLocal guildManager;
 
     @EJB
     MembershipManagerLocal membershipManager;
 
+    int numberOfUser;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         Guild guild = guildManager.getGuildById(Integer.parseInt(req.getParameter("id")));
         boolean isCharacterMemberOfThisGuild = membershipManager.checkCharacterMembership(
                 (Character) req.getSession().getAttribute("character"), guild);
 
-        int numberOfUser = membershipManager.getNumberOfMembershipsForGuild(guild.getId());
+        numberOfUser = membershipManager.getNumberOfMembershipsForGuild(guild.getId());
         List<Membership> memberships = membershipManager.getMembershipsByGuildIdWithPage(Integer.parseInt(req.getParameter("id")), 0);
 
         req.setAttribute("numberOfPage", ((numberOfUser - 1) / 25) + 1);
         req.setAttribute("memberships", memberships);
         req.setAttribute("currentCharMembership", isCharacterMemberOfThisGuild);
         req.setAttribute("guild", guild);
-        req.setAttribute("page", 1);
         req.getRequestDispatcher("/WEB-INF/pages/guild_info.jsp").forward(req, resp);
     }
 
@@ -58,7 +56,6 @@ public class GuildInfoServlet extends HttpServlet {
                     req.getContextPath(), membership.getCharacter().getId(), membership.getCharacter().getName(), membership.getRank());
             table.append(line);
         }
-
         PrintWriter out = resp.getWriter();
         out.print(table.toString());
         out.flush();

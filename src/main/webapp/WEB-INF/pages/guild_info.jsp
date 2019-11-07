@@ -81,16 +81,21 @@
 
     <div class="container">
         <div class="text-center">
-
-            <button class="btn btn-primary" onclick="getPagination(1)">First Page</button>
-            <button class="btn btn-primary" onclick="getPagination(${page-1})">
-                Previous page
-            </button>
-            <button class="btn btn-primary" onclick="getPagination(${page+1})">Next
-                page
-            </button>
-            <button class="btn btn-primary" onclick="getPagination(${numberOfPage})">Last page</button>
-
+            <div class="d-inline">
+                <button id="buttonFirstPage" class="btn btn-primary" onclick="getPagination(setPageNumber(1))">First
+                    Page
+                </button>
+                <button id="buttonPreviousPage" class="btn btn-primary" onclick="getPagination(deincr())" style="display: none">
+                    Previous page
+                </button>
+                <h5 class="d-inline">Page number: <i id="pageNumberDisplayed">1/${numberOfPage}</i></h5>
+                <button id="buttonNextPage" class="btn btn-primary" onclick="getPagination(inc())">Next
+                    page
+                </button>
+                <button id="buttonLastPage" class="btn btn-primary"
+                        onclick="getPagination(setPageNumber(${numberOfPage}))">Last page
+                </button>
+            </div>
             <%--            <a class="btn btn-primary" href="${pageContext.request.contextPath}/guilds/info?<%=parameters%>page=1">First--%>
             <%--                page</a>--%>
             <%--            --%>
@@ -122,12 +127,52 @@
     </div>
 </div>
 <script>
+    let pageNumber = 1;
+
+    function hideButton(id) {
+        console.log('#'+id);
+        $('#'+id).hide();
+    }
+    function showButton(id) {
+        console.log('#'+id);
+        $('#'+id).show();
+    }
+    function setPageNumber(value) {
+        pageNumber = value;
+        return pageNumber;
+    }
+
+    function inc() {
+        pageNumber = pageNumber + 1;
+        return pageNumber;
+    }
+
+    function deincr() {
+        pageNumber = pageNumber - 1;
+        return pageNumber;
+    }
 
     function getPagination(page) {
-        $.post("${pageContext.request.contextPath}/guilds/info?id=${guild.id}", {page:page, guildId:${guild.id}}, function (response) {
+        if(page === 1){
+            console.log("Page 1");
+           hideButton('buttonPreviousPage');
+           showButton('buttonNextPage');
+        }else if (page === ${numberOfPage}){
+            console.log("Derniere page");
+            hideButton('buttonNextPage');
+            showButton('buttonPreviousPage');
+        }else {
+            showButton('buttonNextPage');
+            showButton('buttonPreviousPage');
+        }
+        $('#pageNumberDisplayed').html(page+'/'+${numberOfPage});
+
+        $.post("${pageContext.request.contextPath}/guilds/info?id=${guild.id}", {
+            page: page,
+            guildId:${guild.id}
+        }, function (response) {
             $('#tableBody').html(response)
         });
-        console.log(page)
     }
 
 </script>
