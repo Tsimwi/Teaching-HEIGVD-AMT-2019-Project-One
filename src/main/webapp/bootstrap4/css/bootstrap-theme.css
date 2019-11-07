@@ -113,7 +113,6 @@ fieldset[disabled] .btn-default.active {
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   background-repeat: repeat-x;
   border-color: orange;
-  margin-bottom: 10px;
 }
 .btn-primary:hover,
 .btn-primary:focus {
@@ -143,7 +142,7 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-  background-color: #265a88;
+  background-color: orange;
   background-image: none;
 }
 .btn-success {

@@ -96,33 +96,6 @@
                         onclick="getPagination(setPageNumber(${numberOfPage}))">Last page
                 </button>
             </div>
-            <%--            <a class="btn btn-primary" href="${pageContext.request.contextPath}/guilds/info?<%=parameters%>page=1">First--%>
-            <%--                page</a>--%>
-            <%--            --%>
-
-            <%--            <c:if test="${pageContext.request.getParameter(\"page\") > 1}">--%>
-            <%--                <a class="btn btn-primary"--%>
-            <%--                   href="${pageContext.request.contextPath}/guilds/info?<%=parameters%>page=${pageContext.request.getParameter("page")-1}">Previous--%>
-            <%--                    page</a>--%>
-            <%--            </c:if>--%>
-
-            <%--            <c:if test="${pageContext.request.getParameter(\"page\") < numberOfPage || pageContext.request.getParameter(\"page\") == null}">--%>
-            <%--                <c:choose>--%>
-            <%--                    <c:when test="${pageContext.request.getParameter(\"page\") == null}">--%>
-            <%--                        <a class="btn btn-primary"--%>
-            <%--                           href="${pageContext.request.contextPath}/guilds/info?<%=parameters%>page=2">Next--%>
-            <%--                            page</a>--%>
-            <%--                    </c:when>--%>
-            <%--                    <c:otherwise>--%>
-            <%--                        <a class="btn btn-primary"--%>
-            <%--                           href="${pageContext.request.contextPath}/guilds/info?<%=parameters%>page=">Next--%>
-            <%--                            page</a>--%>
-            <%--                    </c:otherwise>--%>
-            <%--                </c:choose>--%>
-            <%--            </c:if>--%>
-
-            <%--            <a class="btn btn-primary"--%>
-            <%--               href="${pageContext.request.contextPath}/guilds/info?<%=parameters%>page=${numberOfPage}">Last page</a>--%>
         </div>
     </div>
 </div>
