@@ -10,15 +10,15 @@ import java.util.List;
 @Local
 public interface MembershipManagerLocal {
 
-    public int getNumberOfMembershipsForGuild(int id);
+    int getNumberOfMembershipsForGuild(int id);
 
-    public boolean addMembership(Membership membership);
+    boolean addMembership(Membership membership);
 
-    public List<Membership> getMembershipsByUserId(int id);
+    List<Membership> getMembershipsByUserId(int id);
 
-    public List<Membership> getMembershipsByGuildId(int id);
+    List<Membership> getMembershipsByGuildId(int id);
 
-    public boolean removeMembership(int id);
+    boolean removeMembership(int id);
 
-    public boolean checkCharacterMembership(Character character, Guild guild);
+    boolean checkCharacterMembership(Character character, Guild guild);
 }
