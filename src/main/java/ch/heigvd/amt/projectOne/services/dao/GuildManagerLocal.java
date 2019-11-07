@@ -13,6 +13,8 @@ public interface GuildManagerLocal {
 
     Guild getGuildById(int id);
 
+    Guild getGuildByName(String name);
+
     boolean addGuild(Guild guild);
 
     boolean updateGuild(Guild guild);
