@@ -20,21 +20,23 @@ import java.util.List;
 @WebServlet(urlPatterns = "/guilds/info")
 public class GuildInfoServlet extends HttpServlet {
 
-    private static final long serialVersionUID = 1L;
-
     @EJB
     GuildManagerLocal guildManager;
 
     @EJB
     MembershipManagerLocal membershipManager;
 
+    int numberOfUser;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         Guild guild = guildManager.getGuildById(Integer.parseInt(req.getParameter("id")));
         boolean isCharacterMemberOfThisGuild = membershipManager.checkCharacterMembership(
                 (Character) req.getSession().getAttribute("character"), guild);
-        List<Membership> memberships = membershipManager.getMembershipsByGuildId(Integer.parseInt(req.getParameter("id")));
 
+        numberOfUser = membershipManager.getNumberOfMembershipsForGuild(guild.getId());
+        List<Membership> memberships = membershipManager.getMembershipsByGuildIdWithPage(Integer.parseInt(req.getParameter("id")), 0);
+
+        req.setAttribute("numberOfPage", ((numberOfUser - 1) / 25) + 1);
         req.setAttribute("memberships", memberships);
         req.setAttribute("currentCharMembership", isCharacterMemberOfThisGuild);
         req.setAttribute("guild", guild);
@@ -43,13 +45,19 @@ public class GuildInfoServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Gson gson = new Gson();
         int pageNumber = Integer.parseInt(req.getParameter("page"));
         int guildId = Integer.parseInt(req.getParameter("guildId"));
-        List<Membership> memberships = membershipManager.getMembershipsByGuildId(guildId);
+        StringBuilder table = new StringBuilder();
+        List<Membership> memberships = membershipManager.getMembershipsByGuildIdWithPage(guildId,pageNumber-1);
 
+        for (Membership membership: memberships) {
+
+            String line = String.format("<tr style=\"background-color: black\"><td><h5><a href=\"%s/profile?id=%d\">%s</a></h5></td><td><h5>%s</h5></td></tr>",
+                    req.getContextPath(), membership.getCharacter().getId(), membership.getCharacter().getName(), membership.getRank());
+            table.append(line);
+        }
         PrintWriter out = resp.getWriter();
-        out.print(gson.toJson(memberships));
+        out.print(table.toString());
         out.flush();
         out.close();
     }

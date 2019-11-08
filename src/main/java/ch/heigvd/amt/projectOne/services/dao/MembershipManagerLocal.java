@@ -16,7 +16,7 @@ public interface MembershipManagerLocal {
 
     List<Membership> getMembershipsByUserId(int id);
 
-    List<Membership> getMembershipsByGuildId(int id);
+    List<Membership> getMembershipsByGuildIdWithPage(int id, int pageNumber);
 
     boolean removeMembership(int id);
 

@@ -72,7 +72,7 @@ class AdminGuildsUpdateServletTest {
         when(request.getParameter("id")).thenReturn("1");
 
         when(guildManager.getGuildById(1)).thenReturn(guild);
-        when(membershipManager.getMembershipsByGuildId(1)).thenReturn(memberships);
+        when(membershipManager.getMembershipsByGuildIdWithPage(1, 0)).thenReturn(memberships);
         servlet.doGet(request, response);
 
         verify(request, atLeastOnce()).setAttribute("guild", guild);

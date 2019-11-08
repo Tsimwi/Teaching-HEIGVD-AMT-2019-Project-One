@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +30,10 @@ public class AdminGuildsUpdateServlet extends HttpServlet {
 
         String guildId = req.getParameter("id");
         Guild guild = guildManager.getGuildById(Integer.parseInt(guildId));
-        List<Membership> memberships = membershipManager.getMembershipsByGuildId(Integer.parseInt(guildId));
+        int numberOfUser = membershipManager.getNumberOfMembershipsForGuild(guild.getId());
+        List<Membership> memberships = membershipManager.getMembershipsByGuildIdWithPage(Integer.parseInt(guildId),0 );
+
+        req.setAttribute("numberOfPage", ((numberOfUser - 1) / 25) + 1);
         req.setAttribute("guild", guild);
         req.setAttribute("memberships", memberships);
 
@@ -40,6 +44,27 @@ public class AdminGuildsUpdateServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if (req.getParameterMap().containsKey("updateGuild")) {
             updateGuild(req, resp);
+        } else if(req.getParameterMap().containsKey("page")){
+
+            int pageNumber = Integer.parseInt(req.getParameter("page"));
+            int guildId = Integer.parseInt(req.getParameter("guildId"));
+            StringBuilder table = new StringBuilder();
+            List<Membership> memberships = membershipManager.getMembershipsByGuildIdWithPage(guildId,pageNumber-1);
+//<td><a href="${pageContext.request.contextPath}/admin/guilds/memberships/delete?id=${membership.id}&guildId=${guild.id}"><i class="fas fa-trash-alt"></i></a></td>
+            int i = 1;
+            for (Membership membership: memberships) {
+
+                String line = String.format("<tr style=\"background-color: black\"><td>%d</td><td><h5><a href=\"%s/profile?id=%d\">%s</a></h5></td><td><h5>%s</h5></td>" +
+                                "<td><a href=\"%s/admin/guilds/memberships/delete?id=%d&guildId=%d\"><i class=\"fas fa-trash-alt\"></i></a></td></tr>",
+                        i,req.getContextPath(), membership.getCharacter().getId(), membership.getCharacter().getName(), membership.getRank(), req.getContextPath(), membership.getId(), guildId);
+                table.append(line);
+                i++;
+            }
+
+            PrintWriter out = resp.getWriter();
+            out.print(table.toString());
+            out.flush();
+            out.close();
         }
     }
 

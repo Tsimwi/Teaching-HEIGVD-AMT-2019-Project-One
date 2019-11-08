@@ -90,7 +90,7 @@
                             <td>
                                 <h4>${membership.guild.name}</h4></br>
                                 <h4>Rank : ${membership.rank}</h4></br>
-                                <a class="btn btn-primary"
+                                <a class="btn btn-primary" style="margin-bottom: 10px;"
                                    href="${pageContext.request.contextPath}/guilds/info?id=${membership.guild.id}">Learn
                                     more</a></br>
                                 <c:if test="${requestScope.character.id == sessionScope.character.id}">

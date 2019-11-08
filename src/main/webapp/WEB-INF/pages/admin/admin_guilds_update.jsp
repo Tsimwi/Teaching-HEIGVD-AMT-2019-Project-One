@@ -14,7 +14,7 @@
             </div>
             <div class="form-group">
                 <label for="descriptionField">Description</label>
-                <textarea rows="20" cols="50" class="form-control" id="descriptionField"
+                <textarea rows="10" cols="20" class="form-control" id="descriptionField"
                           name="description">${requestScope.guild.description}
                 </textarea>
             </div>
@@ -30,42 +30,111 @@
         </c:if>
     </div>
 
-    <div class="text-center">
-        <h1>Guild memberships :</h1>
-    </div>
-    <table class="table" id="guildsTable" style="background-color: black; color: white">
-        <thead>
-        <tr>
-            <th>Character name</th>
-            <th>Rank</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach items="${memberships}" var="membership" varStatus="loop">
-            <tr style="background-color: black">
-                <td><h2><a
-                        href="${pageContext.request.contextPath}/profile?id=${membership.character.id}">${membership.character.name}</a>
-                </h2></td>
-                <td>
-                        <h2>${membership.rank}</h2>
-                </td>
-                <td>
-                    <a href="${pageContext.request.contextPath}/admin/guilds/memberships/delete?id=${membership.id}&guildId=${requestScope.guild.id}"><i class="fas fa-trash-alt"></i></a>
-                </td>
-
-
+    <div class="container">
+        <div class="text-center bg-danger">
+            <h1>Guild members :</h1>
+        </div>
+        <table class="table" id="guildsTable" style="background-color: black; color: white">
+            <thead>
+            <tr>
+                <th></th>
+                <th>Character name</th>
+                <th>Rank</th>
+                <th>Action</th>
             </tr>
-        </c:forEach>
-        </tbody>
-    </table>
+            </thead>
+            <tbody id="tableBody">
+            <c:forEach items="${memberships}" var="membership" varStatus="loop">
+                <tr style="background-color: black">
+                    <td>${loop.index+1}</td>
+                    <td><h5><a
+                            href="${pageContext.request.contextPath}/profile?id=${membership.character.id}">${membership.character.name}</a>
+                    </h5></td>
+                    <td>
+                            <h5>${membership.rank}</h5>
+
+                    </td>
+                    <td>
+                        <a href="${pageContext.request.contextPath}/admin/guilds/memberships/delete?id=${membership.id}&guildId=${guild.id}"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container">
+        <div class="text-center">
+            <div>
+                <button id="buttonFirstPage" class="btn btn-primary" onclick="getPagination(setPageNumber(1))">First
+                    Page
+                </button>
+                <button id="buttonPreviousPage" class="btn btn-primary" onclick="getPagination(deincr())" style="display: none">
+                    Previous page
+                </button>
+                <button id="buttonNextPage" class="btn btn-primary" onclick="getPagination(inc())">Next
+                    page
+                </button>
+                <button id="buttonLastPage" class="btn btn-primary"
+                        onclick="getPagination(setPageNumber(${numberOfPage}))">Last page
+                </button><br/>
+                <h5 class="d-inline">Page number: <i id="pageNumberDisplayed">1 / ${numberOfPage}</i></h5>
+            </div>
+        </div>
+    </div>
 
 </div>
 
 <script>
-    $(document).ready(function () {
-        $('#guildsTable').DataTable();
-    });
+    let pageNumber = 1;
+
+    function hideButton(id) {
+        console.log('#'+id);
+        $('#'+id).hide();
+    }
+    function showButton(id) {
+        console.log('#'+id);
+        $('#'+id).show();
+    }
+    function setPageNumber(value) {
+        pageNumber = value;
+        return pageNumber;
+    }
+
+    function inc() {
+        pageNumber = pageNumber + 1;
+        return pageNumber;
+    }
+
+    function deincr() {
+        pageNumber = pageNumber - 1;
+        return pageNumber;
+    }
+
+    function getPagination(page) {
+        if(page === 1){
+            console.log("Page 1");
+            hideButton('buttonPreviousPage');
+            showButton('buttonNextPage');
+        }else if (page === ${numberOfPage}){
+            console.log("Derniere page");
+            hideButton('buttonNextPage');
+            showButton('buttonPreviousPage');
+        }else {
+            showButton('buttonNextPage');
+            showButton('buttonPreviousPage');
+        }
+        $('#pageNumberDisplayed').html(page+'/'+${numberOfPage});
+
+        $.post("${pageContext.request.contextPath}/admin/guilds/update?id=${guild.id}", {
+            page: page,
+            guildId:${guild.id}
+        }, function (response) {
+            console.log(response);
+            $('#tableBody').html(response)
+        });
+    }
+
 </script>
 
 <%@include file="../includes/footer.jsp" %>
