@@ -43,7 +43,7 @@ public class CharactersServlet extends HttpServlet {
             numberOfUser = characterManager.countRows("character", "");
             characters = characterManager.getCharactersByPage(pageNumberInt - 1);
         }
-
+        //characters = characterManager.getAllCharacters();
         req.setAttribute("numberOfPage", ((numberOfUser - 1) / 25) + 1);
         req.setAttribute("characters", characters);
 

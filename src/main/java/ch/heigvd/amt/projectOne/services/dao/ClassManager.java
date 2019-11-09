@@ -22,9 +22,11 @@ public class ClassManager implements ClassManagerLocal {
 
     @Override
     public boolean addClass(Class myClass) {
-        try {
 
-            Connection connection = dataSource.getConnection();
+        Connection connection = null;
+
+        try {
+            connection = dataSource.getConnection();
             PreparedStatement pstmt = connection.prepareStatement("INSERT INTO class (name, weapon, armor, description) VALUES (?, ?, ?, ?)");
             pstmt.setObject(1, myClass.getName());
             pstmt.setObject(2, myClass.getWeapon());
@@ -40,14 +42,18 @@ public class ClassManager implements ClassManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            closeConnection(connection);
         }
         return false;
     }
 
     @Override
     public Class getClassByName(String name) {
+
+        Connection connection = null;
         try {
-            Connection connection = dataSource.getConnection();
+            connection = dataSource.getConnection();
             PreparedStatement pstmt = connection.prepareStatement("SELECT * FROM class WHERE name=?");
             pstmt.setObject(1, name);
 
@@ -64,6 +70,8 @@ public class ClassManager implements ClassManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            closeConnection(connection);
         }
 
         return null;
@@ -71,8 +79,10 @@ public class ClassManager implements ClassManagerLocal {
 
     @Override
     public Class getClassById(int id) {
+
+        Connection connection = null;
         try {
-            Connection connection = dataSource.getConnection();
+            connection = dataSource.getConnection();
             PreparedStatement pstmt = connection.prepareStatement("SELECT * FROM class WHERE id=?");
             pstmt.setObject(1, id);
 
@@ -89,6 +99,8 @@ public class ClassManager implements ClassManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            closeConnection(connection);
         }
 
         return null;
@@ -97,9 +109,11 @@ public class ClassManager implements ClassManagerLocal {
     @Override
     public List<Class> fetchAllClasses() {
 
+        Connection connection = null;
+
         List<Class> classes = new ArrayList<>();
         try {
-            Connection connection = dataSource.getConnection();
+            connection = dataSource.getConnection();
             PreparedStatement pstmt = connection.prepareStatement("SELECT * FROM class");
             ResultSet rs = pstmt.executeQuery();
 
@@ -116,7 +130,17 @@ public class ClassManager implements ClassManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            closeConnection(connection);
         }
         return classes;
+    }
+
+    private void closeConnection(Connection connection) {
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

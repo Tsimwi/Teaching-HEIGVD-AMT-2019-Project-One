@@ -35,8 +35,9 @@ public class CharacterManager implements CharacterManagerLocal {
 
     @Override
     public int countRows(String table, String pattern) {
+        Connection connection = null;
         try {
-            Connection connection = dataSource.getConnection();
+            connection = dataSource.getConnection();
             PreparedStatement pstmt = connection.prepareStatement("SELECT COUNT(*) AS counter FROM " + table + " " + pattern);
 
             ResultSet rs = pstmt.executeQuery();
@@ -48,6 +49,8 @@ public class CharacterManager implements CharacterManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            closeConnection(connection);
         }
 
         return -1;
@@ -61,9 +64,10 @@ public class CharacterManager implements CharacterManagerLocal {
     @Override
     public List<Character> getCharactersByPattern(String pattern, int pageNumber) {
 
+        Connection connection = null;
         List<Character> characters = new ArrayList<>();
         try {
-            Connection connection = dataSource.getConnection();
+            connection = dataSource.getConnection();
             PreparedStatement pstmt = connection.prepareStatement("SELECT character.*, mount.name AS mount_name, mount.speed AS mount_speed, class.name AS class_name FROM character INNER JOIN mount ON character.mount_id = mount.id INNER JOIN class ON character.class_id = class.id WHERE character.name ILIKE ? ORDER BY name LIMIT 25 OFFSET ? ");
             pstmt.setObject(1,pattern+"%");
             pstmt.setObject(2,pageNumber * 25);
@@ -89,6 +93,8 @@ public class CharacterManager implements CharacterManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            closeConnection(connection);
         }
         return characters;
 
@@ -97,9 +103,10 @@ public class CharacterManager implements CharacterManagerLocal {
     //TODO Do we really need to have the mount info ? We only need the name, the level and the class
     @Override
     public List<Character> getCharactersByPage(int pageNumber) {
+        Connection connection = null;
         List<Character> characters = new ArrayList<>();
         try {
-            Connection connection = dataSource.getConnection();
+            connection = dataSource.getConnection();
             PreparedStatement pstmt = connection.prepareStatement("SELECT character.*, mount.name AS mount_name, mount.speed AS mount_speed, class.name AS class_name FROM character INNER JOIN mount ON character.mount_id = mount.id INNER JOIN class ON character.class_id = class.id ORDER BY name LIMIT 25 OFFSET ? ");
             pstmt.setObject(1,pageNumber * 25);
             ResultSet rs = pstmt.executeQuery();
@@ -136,6 +143,8 @@ public class CharacterManager implements CharacterManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            closeConnection(connection);
         }
         return characters;
 
@@ -144,6 +153,7 @@ public class CharacterManager implements CharacterManagerLocal {
     @Override
     public boolean addCharacter(String username, String password, boolean isAdmin) {
 
+        Connection connection = null;
         try {
             String request;
             if(isAdmin){
@@ -151,7 +161,7 @@ public class CharacterManager implements CharacterManagerLocal {
             }else{
                 request = "INSERT INTO character (name, password, mount_id, class_id) VALUES (?, ?, ?, ?)";
             }
-            Connection connection = dataSource.getConnection();
+            connection = dataSource.getConnection();
             PreparedStatement pstmt = connection.prepareStatement(request);
             pstmt.setObject(1, username);
             pstmt.setObject(2, authenticationService.hashPassword(password));
@@ -171,6 +181,8 @@ public class CharacterManager implements CharacterManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            closeConnection(connection);
         }
         return false;
 
@@ -179,6 +191,7 @@ public class CharacterManager implements CharacterManagerLocal {
     @Override
     public boolean updateCharacter(int id, String username, String password, boolean isAdmin, boolean updatePassword) {
 
+        Connection connection = null;
         try {
             String request;
             if(updatePassword){
@@ -186,7 +199,7 @@ public class CharacterManager implements CharacterManagerLocal {
             }else{
                 request = "UPDATE character SET name=?, isadmin=? WHERE id=?;";
             }
-            Connection connection = dataSource.getConnection();
+            connection = dataSource.getConnection();
             PreparedStatement pstmt = connection.prepareStatement(request);
             pstmt.setObject(1, username);
             pstmt.setObject(2, isAdmin);
@@ -205,14 +218,17 @@ public class CharacterManager implements CharacterManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            closeConnection(connection);
         }
         return false;
     }
 
     @Override
     public boolean checkPassword(String username, String password) {
+        Connection connection = null;
         try {
-            Connection connection = dataSource.getConnection();
+            connection = dataSource.getConnection();
             PreparedStatement pstmt = connection.prepareStatement("SELECT password FROM character WHERE name=?");
             pstmt.setObject(1, username);
 
@@ -226,6 +242,8 @@ public class CharacterManager implements CharacterManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            closeConnection(connection);
         }
 
         return true;
@@ -233,9 +251,9 @@ public class CharacterManager implements CharacterManagerLocal {
 
     @Override
     public Character getCharacterById(int id) {
-
+        Connection connection = null;
         try {
-            Connection connection = dataSource.getConnection();
+            connection = dataSource.getConnection();
             PreparedStatement pstmt = connection.prepareStatement("SELECT character.*, mount.name AS mount_name, mount.speed AS mount_speed, class.name AS class_name FROM character INNER JOIN mount ON character.mount_id = mount.id INNER JOIN class ON character.class_id = class.id WHERE character.id=?");
             pstmt.setObject(1, id);
 
@@ -277,6 +295,8 @@ public class CharacterManager implements CharacterManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            closeConnection(connection);
         }
 
         return null;
@@ -284,9 +304,10 @@ public class CharacterManager implements CharacterManagerLocal {
 
     @Override
     public Character getCharacterByUsername(String name) {
+        Connection connection = null;
         try {
             Character character = null;
-            Connection connection = dataSource.getConnection();
+            connection = dataSource.getConnection();
             PreparedStatement pstmt = connection.prepareStatement(
                     "SELECT character.*, mount.name AS mount_name, mount.speed AS mount_speed, class.name AS class_name FROM character INNER JOIN mount ON character.mount_id = mount.id INNER JOIN class ON character.class_id = class.id WHERE character.name = ?");
             pstmt.setObject(1, name);
@@ -330,6 +351,8 @@ public class CharacterManager implements CharacterManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            closeConnection(connection);
         }
 
         return null;
@@ -337,9 +360,9 @@ public class CharacterManager implements CharacterManagerLocal {
 
     @Override
     public boolean isUsernameFree(String username) {
-
+        Connection connection = null;
         try {
-            Connection connection = dataSource.getConnection();
+            connection = dataSource.getConnection();
             PreparedStatement pstmt = connection.prepareStatement("SELECT id FROM character WHERE name=?");
             pstmt.setObject(1, username);
 
@@ -351,6 +374,8 @@ public class CharacterManager implements CharacterManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            closeConnection(connection);
         }
 
         return true;
@@ -358,8 +383,9 @@ public class CharacterManager implements CharacterManagerLocal {
 
     @Override
     public boolean deleteCharacter(int id) {
+        Connection connection = null;
         try {
-            Connection connection = dataSource.getConnection();
+            connection = dataSource.getConnection();
             PreparedStatement pstmt = connection.prepareStatement(
                     "DELETE FROM character WHERE id=?");
             pstmt.setObject(1, id);
@@ -373,7 +399,55 @@ public class CharacterManager implements CharacterManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            closeConnection(connection);
         }
         return false;
+    }
+
+    @Override
+    public List<Character> getAllCharacters() {
+
+        Connection connection = null;
+        List<Character> characters = new ArrayList<>();
+        try {
+            connection = dataSource.getConnection();
+            PreparedStatement pstmt = connection.prepareStatement("SELECT character.*, mount.name AS mount_name, mount.speed AS mount_speed, class.name AS class_name FROM character INNER JOIN mount ON character.mount_id = mount.id INNER JOIN class ON character.class_id = class.id WHERE character.name ORDER BY name");
+
+
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                int level = rs.getInt("level");
+                int health = rs.getInt("health");
+                int stamina = rs.getInt("stamina");
+                int mana = rs.getInt("mana");
+                int mount_id = rs.getInt("mount_id");
+                String mount_name = rs.getString("mount_name");
+                int mount_speed = rs.getInt("mount_speed");
+                int class_id = rs.getInt("class_id");
+                String class_name = rs.getString("class_name");
+                boolean isadmin = rs.getBoolean("isadmin");
+                characters.add(Character.builder().id(id).name(name).level(level).health(health).stamina(stamina).mana(mana).mount(Mount.builder().id(mount_id).name(mount_name).speed(mount_speed).build()).myClass(Class.builder().id(class_id).name(class_name).build()).isadmin(isadmin).build());
+            }
+            connection.close();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            closeConnection(connection);
+        }
+        return characters;
+
+    }
+
+    private void closeConnection(Connection connection) {
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

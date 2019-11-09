@@ -25,8 +25,9 @@ public class GuildManager implements GuildManagerLocal {
     @Override
     public List<Guild> getAllGuilds() {
         List<Guild> guilds = new ArrayList<>();
+        Connection connection = null;
         try {
-            Connection connection = dataSource.getConnection();
+            connection = dataSource.getConnection();
             PreparedStatement pstmt = connection.prepareStatement("SELECT * FROM guild");
             ResultSet rs = pstmt.executeQuery();
 
@@ -40,14 +41,17 @@ public class GuildManager implements GuildManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            closeConnection(connection);
         }
         return guilds;
     }
 
     @Override
     public Guild getGuildByName(String name) {
+        Connection connection = null;
         try {
-            Connection connection = dataSource.getConnection();
+            connection = dataSource.getConnection();
             PreparedStatement pstmt = connection.prepareStatement("SELECT * FROM guild WHERE name=?");
             pstmt.setObject(1, name);
 
@@ -62,6 +66,8 @@ public class GuildManager implements GuildManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            closeConnection(connection);
         }
 
         return null;
@@ -69,8 +75,9 @@ public class GuildManager implements GuildManagerLocal {
 
     @Override
     public Guild getGuildById(int id) {
+        Connection connection = null;
         try {
-            Connection connection = dataSource.getConnection();
+            connection = dataSource.getConnection();
             PreparedStatement pstmt = connection.prepareStatement("SELECT * FROM guild WHERE id=?");
             pstmt.setObject(1, id);
 
@@ -85,6 +92,8 @@ public class GuildManager implements GuildManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            closeConnection(connection);
         }
 
         return null;
@@ -92,9 +101,9 @@ public class GuildManager implements GuildManagerLocal {
 
     @Override
     public boolean addGuild(Guild guild) {
-
+        Connection connection = null;
         try {
-            Connection connection = dataSource.getConnection();
+            connection = dataSource.getConnection();
             PreparedStatement pstmt = connection.prepareStatement("INSERT INTO guild(name, description) VALUES (?, ?)");
             pstmt.setObject(1, guild.getName());
             pstmt.setObject(2, guild.getDescription());
@@ -107,6 +116,8 @@ public class GuildManager implements GuildManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            closeConnection(connection);
         }
 
         return false;
@@ -114,9 +125,10 @@ public class GuildManager implements GuildManagerLocal {
 
     @Override
     public boolean updateGuild(Guild guild) {
+        Connection connection = null;
         try {
 
-            Connection connection = dataSource.getConnection();
+            connection = dataSource.getConnection();
             PreparedStatement pstmt = connection.prepareStatement("UPDATE guild SET name=?, description=? WHERE id=?;");
             pstmt.setObject(1, guild.getName());
             pstmt.setObject(2, guild.getDescription());
@@ -131,14 +143,17 @@ public class GuildManager implements GuildManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            closeConnection(connection);
         }
         return false;
     }
 
     @Override
     public boolean deleteGuild(Guild guild) {
+        Connection connection = null;
         try {
-            Connection connection = dataSource.getConnection();
+            connection = dataSource.getConnection();
             PreparedStatement pstmt = connection.prepareStatement("DELETE FROM guild WHERE id=?");
             pstmt.setObject(1, guild.getId());
 
@@ -151,15 +166,17 @@ public class GuildManager implements GuildManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            closeConnection(connection);
         }
         return false;
     }
 
     @Override
     public boolean isNameFree(String name) {
-
+        Connection connection = null;
         try {
-            Connection connection = dataSource.getConnection();
+            connection = dataSource.getConnection();
             PreparedStatement pstmt = connection.prepareStatement("SELECT id FROM guild WHERE name=?");
             pstmt.setObject(1, name);
 
@@ -171,8 +188,18 @@ public class GuildManager implements GuildManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            closeConnection(connection);
         }
 
         return true;
+    }
+
+    private void closeConnection(Connection connection) {
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

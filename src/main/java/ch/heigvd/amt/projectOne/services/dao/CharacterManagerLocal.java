@@ -10,6 +10,8 @@ public interface CharacterManagerLocal {
 
     int countRows(String table, String pattern);
 
+    List<Character> getAllCharacters();
+
     List<Character> getCharactersByPattern(String letter, int pageNumber);
 
     List<Character> getCharactersByPage(int pageNumber);
