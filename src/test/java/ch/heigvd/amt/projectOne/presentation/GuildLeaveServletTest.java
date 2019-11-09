@@ -10,11 +10,13 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -22,8 +24,6 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class GuildLeaveServletTest {
 
-    @Mock
-    Membership membership;
 
     @Mock
     HttpServletRequest request;
@@ -33,6 +33,9 @@ class GuildLeaveServletTest {
 
     @Mock
     MembershipManagerLocal membershipManager;
+
+    @Mock
+    Map map;
 
     private GuildLeaveServlet servlet;
 
@@ -44,7 +47,9 @@ class GuildLeaveServletTest {
     }
 
     @Test
-    void itShouldBePossibleToLeaveAGuild() throws IOException {
+    void itShouldBePossibleToLeaveAGuild() throws IOException, ServletException {
+        when(request.getParameterMap()).thenReturn(map);
+        when(request.getParameterMap().containsKey("id")).thenReturn(true);
         when(request.getParameter("id")).thenReturn("1");
 
         servlet.doGet(request, response);

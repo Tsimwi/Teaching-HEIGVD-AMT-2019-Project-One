@@ -27,82 +27,93 @@ public class AdminGuildsUpdateServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if (req.getParameterMap().containsKey("id") && req.getParameterMap().containsKey("guildId")) {
+            String guildId = req.getParameter("id");
+            Guild guild = guildManager.getGuildById(Integer.parseInt(guildId));
+            int numberOfUser = membershipManager.getNumberOfMembershipsForGuild(guild.getId());
+            List<Membership> memberships = membershipManager.getMembershipsByGuildIdWithPage(Integer.parseInt(guildId), 0);
 
-        String guildId = req.getParameter("id");
-        Guild guild = guildManager.getGuildById(Integer.parseInt(guildId));
-        int numberOfUser = membershipManager.getNumberOfMembershipsForGuild(guild.getId());
-        List<Membership> memberships = membershipManager.getMembershipsByGuildIdWithPage(Integer.parseInt(guildId),0 );
+            req.setAttribute("numberOfPage", ((numberOfUser - 1) / 25) + 1);
+            req.setAttribute("guild", guild);
+            req.setAttribute("memberships", memberships);
 
-        req.setAttribute("numberOfPage", ((numberOfUser - 1) / 25) + 1);
-        req.setAttribute("guild", guild);
-        req.setAttribute("memberships", memberships);
-
-        req.getRequestDispatcher("/WEB-INF/pages/admin/admin_guilds_update.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/pages/admin/admin_guilds_update.jsp").forward(req, resp);
+        } else {
+            req.getRequestDispatcher("/WEB-INF/pages/error_404.jsp").forward(req, resp);
+        }
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if (req.getParameterMap().containsKey("updateGuild")) {
             updateGuild(req, resp);
-        } else if(req.getParameterMap().containsKey("page")){
+        } else if (req.getParameterMap().containsKey("page")) {
+            if (req.getParameterMap().containsKey("guildId")) {
+                int pageNumber = Integer.parseInt(req.getParameter("page"));
+                int guildId = Integer.parseInt(req.getParameter("guildId"));
+                StringBuilder table = new StringBuilder();
+                List<Membership> memberships = membershipManager.getMembershipsByGuildIdWithPage(guildId, pageNumber - 1);
+                int i = 1;
+                for (Membership membership : memberships) {
 
-            int pageNumber = Integer.parseInt(req.getParameter("page"));
-            int guildId = Integer.parseInt(req.getParameter("guildId"));
-            StringBuilder table = new StringBuilder();
-            List<Membership> memberships = membershipManager.getMembershipsByGuildIdWithPage(guildId,pageNumber-1);
-//<td><a href="${pageContext.request.contextPath}/admin/guilds/memberships/delete?id=${membership.id}&guildId=${guild.id}"><i class="fas fa-trash-alt"></i></a></td>
-            int i = 1;
-            for (Membership membership: memberships) {
+                    String line = String.format("<tr style=\"background-color: black\"><td>%d</td><td><h5><a href=\"%s/profile?id=%d\">%s</a></h5></td><td><h5>%s</h5></td>" +
+                                    "<td><a href=\"%s/admin/guilds/memberships/delete?id=%d&guildId=%d\"><i class=\"fas fa-trash-alt\"></i></a></td></tr>",
+                            i, req.getContextPath(), membership.getCharacter().getId(), membership.getCharacter().getName(), membership.getRank(), req.getContextPath(), membership.getId(), guildId);
+                    table.append(line);
+                    i++;
+                }
 
-                String line = String.format("<tr style=\"background-color: black\"><td>%d</td><td><h5><a href=\"%s/profile?id=%d\">%s</a></h5></td><td><h5>%s</h5></td>" +
-                                "<td><a href=\"%s/admin/guilds/memberships/delete?id=%d&guildId=%d\"><i class=\"fas fa-trash-alt\"></i></a></td></tr>",
-                        i,req.getContextPath(), membership.getCharacter().getId(), membership.getCharacter().getName(), membership.getRank(), req.getContextPath(), membership.getId(), guildId);
-                table.append(line);
-                i++;
+                PrintWriter out = resp.getWriter();
+                out.print(table.toString());
+                out.flush();
+                out.close();
+            } else {
+                req.getRequestDispatcher("/WEB-INF/pages/error_404.jsp").forward(req, resp);
             }
 
-            PrintWriter out = resp.getWriter();
-            out.print(table.toString());
-            out.flush();
-            out.close();
         }
     }
 
     private void updateGuild(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String guildId = req.getParameter("id");
-        Guild guild = guildManager.getGuildById(Integer.parseInt(guildId));
-        String name = req.getParameter("name");
-        String description = req.getParameter("description");
+        if (req.getParameterMap().containsKey("id") && req.getParameterMap().containsKey("guildId")) {
+            String guildId = req.getParameter("id");
+            Guild guild = guildManager.getGuildById(Integer.parseInt(guildId));
+            String name = req.getParameter("name");
+            String description = req.getParameter("description");
 
-        List<String> errors = new ArrayList<>();
+            List<String> errors = new ArrayList<>();
 
-        if (name == null || name.trim().equals("")) {
-            errors.add("Guild name cannot be empty");
-        }
+            if (name == null || name.trim().equals("")) {
+                errors.add("Guild name cannot be empty");
+            }
 
-        if (!guild.getName().equals(name) && !guildManager.isNameFree(name)) {
-            errors.add("This name is already taken");
-        }
+            if (!guild.getName().equals(name) && !guildManager.isNameFree(name)) {
+                errors.add("This name is already taken");
+            }
 
-        Guild updatedGuild = Guild.builder()
-                .id(Integer.parseInt(guildId))
-                .name(name)
-                .description(description)
-                .build();
+            Guild updatedGuild = Guild.builder()
+                    .id(Integer.parseInt(guildId))
+                    .name(name)
+                    .description(description)
+                    .build();
 
-        req.setAttribute("guild", updatedGuild);
+            req.setAttribute("guild", updatedGuild);
 
-        if (errors.size() == 0) {
-            if (!guildManager.updateGuild(updatedGuild)) {
-                errors.add("Unable to update the guild");
+            if (errors.size() == 0) {
+                if (!guildManager.updateGuild(updatedGuild)) {
+                    errors.add("Unable to update the guild");
+                    req.setAttribute("errors", errors);
+                    req.getRequestDispatcher("/WEB-INF/pages/admin/admin_guilds_update.jsp").forward(req, resp);
+                } else {
+                    resp.sendRedirect(req.getContextPath() + "/admin/guilds");
+                }
+            } else {
                 req.setAttribute("errors", errors);
                 req.getRequestDispatcher("/WEB-INF/pages/admin/admin_guilds_update.jsp").forward(req, resp);
-            } else {
-                resp.sendRedirect(req.getContextPath() + "/admin/guilds");
             }
         } else {
-            req.setAttribute("errors", errors);
-            req.getRequestDispatcher("/WEB-INF/pages/admin/admin_guilds_update.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/pages/error_404.jsp").forward(req, resp);
         }
+
     }
 }

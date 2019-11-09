@@ -25,7 +25,7 @@ public class AdminCharactersServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        List<Character> characters = new ArrayList<>();
+        List<Character> characters;
 
         if (!req.getParameterMap().containsKey("page")) {
             pageNumberInt = 1;

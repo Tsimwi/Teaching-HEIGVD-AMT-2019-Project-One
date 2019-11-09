@@ -34,27 +34,35 @@ public class AdminCharactersUpdateServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String id = req.getParameter("id");
-        Character character = characterManager.getCharacterById(Integer.parseInt(id));
-        List<Membership> memberships = membershipManager.getMembershipsByUserId(Integer.parseInt(id));
-        List<Guild> guilds = guildManager.getAllGuilds();
-        req.setAttribute("character", character);
-        req.setAttribute("memberships", memberships);
-        req.setAttribute("guilds", guilds);
-        req.getRequestDispatcher("/WEB-INF/pages/admin/admin_characters_update.jsp").forward(req, resp);
+        if (req.getParameterMap().containsKey("id")) {
+            String id = req.getParameter("id");
+            Character character = characterManager.getCharacterById(Integer.parseInt(id));
+            List<Membership> memberships = membershipManager.getMembershipsByUserId(Integer.parseInt(id));
+            List<Guild> guilds = guildManager.getAllGuilds();
+            req.setAttribute("character", character);
+            req.setAttribute("memberships", memberships);
+            req.setAttribute("guilds", guilds);
+            req.getRequestDispatcher("/WEB-INF/pages/admin/admin_characters_update.jsp").forward(req, resp);
+        } else {
+            req.getRequestDispatcher("/WEB-INF/pages/error_404.jsp").forward(req, resp);
+        }
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if (req.getParameterMap().containsKey("updateMemberships")) {
-            updateMembership(req, resp);
-        } else if (req.getParameterMap().containsKey("updateCharacter")) {
-            updateCharater(req, resp);
+        if (req.getParameterMap().containsKey("id")) {
+            if (req.getParameterMap().containsKey("updateMemberships")) {
+                updateMembership(req, resp);
+            } else if (req.getParameterMap().containsKey("updateCharacter")) {
+                updateCharater(req, resp);
+            }
+        } else {
+            req.getRequestDispatcher("/WEB-INF/pages/error_404.jsp").forward(req, resp);
         }
-
     }
 
     private void updateCharater(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         String id = req.getParameter("id");
         Character character = characterManager.getCharacterById(Integer.parseInt(id));
         String name = req.getParameter("name");
@@ -103,6 +111,8 @@ public class AdminCharactersUpdateServlet extends HttpServlet {
             req.setAttribute("errors", errors);
             req.getRequestDispatcher("/WEB-INF/pages/admin/admin_characters_update.jsp").forward(req, resp);
         }
+
+
     }
 
     private void updateMembership(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -120,9 +130,9 @@ public class AdminCharactersUpdateServlet extends HttpServlet {
             List<String> newGuildId = new LinkedList<>(Arrays.asList(guildsSelected));
 
             /* For each "old membership" we look if it's still in te new selection. If not we remove
-            *  it from previous membership. And if it was already in the membership we remove the id
-            *  from the list newGuildId. At the end of the loop we will have all the new membership
-            *  in the table newGuildID */
+             *  it from previous membership. And if it was already in the membership we remove the id
+             *  from the list newGuildId. At the end of the loop we will have all the new membership
+             *  in the table newGuildID */
             for (Membership membership : memberships) {
                 if (newGuildId.contains(Integer.toString(membership.getGuild().getId()))) {
                     newGuildId.remove(Integer.toString(membership.getGuild().getId()));
@@ -133,7 +143,7 @@ public class AdminCharactersUpdateServlet extends HttpServlet {
 
             if (newGuildId.size() > 0) {
                 Membership newMembership;
-                for (String guildId: newGuildId) {
+                for (String guildId : newGuildId) {
                     newMembership = Membership.builder().character(Character.builder().id(Integer.parseInt(id)).build()).guild(Guild.builder().id(Integer.parseInt(guildId)).build()).build();
                     membershipManager.addMembership(newMembership);
                 }

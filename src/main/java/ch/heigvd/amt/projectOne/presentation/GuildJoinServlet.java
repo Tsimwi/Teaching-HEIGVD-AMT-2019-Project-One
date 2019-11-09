@@ -20,19 +20,24 @@ public class GuildJoinServlet extends HttpServlet {
     MembershipManagerLocal membershipManager;
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
-        Membership membership = Membership.builder()
-                .guild(Guild.builder()
-                        .id(Integer.parseInt(req.getParameter("id")))
-                        .build())
-                .character((Character) req.getSession().getAttribute("character"))
-                .build();
+        if(!req.getParameterMap().containsKey("id")){
+            req.getRequestDispatcher("/WEB-INF/pages/error_404.jsp").forward(req, resp);
+        }else {
+            Membership membership = Membership.builder()
+                    .guild(Guild.builder()
+                            .id(Integer.parseInt(req.getParameter("id")))
+                            .build())
+                    .character((Character) req.getSession().getAttribute("character"))
+                    .build();
 
-        //TODO gerer s'il y a une erreur ?
-        membershipManager.addMembership(membership);
+            //TODO gerer s'il y a une erreur ?
+            membershipManager.addMembership(membership);
 
-        resp.sendRedirect(req.getContextPath() + "/profile");
+            resp.sendRedirect(req.getContextPath() + "/profile");
+        }
+
     }
 
     @Override

@@ -14,5 +14,7 @@ public interface ClassManagerLocal {
 
     public Class getClassByName(String name);
 
+    int getNumberOfClasses();
+
     public boolean addClass(Class myClass);
 }

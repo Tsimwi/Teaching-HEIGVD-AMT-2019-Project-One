@@ -41,6 +41,9 @@ class ClassInfoServletTest {
     @Mock
     RequestDispatcher requestDispatcher;
 
+    @Mock
+    Map map;
+
     private ClassInfoServlet servlet;
 
 
@@ -54,8 +57,11 @@ class ClassInfoServletTest {
 
     @Test
     void classShouldBeDisplayedWithDetails() throws ServletException, IOException {
-
+        when(request.getParameterMap()).thenReturn(map);
+        when(request.getParameterMap().containsKey("id")).thenReturn(true);
+        when(classManager.getNumberOfClasses()).thenReturn(3);
         when(request.getParameter("id")).thenReturn("1");
+
         when(classManager.getClassById(1)).thenReturn(myClass);
         when(myClass.getName()).thenReturn("image");
 

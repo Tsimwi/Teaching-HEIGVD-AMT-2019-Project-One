@@ -25,17 +25,13 @@ public class AppExceptionHandler extends HttpServlet {
     private void processError(HttpServletRequest request,
                               HttpServletResponse response) throws IOException {
         // Analyze the servlet exception
-        Throwable throwable = (Throwable) request
-                .getAttribute("javax.servlet.error.exception");
-        Integer statusCode = (Integer) request
-                .getAttribute("javax.servlet.error.status_code");
-        String servletName = (String) request
-                .getAttribute("javax.servlet.error.servlet_name");
+        Throwable throwable = (Throwable) request.getAttribute("javax.servlet.error.exception");
+        Integer statusCode = (Integer) request.getAttribute("javax.servlet.error.status_code");
+        String servletName = (String) request.getAttribute("javax.servlet.error.servlet_name");
         if (servletName == null) {
             servletName = "Unknown";
         }
-        String requestUri = (String) request
-                .getAttribute("javax.servlet.error.request_uri");
+        String requestUri = (String) request.getAttribute("javax.servlet.error.request_uri");
         if (requestUri == null) {
             requestUri = "Unknown";
         }
@@ -43,7 +39,7 @@ public class AppExceptionHandler extends HttpServlet {
         // Set response content type
         response.setContentType("text/html");
         try {
-            request.getRequestDispatcher("WEB-INF/error_404.jsp").forward(request, response);
+            request.getRequestDispatcher("WEB-INF/pages/error_500.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         }

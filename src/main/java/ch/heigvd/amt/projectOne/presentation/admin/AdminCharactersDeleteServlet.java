@@ -31,7 +31,7 @@ public class AdminCharactersDeleteServlet extends HttpServlet {
             }
             resp.sendRedirect(req.getContextPath() + "/admin/characters");
         } else {
-            resp.sendRedirect(req.getContextPath() + "/admin/characters");
+            req.getRequestDispatcher("/WEB-INF/pages/error_404.jsp").forward(req, resp);
         }
 
     }

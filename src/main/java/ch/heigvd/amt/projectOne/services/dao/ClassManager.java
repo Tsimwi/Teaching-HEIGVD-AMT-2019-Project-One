@@ -21,6 +21,30 @@ public class ClassManager implements ClassManagerLocal {
     private DataSource dataSource;
 
     @Override
+    public int getNumberOfClasses(){
+        Connection connection = null;
+        try {
+            connection = dataSource.getConnection();
+            PreparedStatement pstmt = connection.prepareStatement("SELECT COUNT(*) AS counter FROM class");
+            ResultSet rs = pstmt.executeQuery();
+
+            rs.next();
+            connection.close();
+
+            return rs.getInt("counter");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            closeConnection(connection);
+        }
+
+        return -1;
+    }
+
+
+
+    @Override
     public boolean addClass(Class myClass) {
 
         Connection connection = null;

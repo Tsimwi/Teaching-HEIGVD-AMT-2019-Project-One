@@ -81,6 +81,9 @@ class GuildInfoServletTest {
     @Test
     void itShouldBePossibleToLoadThePage() throws IOException, ServletException {
         when(request.getRequestDispatcher("/WEB-INF/pages/guild_info.jsp")).thenReturn(requestDispatcher);
+        when(request.getParameterMap()).thenReturn(map);
+        when(request.getParameterMap().containsKey("id")).thenReturn(true);
+        when(guildManager.getNumberOfGuild()).thenReturn(5);
         when(request.getParameter("id")).thenReturn("1");
         when(request.getSession()).thenReturn(session);
         when(guild.getId()).thenReturn(1);

@@ -28,7 +28,7 @@ public class AdminMembershipDeleteServlet extends HttpServlet {
             resp.sendRedirect(req.getContextPath() + "/admin/guilds/update?id=" + guildId);
         }else{
 
-            resp.sendRedirect(req.getContextPath() + "/admin/guilds");
+            req.getRequestDispatcher("/WEB-INF/pages/error_404.jsp").forward(req, resp);
         }
 
     }

@@ -17,10 +17,14 @@ public class GuildLeaveServlet extends HttpServlet {
     MembershipManagerLocal membershipManager;
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        membershipManager.removeMembership(Integer.parseInt(req.getParameter("id")));
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+        if(!req.getParameterMap().containsKey("id")){
+            req.getRequestDispatcher("/WEB-INF/pages/error_404.jsp").forward(req, resp);
+        }else {
+            membershipManager.removeMembership(Integer.parseInt(req.getParameter("id")));
 
-        resp.sendRedirect(req.getContextPath() + "/profile");
+            resp.sendRedirect(req.getContextPath() + "/profile");
+        }
     }
 
     @Override
