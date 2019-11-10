@@ -63,7 +63,7 @@ public class GuildInfoServlet extends HttpServlet {
 
         for (Membership membership : memberships) {
 
-            String line = String.format("<tr style=\"background-color: black\"><td><h5><a href=\"%s/profile?id=%d\">%s</a></h5></td><td><h5>%s</h5></td></tr>",
+            String line = String.format("<tr style=\"background-color: black\"><td><h5><a href=\"%s/profile?id=%d\">%s</a></h5></td><td class=\"rankColumn\"><h5>%s</h5></td></tr>",
                     req.getContextPath(), membership.getCharacter().getId(), membership.getCharacter().getName(), membership.getRank());
             table.append(line);
         }

@@ -12,7 +12,6 @@
 %>
 
 <div class="container">
-    Number of page: ${numberOfPage}
     <table class="table">
         <thead>
         <tr>
@@ -53,13 +52,41 @@
 
     <div class="container">
         <div class="text-center">
-            <h1>Guild memberships :</h1>
+            <h1><u>Guild members :</u></h1>
         </div>
+        <c:if test="${currentCharMembership != true}">
+            <h4>You need to join the guild to see rank of other characters</h4>
+        </c:if>
+
+        <c:if test="${numberOfPage > 1}">
+            <div class="container">
+                <div class="text-center">
+                    <div>
+                        <button id="buttonFirstPage" class="btn btn-primary" onclick="getPagination(setPageNumber(1))">
+                            First
+                            Page
+                        </button>
+                        <button id="buttonPreviousPage" class="btn btn-primary" onclick="getPagination(deincr())"
+                                style="display: none">
+                            Previous page
+                        </button>
+                        <button id="buttonNextPage" class="btn btn-primary" onclick="getPagination(inc())">Next
+                            page
+                        </button>
+                        <button id="buttonLastPage" class="btn btn-primary"
+                                onclick="getPagination(setPageNumber(${numberOfPage}))">Last page
+                        </button>
+                        <br/>
+                    </div>
+                </div>
+            </div>
+        </c:if>
+
         <table class="table" id="guildsTable" style="background-color: black; color: white">
             <thead>
             <tr>
-                <th>Character name</th>
-                <th>Rank</th>
+                <th><h2>Character name</h2></th>
+                <th><h2>Rank</h2></th>
             </tr>
             </thead>
             <tbody id="tableBody">
@@ -68,7 +95,7 @@
                     <td><h5><a
                             href="${pageContext.request.contextPath}/profile?id=${membership.character.id}">${membership.character.name}</a>
                     </h5></td>
-                    <td>
+                    <td class="rankColumn">
                         <c:if test="${currentCharMembership == true}">
                             <h5>${membership.rank}</h5>
                         </c:if>
@@ -81,20 +108,8 @@
 
     <div class="container">
         <div class="text-center">
-            <div class="d-inline">
-                <button id="buttonFirstPage" class="btn btn-primary" onclick="getPagination(setPageNumber(1))">First
-                    Page
-                </button>
-                <button id="buttonPreviousPage" class="btn btn-primary" onclick="getPagination(deincr())" style="display: none">
-                    Previous page
-                </button>
-                <h5 class="d-inline">Page number: <i id="pageNumberDisplayed">1/${numberOfPage}</i></h5>
-                <button id="buttonNextPage" class="btn btn-primary" onclick="getPagination(inc())">Next
-                    page
-                </button>
-                <button id="buttonLastPage" class="btn btn-primary"
-                        onclick="getPagination(setPageNumber(${numberOfPage}))">Last page
-                </button>
+            <div>
+                <h5 class="d-inline">Page number: <i id="pageNumberDisplayed">1 / ${numberOfPage}</i></h5>
             </div>
         </div>
     </div>
@@ -102,14 +117,19 @@
 <script>
     let pageNumber = 1;
 
+    if (${numberOfPage==1}) {
+        hideButton('#buttonNextPage');
+    }
+
+
     function hideButton(id) {
-        console.log('#'+id);
-        $('#'+id).hide();
+        $(id).hide();
     }
+
     function showButton(id) {
-        console.log('#'+id);
-        $('#'+id).show();
+        $(id).show();
     }
+
     function setPageNumber(value) {
         pageNumber = value;
         return pageNumber;
@@ -126,25 +146,29 @@
     }
 
     function getPagination(page) {
-        if(page === 1){
-            console.log("Page 1");
-           hideButton('buttonPreviousPage');
-           showButton('buttonNextPage');
-        }else if (page === ${numberOfPage}){
-            console.log("Derniere page");
-            hideButton('buttonNextPage');
-            showButton('buttonPreviousPage');
-        }else {
-            showButton('buttonNextPage');
-            showButton('buttonPreviousPage');
+        if (page === 1) {
+            hideButton('#buttonPreviousPage');
+            showButton('#buttonNextPage');
+        } else if (page === ${numberOfPage}) {
+            hideButton('#buttonNextPage');
+            showButton('#buttonPreviousPage');
+        } else {
+            showButton('#buttonNextPage');
+            showButton('#buttonPreviousPage');
         }
-        $('#pageNumberDisplayed').html(page+'/'+${numberOfPage});
+
+        $('#pageNumberDisplayed').html(page + '/' +${numberOfPage});
 
         $.post("${pageContext.request.contextPath}/guilds/info?id=${guild.id}", {
             page: page,
             guildId:${guild.id}
         }, function (response) {
-            $('#tableBody').html(response)
+            $('#tableBody').html(response);
+
+        }).done(function () {
+            <c:if test="${currentCharMembership == false}">
+            hideButton('.rankColumn');
+            </c:if>
         });
     }
 

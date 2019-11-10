@@ -70,43 +70,46 @@
     </table>
 </div>
 
-<div class="text-center">
-    <h1>Guild memberships :</h1>
-</div>
-<div class="container-fluid" style="background-color: dimgrey">
-    <div class="form-group">
-        <table class="table">
-            <c:forEach items="${memberships}" var="membership" varStatus="loop">
-                <c:if test="${loop.index % 3 == 0}">
-                    <tr>
-                </c:if>
-                <td>
-                    <table>
-                        <tr>
-                            <td>
-                                <img src="./images/${fn:replace(fn:toLowerCase(membership.guild.name), ' ', '')}.jpg"
-                                     onerror="this.onerror=null; this.src='./images/default.jpg'"/>
-                            </td>
-                            <td>
-                                <h4>${membership.guild.name}</h4></br>
-                                <h4>Rank : ${membership.rank}</h4></br>
-                                <a class="btn btn-primary" style="margin-bottom: 10px;"
-                                   href="${pageContext.request.contextPath}/guilds/info?id=${membership.guild.id}">Learn
-                                    more</a></br>
-                                <c:if test="${requestScope.character.id == sessionScope.character.id}">
-                                <a class="btn btn-danger"
-                                   href="${pageContext.request.contextPath}/guilds/leave?id=${membership.id}">Leave</a>
-                                </c:if>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-                <c:if test="${loop.index % 3 == 2}">
-                    </tr>
-                </c:if>
-            </c:forEach>
-        </table>
+<c:if test="${fn:length(memberships) > 0}">
+    <div class="text-center">
+        <h1>Guild memberships :</h1>
     </div>
-</div>
+    <div class="container-fluid" style="background-color: dimgrey">
+        <div class="form-group">
+            <table class="table">
+                <c:forEach items="${memberships}" var="membership" varStatus="loop">
+                    <c:if test="${loop.index % 3 == 0}">
+                        <tr>
+                    </c:if>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>
+                                    <img src="./images/${fn:replace(fn:toLowerCase(membership.guild.name), ' ', '')}.jpg"
+                                         onerror="this.onerror=null; this.src='./images/default.jpg'"/>
+                                </td>
+                                <td>
+                                    <h4>${membership.guild.name}</h4></br>
+                                    <h4>Rank : ${membership.rank}</h4></br>
+                                    <a class="btn btn-primary" style="margin-bottom: 10px;"
+                                       href="${pageContext.request.contextPath}/guilds/info?id=${membership.guild.id}">Learn
+                                        more</a></br>
+                                    <c:if test="${requestScope.character.id == sessionScope.character.id}">
+                                        <a class="btn btn-danger"
+                                           href="${pageContext.request.contextPath}/guilds/leave?id=${membership.id}">Leave</a>
+                                    </c:if>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <c:if test="${loop.index % 3 == 2}">
+                        </tr>
+                    </c:if>
+                </c:forEach>
+            </table>
+        </div>
+    </div>
+</c:if>
+
 
 <%@include file="includes/footer.jsp" %>

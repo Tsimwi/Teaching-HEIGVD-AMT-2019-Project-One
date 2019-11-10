@@ -31,12 +31,12 @@
     </div>
 
     <div class="container">
-        <div class="text-center bg-danger">
+        <div class="text-center">
             <h1>Guild members :</h1>
         </div>
         <table class="table" id="guildsTable" style="background-color: black; color: white">
             <thead>
-            <tr>
+            <tr class="bg-danger">
                 <th></th>
                 <th>Character name</th>
                 <th>Rank</th>
@@ -62,7 +62,7 @@
             </tbody>
         </table>
     </div>
-
+<c:if test="${numberOfPage > 1}">
     <div class="container">
         <div class="text-center">
             <div>
@@ -82,6 +82,7 @@
             </div>
         </div>
     </div>
+</c:if>
 
 </div>
 
