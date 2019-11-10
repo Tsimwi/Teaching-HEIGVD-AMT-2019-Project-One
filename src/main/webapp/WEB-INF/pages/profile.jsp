@@ -18,7 +18,7 @@
                                              style="width:200px"></td>
                     </tr>
                     <tr>
-                        <td colspan="2"><h1>${requestScope.character.name}</h1></td>
+                        <td colspan="2"><h1 id="characterName">${requestScope.character.name}</h1></td>
                     </tr>
                     <tr>
                         <td>
