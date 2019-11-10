@@ -80,6 +80,9 @@ class AdminCharactersUpdateServletTest {
     @Test
     void weShouldSeeThePageToUpdateCharacter() throws ServletException, IOException {
         when(request.getRequestDispatcher("/WEB-INF/pages/admin/admin_characters_update.jsp")).thenReturn(requestDispatcher);
+        when(request.getParameterMap()).thenReturn(map);
+        when(request.getParameterMap().containsKey("id")).thenReturn(true);
+
         when(request.getParameter("id")).thenReturn("1");
         when(characterManager.getCharacterById(1)).thenReturn(character);
         when(membershipManager.getMembershipsByUserId(1)).thenReturn(memberships);
@@ -96,6 +99,7 @@ class AdminCharactersUpdateServletTest {
     void itShouldBePossibleToUpdateMembershipsOfACharacter() throws ServletException, IOException {
         String[] guildsSelected = {"1","2", "3"};
         when(request.getParameterMap()).thenReturn(map);
+        when(request.getParameterMap().containsKey("id")).thenReturn(true);
         when(request.getParameterMap().containsKey("updateMemberships")).thenReturn(true);
         when(request.getParameter("id")).thenReturn("1");
         when(membershipManager.getMembershipsByUserId(1)).thenReturn(memberships);

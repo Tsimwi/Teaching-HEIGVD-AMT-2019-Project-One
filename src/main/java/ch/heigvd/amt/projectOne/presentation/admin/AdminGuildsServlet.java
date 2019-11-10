@@ -18,7 +18,6 @@ public class AdminGuildsServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         req.setAttribute("guilds", guildManager.getAllGuilds());
         req.getRequestDispatcher("/WEB-INF/pages/admin/admin_guilds.jsp").forward(req, resp);
     }

@@ -22,7 +22,7 @@ public class MembershipManager implements MembershipManagerLocal {
     @Resource(lookup = "jdbc/amt")
     private DataSource dataSource;
 
-    public int getNumberOfMembershipsForGuild(int id){
+    public int getNumberOfMembershipsForGuild(int id) {
         Connection connection = null;
         try {
             connection = dataSource.getConnection();
@@ -37,7 +37,7 @@ public class MembershipManager implements MembershipManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
-        }finally {
+        } finally {
             closeConnection(connection);
         }
 
@@ -62,7 +62,7 @@ public class MembershipManager implements MembershipManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
-        }finally {
+        } finally {
             closeConnection(connection);
         }
 
@@ -104,7 +104,7 @@ public class MembershipManager implements MembershipManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
-        }finally {
+        } finally {
             closeConnection(connection);
         }
         return memberships;
@@ -146,7 +146,7 @@ public class MembershipManager implements MembershipManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
-        }finally {
+        } finally {
             closeConnection(connection);
         }
         return memberships;
@@ -166,7 +166,7 @@ public class MembershipManager implements MembershipManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
-        }finally {
+        } finally {
             closeConnection(connection);
         }
 
@@ -192,7 +192,7 @@ public class MembershipManager implements MembershipManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
-        }finally {
+        } finally {
             closeConnection(connection);
         }
 

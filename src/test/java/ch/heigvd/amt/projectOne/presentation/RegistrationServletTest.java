@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,7 +57,7 @@ class RegistrationServletTest {
     }
 
     @Test
-    void WeShouldBeAbleToRegister() throws ServletException, IOException {
+    void WeShouldBeAbleToRegister() throws ServletException, IOException, SQLException {
         when(request.getParameter("name")).thenReturn("test");
         when(request.getParameter("password")).thenReturn("password");
         when(request.getParameter("passwordVerify")).thenReturn("password");
@@ -68,7 +69,7 @@ class RegistrationServletTest {
     }
 
     @Test
-    void registerShouldFailedBecauseUsernameIsEmpty() throws ServletException, IOException {
+    void registerShouldFailedBecauseUsernameIsEmpty() throws ServletException, IOException, SQLException {
         when(request.getRequestDispatcher("/WEB-INF/pages/register.jsp")).thenReturn(requestDispatcher);
         errors.add("Username cannot be empty");
         when(request.getParameter("name")).thenReturn("");
@@ -82,7 +83,7 @@ class RegistrationServletTest {
     }
 
     @Test
-    void registerShouldFailedBecausePasswordIsEmpty() throws ServletException, IOException {
+    void registerShouldFailedBecausePasswordIsEmpty() throws ServletException, IOException, SQLException {
         when(request.getRequestDispatcher("/WEB-INF/pages/register.jsp")).thenReturn(requestDispatcher);
         errors.add("Password cannot be empty");
         when(request.getParameter("name")).thenReturn("test");
@@ -96,7 +97,7 @@ class RegistrationServletTest {
     }
 
     @Test
-    void registerShouldFailedBecausePasswordDoesNotMatch() throws ServletException, IOException {
+    void registerShouldFailedBecausePasswordDoesNotMatch() throws ServletException, IOException, SQLException {
         when(request.getRequestDispatcher("/WEB-INF/pages/register.jsp")).thenReturn(requestDispatcher);
         errors.add("Password are not the same");
         when(request.getParameter("name")).thenReturn("test");
@@ -110,7 +111,7 @@ class RegistrationServletTest {
     }
 
     @Test
-    void registerShouldFailedBecauseUsernameIsNotFree() throws ServletException, IOException {
+    void registerShouldFailedBecauseUsernameIsNotFree() throws ServletException, IOException, SQLException {
         when(request.getRequestDispatcher("/WEB-INF/pages/register.jsp")).thenReturn(requestDispatcher);
         errors.add("This name is already taken");
         when(request.getParameter("name")).thenReturn("test");
@@ -124,7 +125,7 @@ class RegistrationServletTest {
     }
 
     @Test
-    void registerShouldFailedBecauseUnableToAddInDatabase() throws ServletException, IOException {
+    void registerShouldFailedBecauseUnableToAddInDatabase() throws ServletException, IOException, SQLException {
         when(request.getRequestDispatcher("/WEB-INF/pages/register.jsp")).thenReturn(requestDispatcher);
         errors.add("Unable to create Character, contact an administrator");
         when(request.getParameter("name")).thenReturn("test");

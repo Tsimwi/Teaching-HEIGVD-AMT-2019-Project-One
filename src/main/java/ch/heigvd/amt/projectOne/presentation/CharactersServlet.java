@@ -22,6 +22,7 @@ public class CharactersServlet extends HttpServlet {
     int pageNumberInt;
 
     int numberOfUser;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 

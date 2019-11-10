@@ -21,6 +21,27 @@ public class GuildManager implements GuildManagerLocal {
     @Resource(lookup = "jdbc/amt")
     private DataSource dataSource;
 
+    @Override
+    public int getNumberOfGuild() {
+        Connection connection = null;
+        try {
+            connection = dataSource.getConnection();
+            PreparedStatement pstmt = connection.prepareStatement("SELECT COUNT(*) AS counter FROM guild");
+            ResultSet rs = pstmt.executeQuery();
+
+            rs.next();
+            connection.close();
+
+            return rs.getInt("counter");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            closeConnection(connection);
+        }
+
+        return -1;
+    }
 
     @Override
     public List<Guild> getAllGuilds() {
@@ -41,7 +62,7 @@ public class GuildManager implements GuildManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
-        }finally {
+        } finally {
             closeConnection(connection);
         }
         return guilds;
@@ -66,7 +87,7 @@ public class GuildManager implements GuildManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
-        }finally {
+        } finally {
             closeConnection(connection);
         }
 
@@ -92,7 +113,7 @@ public class GuildManager implements GuildManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
-        }finally {
+        } finally {
             closeConnection(connection);
         }
 
@@ -116,7 +137,7 @@ public class GuildManager implements GuildManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
-        }finally {
+        } finally {
             closeConnection(connection);
         }
 
@@ -143,7 +164,7 @@ public class GuildManager implements GuildManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
-        }finally {
+        } finally {
             closeConnection(connection);
         }
         return false;
@@ -166,7 +187,7 @@ public class GuildManager implements GuildManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
-        }finally {
+        } finally {
             closeConnection(connection);
         }
         return false;
@@ -188,7 +209,7 @@ public class GuildManager implements GuildManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
-        }finally {
+        } finally {
             closeConnection(connection);
         }
 

@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.List;
 
 @WebServlet(urlPatterns = "/guilds/info")
@@ -27,20 +28,30 @@ public class GuildInfoServlet extends HttpServlet {
     MembershipManagerLocal membershipManager;
 
     int numberOfUser;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-        Guild guild = guildManager.getGuildById(Integer.parseInt(req.getParameter("id")));
-        boolean isCharacterMemberOfThisGuild = membershipManager.checkCharacterMembership(
-                (Character) req.getSession().getAttribute("character"), guild);
 
-        numberOfUser = membershipManager.getNumberOfMembershipsForGuild(guild.getId());
-        List<Membership> memberships = membershipManager.getMembershipsByGuildIdWithPage(Integer.parseInt(req.getParameter("id")), 0);
+        if (!req.getParameterMap().containsKey("id") || guildManager.getNumberOfGuild() == -1) {
+            req.getRequestDispatcher("/WEB-INF/pages/error_404.jsp").forward(req, resp);
+        } else {
+            Guild guild = guildManager.getGuildById(Integer.parseInt(req.getParameter("id")));
+            if(guild == null){
+                req.getRequestDispatcher("/WEB-INF/pages/error_404.jsp").forward(req, resp);
+            }else{
+                boolean isCharacterMemberOfThisGuild = membershipManager.checkCharacterMembership(
+                        (Character) req.getSession().getAttribute("character"), guild);
 
-        req.setAttribute("numberOfPage", ((numberOfUser - 1) / 25) + 1);
-        req.setAttribute("memberships", memberships);
-        req.setAttribute("currentCharMembership", isCharacterMemberOfThisGuild);
-        req.setAttribute("guild", guild);
-        req.getRequestDispatcher("/WEB-INF/pages/guild_info.jsp").forward(req, resp);
+                numberOfUser = membershipManager.getNumberOfMembershipsForGuild(guild.getId());
+                List<Membership> memberships = membershipManager.getMembershipsByGuildIdWithPage(Integer.parseInt(req.getParameter("id")), 0);
+
+                req.setAttribute("numberOfPage", ((numberOfUser - 1) / 25) + 1);
+                req.setAttribute("memberships", memberships);
+                req.setAttribute("currentCharMembership", isCharacterMemberOfThisGuild);
+                req.setAttribute("guild", guild);
+                req.getRequestDispatcher("/WEB-INF/pages/guild_info.jsp").forward(req, resp);
+            }
+        }
     }
 
     @Override
@@ -48,9 +59,9 @@ public class GuildInfoServlet extends HttpServlet {
         int pageNumber = Integer.parseInt(req.getParameter("page"));
         int guildId = Integer.parseInt(req.getParameter("guildId"));
         StringBuilder table = new StringBuilder();
-        List<Membership> memberships = membershipManager.getMembershipsByGuildIdWithPage(guildId,pageNumber-1);
+        List<Membership> memberships = membershipManager.getMembershipsByGuildIdWithPage(guildId, pageNumber - 1);
 
-        for (Membership membership: memberships) {
+        for (Membership membership : memberships) {
 
             String line = String.format("<tr style=\"background-color: black\"><td><h5><a href=\"%s/profile?id=%d\">%s</a></h5></td><td><h5>%s</h5></td></tr>",
                     req.getContextPath(), membership.getCharacter().getId(), membership.getCharacter().getName(), membership.getRank());

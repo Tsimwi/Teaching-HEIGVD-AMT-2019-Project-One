@@ -1,8 +1,6 @@
 package ch.heigvd.amt.projectOne.presentation;
 
-import ch.heigvd.amt.projectOne.model.Character;
 import ch.heigvd.amt.projectOne.model.Class;
-import ch.heigvd.amt.projectOne.services.dao.CharacterManagerLocal;
 import ch.heigvd.amt.projectOne.services.dao.ClassManagerLocal;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,8 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -41,6 +37,9 @@ class ClassInfoServletTest {
     @Mock
     RequestDispatcher requestDispatcher;
 
+    @Mock
+    Map<String, String[]> map;
+
     private ClassInfoServlet servlet;
 
 
@@ -54,8 +53,11 @@ class ClassInfoServletTest {
 
     @Test
     void classShouldBeDisplayedWithDetails() throws ServletException, IOException {
-
+        when(request.getParameterMap()).thenReturn(map);
+        when(request.getParameterMap().containsKey("id")).thenReturn(true);
+        when(classManager.getNumberOfClasses()).thenReturn(3);
         when(request.getParameter("id")).thenReturn("1");
+
         when(classManager.getClassById(1)).thenReturn(myClass);
         when(myClass.getName()).thenReturn("image");
 

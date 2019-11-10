@@ -18,19 +18,19 @@ import java.util.List;
 @WebServlet(urlPatterns = "/guilds")
 public class GuildsServlet extends HttpServlet {
 
-  @EJB
-  GuildManagerLocal guildManager;
+    @EJB
+    GuildManagerLocal guildManager;
 
-  @Override
-  protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    List<Guild> guilds = guildManager.getAllGuilds();
-    req.setAttribute("guilds", guilds);
-    req.getRequestDispatcher("/WEB-INF/pages/guilds.jsp").forward(req, resp);
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<Guild> guilds = guildManager.getAllGuilds();
+        req.setAttribute("guilds", guilds);
+        req.getRequestDispatcher("/WEB-INF/pages/guilds.jsp").forward(req, resp);
 
-  }
+    }
 
-  @Override
-  protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    super.doPost(req, resp);
-  }
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doPost(req, resp);
+    }
 }

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(urlPatterns = "/classInfo")
+@WebServlet(urlPatterns = "/classes/info")
 public class ClassInfoServlet extends HttpServlet {
 
     @EJB
@@ -20,10 +20,16 @@ public class ClassInfoServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Class thisClass = classManager.getClassById(Integer.parseInt(req.getParameter("id")));
-        req.setAttribute("class", thisClass);
-        req.setAttribute("image", thisClass.getName().toLowerCase());
-        req.getRequestDispatcher("/WEB-INF/pages/class_info.jsp").forward(req, resp);
+
+        if (!req.getParameterMap().containsKey("id") || Integer.parseInt(req.getParameter("id")) > classManager.getNumberOfClasses()) {
+            req.getRequestDispatcher("/WEB-INF/pages/error_404.jsp").forward(req, resp);
+        } else {
+            Class thisClass = classManager.getClassById(Integer.parseInt(req.getParameter("id")));
+            req.setAttribute("class", thisClass);
+            req.setAttribute("image", thisClass.getName().toLowerCase());
+            req.getRequestDispatcher("/WEB-INF/pages/class_info.jsp").forward(req, resp);
+        }
+
     }
 
     @Override
