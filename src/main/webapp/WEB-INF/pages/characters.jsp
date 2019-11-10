@@ -79,7 +79,7 @@
             </c:if>
         </c:forEach>
     </table>
-    <h5 class="text-center">Page <i id="pageNumberDisplayed">${pageContext.request.getParameter("page")} / ${numberOfPage}</i></h5>
+    <h5 class="text-center">Page <i id="pageNumberDisplayed">${(pageContext.request.getParameter("page") == null ? '1': pageContext.request.getParameter("page")) } / ${numberOfPage}</i></h5>
 
 </div>
 <%@include file="includes/footer.jsp" %>
