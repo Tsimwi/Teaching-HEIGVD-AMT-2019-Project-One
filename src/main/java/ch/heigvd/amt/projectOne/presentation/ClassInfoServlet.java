@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(urlPatterns = "/classInfo")
+@WebServlet(urlPatterns = "/classes/info")
 public class ClassInfoServlet extends HttpServlet {
 
     @EJB

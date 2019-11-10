@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,7 +62,7 @@ class LoginServletTest {
     }
 
     @Test
-    void weShouldBEAbleToLogin() throws ServletException, IOException {
+    void weShouldBEAbleToLogin() throws ServletException, IOException, SQLException {
         when(request.getParameter("username")).thenReturn("test");
         when(request.getParameter("password")).thenReturn("test");
         when(characterManager.isUsernameFree(any())).thenReturn(false);
@@ -98,7 +99,7 @@ class LoginServletTest {
     }
 
     @Test
-    void loginShouldFailedBecauseUsernameNotInBd() throws ServletException, IOException {
+    void loginShouldFailedBecauseUsernameNotInBd() throws ServletException, IOException, SQLException {
         errors.add("Wrong username or password.");
         when(request.getRequestDispatcher("/WEB-INF/pages/login.jsp")).thenReturn(requestDispatcher);
         when(request.getParameter("username")).thenReturn("test");
@@ -110,7 +111,7 @@ class LoginServletTest {
     }
 
     @Test
-    void loginShouldFailedBecausePasswordIsNotCorrect() throws ServletException, IOException {
+    void loginShouldFailedBecausePasswordIsNotCorrect() throws ServletException, IOException, SQLException {
         errors.add("Wrong username or password.");
         when(request.getRequestDispatcher("/WEB-INF/pages/login.jsp")).thenReturn(requestDispatcher);
         when(request.getParameter("username")).thenReturn("test");

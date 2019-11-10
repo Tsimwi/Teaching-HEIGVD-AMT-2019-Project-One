@@ -1,8 +1,5 @@
 package ch.heigvd.amt.projectOne.presentation;
 
-import ch.heigvd.amt.projectOne.model.Character;
-import ch.heigvd.amt.projectOne.model.Membership;
-import ch.heigvd.amt.projectOne.services.dao.ClassManagerLocal;
 import ch.heigvd.amt.projectOne.services.dao.MembershipManagerLocal;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,12 +10,10 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -35,7 +30,7 @@ class GuildLeaveServletTest {
     MembershipManagerLocal membershipManager;
 
     @Mock
-    Map map;
+    Map<String, String[]> map;
 
     private GuildLeaveServlet servlet;
 

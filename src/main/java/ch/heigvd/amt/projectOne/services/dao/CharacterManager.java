@@ -69,8 +69,8 @@ public class CharacterManager implements CharacterManagerLocal {
         try {
             connection = dataSource.getConnection();
             PreparedStatement pstmt = connection.prepareStatement("SELECT character.*, mount.name AS mount_name, mount.speed AS mount_speed, class.name AS class_name FROM character INNER JOIN mount ON character.mount_id = mount.id INNER JOIN class ON character.class_id = class.id WHERE character.name ILIKE ? ORDER BY name LIMIT 25 OFFSET ? ");
-            pstmt.setObject(1,pattern+"%");
-            pstmt.setObject(2,pageNumber * 25);
+            pstmt.setObject(1, pattern + "%");
+            pstmt.setObject(2, pageNumber * 25);
 
             ResultSet rs = pstmt.executeQuery();
 
@@ -93,7 +93,7 @@ public class CharacterManager implements CharacterManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
-        }finally {
+        } finally {
             closeConnection(connection);
         }
         return characters;
@@ -108,7 +108,7 @@ public class CharacterManager implements CharacterManagerLocal {
         try {
             connection = dataSource.getConnection();
             PreparedStatement pstmt = connection.prepareStatement("SELECT character.*, mount.name AS mount_name, mount.speed AS mount_speed, class.name AS class_name FROM character INNER JOIN mount ON character.mount_id = mount.id INNER JOIN class ON character.class_id = class.id ORDER BY name LIMIT 25 OFFSET ? ");
-            pstmt.setObject(1,pageNumber * 25);
+            pstmt.setObject(1, pageNumber * 25);
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
@@ -143,7 +143,7 @@ public class CharacterManager implements CharacterManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
-        }finally {
+        } finally {
             closeConnection(connection);
         }
         return characters;
@@ -156,9 +156,9 @@ public class CharacterManager implements CharacterManagerLocal {
         Connection connection = null;
         try {
             String request;
-            if(isAdmin){
+            if (isAdmin) {
                 request = "INSERT INTO character (name, password, mount_id, class_id, isadmin) VALUES (?, ?, ?, ?, ?)";
-            }else{
+            } else {
                 request = "INSERT INTO character (name, password, mount_id, class_id) VALUES (?, ?, ?, ?)";
             }
             connection = dataSource.getConnection();
@@ -181,7 +181,7 @@ public class CharacterManager implements CharacterManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
-        }finally {
+        } finally {
             closeConnection(connection);
         }
         return false;
@@ -194,9 +194,9 @@ public class CharacterManager implements CharacterManagerLocal {
         Connection connection = null;
         try {
             String request;
-            if(updatePassword){
+            if (updatePassword) {
                 request = "UPDATE character SET name=?, isadmin=?, password=? WHERE id=?;";
-            }else{
+            } else {
                 request = "UPDATE character SET name=?, isadmin=? WHERE id=?;";
             }
             connection = dataSource.getConnection();
@@ -204,7 +204,7 @@ public class CharacterManager implements CharacterManagerLocal {
             pstmt.setObject(1, username);
             pstmt.setObject(2, isAdmin);
             int i = 3;
-            if(updatePassword){
+            if (updatePassword) {
                 pstmt.setObject(i++, authenticationService.hashPassword(password));
             }
             pstmt.setObject(i, id);
@@ -218,7 +218,7 @@ public class CharacterManager implements CharacterManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
-        }finally {
+        } finally {
             closeConnection(connection);
         }
         return false;
@@ -242,7 +242,7 @@ public class CharacterManager implements CharacterManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
-        }finally {
+        } finally {
             closeConnection(connection);
         }
 
@@ -295,7 +295,7 @@ public class CharacterManager implements CharacterManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
-        }finally {
+        } finally {
             closeConnection(connection);
         }
 
@@ -351,7 +351,7 @@ public class CharacterManager implements CharacterManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
-        }finally {
+        } finally {
             closeConnection(connection);
         }
 
@@ -359,7 +359,7 @@ public class CharacterManager implements CharacterManagerLocal {
     }
 
     @Override
-    public boolean isUsernameFree(String username) {
+    public boolean isUsernameFree(String username) throws SQLException {
         Connection connection = null;
         try {
             connection = dataSource.getConnection();
@@ -374,11 +374,12 @@ public class CharacterManager implements CharacterManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
-        }finally {
+            throw ex;
+        } finally {
             closeConnection(connection);
         }
 
-        return true;
+//        return true;
     }
 
     @Override
@@ -399,7 +400,7 @@ public class CharacterManager implements CharacterManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
-        }finally {
+        } finally {
             closeConnection(connection);
         }
         return false;
@@ -436,7 +437,7 @@ public class CharacterManager implements CharacterManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
-        }finally {
+        } finally {
             closeConnection(connection);
         }
         return characters;

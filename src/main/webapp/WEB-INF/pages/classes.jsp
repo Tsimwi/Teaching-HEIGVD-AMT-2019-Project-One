@@ -8,7 +8,7 @@
                 <tr>
             </c:if>
             <td class="text-center">
-            <a href="${pageContext.request.contextPath}/classInfo?id=${class.id}">
+            <a href="${pageContext.request.contextPath}/classes/info?id=${class.id}">
                 <button class="btn btn-outline-dark" style="width: 50%">
                     <div class="row">
                         <img src="./images/icons/${fn:toLowerCase(class.name)}.jpeg" style="background-color: white; border-radius: 10px; margin-left: 20px">

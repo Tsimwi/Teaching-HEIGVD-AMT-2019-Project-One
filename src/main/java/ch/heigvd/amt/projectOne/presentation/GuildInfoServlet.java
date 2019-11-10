@@ -32,25 +32,26 @@ public class GuildInfoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
-
-        if (!req.getParameterMap().containsKey("id") || Integer.parseInt(req.getParameter("id")) > guildManager.getNumberOfGuild()) {
+        if (!req.getParameterMap().containsKey("id") || guildManager.getNumberOfGuild() == -1) {
             req.getRequestDispatcher("/WEB-INF/pages/error_404.jsp").forward(req, resp);
         } else {
             Guild guild = guildManager.getGuildById(Integer.parseInt(req.getParameter("id")));
-            boolean isCharacterMemberOfThisGuild = membershipManager.checkCharacterMembership(
-                    (Character) req.getSession().getAttribute("character"), guild);
+            if(guild == null){
+                req.getRequestDispatcher("/WEB-INF/pages/error_404.jsp").forward(req, resp);
+            }else{
+                boolean isCharacterMemberOfThisGuild = membershipManager.checkCharacterMembership(
+                        (Character) req.getSession().getAttribute("character"), guild);
 
-            numberOfUser = membershipManager.getNumberOfMembershipsForGuild(guild.getId());
-            List<Membership> memberships = membershipManager.getMembershipsByGuildIdWithPage(Integer.parseInt(req.getParameter("id")), 0);
+                numberOfUser = membershipManager.getNumberOfMembershipsForGuild(guild.getId());
+                List<Membership> memberships = membershipManager.getMembershipsByGuildIdWithPage(Integer.parseInt(req.getParameter("id")), 0);
 
-            req.setAttribute("numberOfPage", ((numberOfUser - 1) / 25) + 1);
-            req.setAttribute("memberships", memberships);
-            req.setAttribute("currentCharMembership", isCharacterMemberOfThisGuild);
-            req.setAttribute("guild", guild);
-            req.getRequestDispatcher("/WEB-INF/pages/guild_info.jsp").forward(req, resp);
+                req.setAttribute("numberOfPage", ((numberOfUser - 1) / 25) + 1);
+                req.setAttribute("memberships", memberships);
+                req.setAttribute("currentCharMembership", isCharacterMemberOfThisGuild);
+                req.setAttribute("guild", guild);
+                req.getRequestDispatcher("/WEB-INF/pages/guild_info.jsp").forward(req, resp);
+            }
         }
-
-
     }
 
     @Override

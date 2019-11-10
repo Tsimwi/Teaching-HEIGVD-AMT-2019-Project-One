@@ -23,10 +23,10 @@ public class ErrorParametersEmptyFilter implements Filter {
         /* We test if parameters have empty value */
         for (Map.Entry<String, String[]> param : filteredReq.getParameterMap().entrySet()) {
             /* These field can be empty because we inform the user with errors */
-            if(param.getKey().equals("name") || param.getKey().equals("password") || param.getKey().equals("passwordVerify") || param.getKey().equals("isAdminCheckbox") || param.getKey().equals("username")) {
+            if (param.getKey().equals("name") || param.getKey().equals("password") || param.getKey().equals("passwordVerify") || param.getKey().equals("isAdminCheckbox") || param.getKey().equals("username")) {
                 break;
-            }else{
-                if(param.getValue()[0].trim().equals("")){
+            } else {
+                if (param.getValue()[0].trim().equals("")) {
                     error = true;
                     break;
                 }

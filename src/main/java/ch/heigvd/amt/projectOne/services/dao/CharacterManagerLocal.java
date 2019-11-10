@@ -3,6 +3,7 @@ package ch.heigvd.amt.projectOne.services.dao;
 import ch.heigvd.amt.projectOne.model.Character;
 
 import javax.ejb.Local;
+import java.sql.SQLException;
 import java.util.List;
 
 @Local
@@ -24,7 +25,7 @@ public interface CharacterManagerLocal {
 
     Character getCharacterByUsername(String username);
 
-    boolean isUsernameFree(String username);
+    boolean isUsernameFree(String username) throws SQLException;
 
     boolean checkPassword(String username, String password);
 

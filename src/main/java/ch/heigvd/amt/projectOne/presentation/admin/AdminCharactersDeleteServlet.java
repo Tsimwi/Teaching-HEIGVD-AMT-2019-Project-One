@@ -24,9 +24,9 @@ public class AdminCharactersDeleteServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if (req.getParameterMap().containsKey("id")) {
             HttpSession session = req.getSession();
-            if (!characterManager.deleteCharacter(Integer.parseInt(req.getParameter("id")))){
+            if (!characterManager.deleteCharacter(Integer.parseInt(req.getParameter("id")))) {
                 session.setAttribute("deleteStatus", "Unable to delete the user");
-            }else{
+            } else {
                 session.setAttribute("deleteStatus", "User deleted");
             }
             resp.sendRedirect(req.getContextPath() + "/admin/characters");

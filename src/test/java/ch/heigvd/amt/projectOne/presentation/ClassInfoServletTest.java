@@ -1,8 +1,6 @@
 package ch.heigvd.amt.projectOne.presentation;
 
-import ch.heigvd.amt.projectOne.model.Character;
 import ch.heigvd.amt.projectOne.model.Class;
-import ch.heigvd.amt.projectOne.services.dao.CharacterManagerLocal;
 import ch.heigvd.amt.projectOne.services.dao.ClassManagerLocal;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,8 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -42,7 +38,7 @@ class ClassInfoServletTest {
     RequestDispatcher requestDispatcher;
 
     @Mock
-    Map map;
+    Map<String, String[]> map;
 
     private ClassInfoServlet servlet;
 

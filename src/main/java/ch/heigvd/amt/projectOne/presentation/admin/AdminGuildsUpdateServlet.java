@@ -27,7 +27,7 @@ public class AdminGuildsUpdateServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if (req.getParameterMap().containsKey("id") && req.getParameterMap().containsKey("guildId")) {
+        if (req.getParameterMap().containsKey("id")) {
             String guildId = req.getParameter("id");
             Guild guild = guildManager.getGuildById(Integer.parseInt(guildId));
             int numberOfUser = membershipManager.getNumberOfMembershipsForGuild(guild.getId());
@@ -48,34 +48,12 @@ public class AdminGuildsUpdateServlet extends HttpServlet {
         if (req.getParameterMap().containsKey("updateGuild")) {
             updateGuild(req, resp);
         } else if (req.getParameterMap().containsKey("page")) {
-            if (req.getParameterMap().containsKey("guildId")) {
-                int pageNumber = Integer.parseInt(req.getParameter("page"));
-                int guildId = Integer.parseInt(req.getParameter("guildId"));
-                StringBuilder table = new StringBuilder();
-                List<Membership> memberships = membershipManager.getMembershipsByGuildIdWithPage(guildId, pageNumber - 1);
-                int i = 1;
-                for (Membership membership : memberships) {
-
-                    String line = String.format("<tr style=\"background-color: black\"><td>%d</td><td><h5><a href=\"%s/profile?id=%d\">%s</a></h5></td><td><h5>%s</h5></td>" +
-                                    "<td><a href=\"%s/admin/guilds/memberships/delete?id=%d&guildId=%d\"><i class=\"fas fa-trash-alt\"></i></a></td></tr>",
-                            i, req.getContextPath(), membership.getCharacter().getId(), membership.getCharacter().getName(), membership.getRank(), req.getContextPath(), membership.getId(), guildId);
-                    table.append(line);
-                    i++;
-                }
-
-                PrintWriter out = resp.getWriter();
-                out.print(table.toString());
-                out.flush();
-                out.close();
-            } else {
-                req.getRequestDispatcher("/WEB-INF/pages/error_404.jsp").forward(req, resp);
-            }
-
+            updatePagination(req, resp);
         }
     }
 
     private void updateGuild(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if (req.getParameterMap().containsKey("id") && req.getParameterMap().containsKey("guildId")) {
+        if (req.getParameterMap().containsKey("id")) {
             String guildId = req.getParameter("id");
             Guild guild = guildManager.getGuildById(Integer.parseInt(guildId));
             String name = req.getParameter("name");
@@ -115,5 +93,30 @@ public class AdminGuildsUpdateServlet extends HttpServlet {
             req.getRequestDispatcher("/WEB-INF/pages/error_404.jsp").forward(req, resp);
         }
 
+    }
+
+    private void updatePagination(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if (req.getParameterMap().containsKey("guildId")) {
+            int pageNumber = Integer.parseInt(req.getParameter("page"));
+            int guildId = Integer.parseInt(req.getParameter("guildId"));
+            StringBuilder table = new StringBuilder();
+            List<Membership> memberships = membershipManager.getMembershipsByGuildIdWithPage(guildId, pageNumber - 1);
+            int i = 1;
+            for (Membership membership : memberships) {
+
+                String line = String.format("<tr style=\"background-color: black\"><td>%d</td><td><h5><a href=\"%s/profile?id=%d\">%s</a></h5></td><td><h5>%s</h5></td>" +
+                                "<td><a href=\"%s/admin/guilds/memberships/delete?id=%d&guildId=%d\"><i class=\"fas fa-trash-alt\"></i></a></td></tr>",
+                        i, req.getContextPath(), membership.getCharacter().getId(), membership.getCharacter().getName(), membership.getRank(), req.getContextPath(), membership.getId(), guildId);
+                table.append(line);
+                i++;
+            }
+
+            PrintWriter out = resp.getWriter();
+            out.print(table.toString());
+            out.flush();
+            out.close();
+        } else {
+            req.getRequestDispatcher("/WEB-INF/pages/error_404.jsp").forward(req, resp);
+        }
     }
 }

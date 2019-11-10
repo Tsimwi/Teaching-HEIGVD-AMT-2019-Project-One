@@ -31,8 +31,6 @@ public class AdminGuildsDeleteServlet extends HttpServlet {
         } else {
             req.getRequestDispatcher("/WEB-INF/pages/error_404.jsp").forward(req, resp);
         }
-
-
     }
 
     @Override

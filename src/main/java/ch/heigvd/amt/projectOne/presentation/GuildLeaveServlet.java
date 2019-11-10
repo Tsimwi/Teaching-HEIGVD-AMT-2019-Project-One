@@ -18,9 +18,9 @@ public class GuildLeaveServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-        if(!req.getParameterMap().containsKey("id")){
+        if (!req.getParameterMap().containsKey("id")) {
             req.getRequestDispatcher("/WEB-INF/pages/error_404.jsp").forward(req, resp);
-        }else {
+        } else {
             membershipManager.removeMembership(Integer.parseInt(req.getParameter("id")));
 
             resp.sendRedirect(req.getContextPath() + "/profile");

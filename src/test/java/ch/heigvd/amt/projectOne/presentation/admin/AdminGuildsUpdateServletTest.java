@@ -71,7 +71,6 @@ class AdminGuildsUpdateServletTest {
     void itShouldBePossibleToLoadThePage() throws ServletException, IOException {
         when(request.getRequestDispatcher("/WEB-INF/pages/admin/admin_guilds_update.jsp")).thenReturn(requestDispatcher);
         when(request.getParameterMap().containsKey("id")).thenReturn(true);
-        when(request.getParameterMap().containsKey("guildId")).thenReturn(true);
         when(request.getParameter("id")).thenReturn("1");
 
         when(guildManager.getGuildById(1)).thenReturn(guild);

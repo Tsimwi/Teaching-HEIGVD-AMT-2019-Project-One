@@ -21,7 +21,7 @@ public class ClassManager implements ClassManagerLocal {
     private DataSource dataSource;
 
     @Override
-    public int getNumberOfClasses(){
+    public int getNumberOfClasses() {
         Connection connection = null;
         try {
             connection = dataSource.getConnection();
@@ -35,13 +35,12 @@ public class ClassManager implements ClassManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
-        }finally {
+        } finally {
             closeConnection(connection);
         }
 
         return -1;
     }
-
 
 
     @Override
@@ -66,7 +65,7 @@ public class ClassManager implements ClassManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
-        }finally {
+        } finally {
             closeConnection(connection);
         }
         return false;
@@ -94,7 +93,7 @@ public class ClassManager implements ClassManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
-        }finally {
+        } finally {
             closeConnection(connection);
         }
 
@@ -123,7 +122,7 @@ public class ClassManager implements ClassManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
-        }finally {
+        } finally {
             closeConnection(connection);
         }
 
@@ -154,7 +153,7 @@ public class ClassManager implements ClassManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
-        }finally {
+        } finally {
             closeConnection(connection);
         }
         return classes;
