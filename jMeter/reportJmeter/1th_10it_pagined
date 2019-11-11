@@ -1,0 +1,24 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1573463397410,111,login_request,200,OK,Thread Group 1-1,text,true,,4462,422,1,1,http://localhost:8080/projectOne/home,106,0,19
+1573463397410,106,login_request-0,302,Found,Thread Group 1-1,text,true,,594,243,1,1,http://localhost:8080/projectOne/login,106,0,19
+1573463397517,4,login_request-1,200,OK,Thread Group 1-1,text,true,,3868,179,1,1,http://localhost:8080/projectOne/home,4,0,0
+1573463397953,84,character_request,200,OK,Thread Group 1-1,text,true,,17845,185,1,1,http://localhost:8080/projectOne/characters,52,0,0
+1573463398036,1,character_request-0,200,OK,Thread Group 1-1,text,true,,501,0,0,0,null,0,0,0
+1573463398365,80,character_request,200,OK,Thread Group 1-1,text,true,,17845,185,1,1,http://localhost:8080/projectOne/characters,76,0,0
+1573463398445,0,character_request-0,200,OK,Thread Group 1-1,text,true,,501,0,0,0,null,0,0,0
+1573463398864,65,character_request,200,OK,Thread Group 1-1,text,true,,17845,185,1,1,http://localhost:8080/projectOne/characters,51,0,0
+1573463398929,0,character_request-0,200,OK,Thread Group 1-1,text,true,,501,0,0,0,null,0,0,0
+1573463399360,54,character_request,200,OK,Thread Group 1-1,text,true,,17845,185,1,1,http://localhost:8080/projectOne/characters,51,0,0
+1573463399413,1,character_request-0,200,OK,Thread Group 1-1,text,true,,501,0,0,0,null,0,0,0
+1573463399614,117,character_request,200,OK,Thread Group 1-1,text,true,,17845,185,1,1,http://localhost:8080/projectOne/characters,114,0,2
+1573463399731,0,character_request-0,200,OK,Thread Group 1-1,text,true,,501,0,0,0,null,0,0,0
+1573463400148,53,character_request,200,OK,Thread Group 1-1,text,true,,17845,185,1,1,http://localhost:8080/projectOne/characters,51,0,0
+1573463400201,0,character_request-0,200,OK,Thread Group 1-1,text,true,,501,0,0,0,null,0,0,0
+1573463400481,117,character_request,200,OK,Thread Group 1-1,text,true,,17845,185,1,1,http://localhost:8080/projectOne/characters,113,0,0
+1573463400597,1,character_request-0,200,OK,Thread Group 1-1,text,true,,501,0,0,0,null,0,0,0
+1573463400914,126,character_request,200,OK,Thread Group 1-1,text,true,,17845,185,1,1,http://localhost:8080/projectOne/characters,121,0,0
+1573463401039,1,character_request-0,200,OK,Thread Group 1-1,text,true,,501,0,0,0,null,0,0,0
+1573463401393,57,character_request,200,OK,Thread Group 1-1,text,true,,17845,185,1,1,http://localhost:8080/projectOne/characters,55,0,0
+1573463401450,0,character_request-0,200,OK,Thread Group 1-1,text,true,,501,0,0,0,null,0,0,0
+1573463401651,82,character_request,200,OK,Thread Group 1-1,text,true,,17845,185,1,1,http://localhost:8080/projectOne/characters,80,0,2
+1573463401733,0,character_request-0,200,OK,Thread Group 1-1,text,true,,501,0,0,0,null,0,0,0

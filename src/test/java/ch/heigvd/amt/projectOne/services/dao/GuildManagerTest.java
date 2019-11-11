@@ -19,7 +19,6 @@ import static org.junit.Assert.*;
 @RunWith(Arquillian.class)
 @MavenBuild
 @DeploymentParameters(testable = true)
-
 public class GuildManagerTest {
 
     @EJB
