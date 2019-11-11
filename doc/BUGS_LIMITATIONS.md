@@ -6,7 +6,7 @@
 
 Sometimes, the `launch_project.sh` script doesn't work as intended. In this case, the Arquillian tests fail.
 
-One must :
+If launching the script a second time doesn't work, one must :
 
 * Launch the topology-testing by hand with docker-compose. 
 * Go again on the root of the project and launch `mvn clean install -Dskiptest`. 
