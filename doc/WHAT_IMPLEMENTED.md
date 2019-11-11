@@ -2,7 +2,7 @@
 
 ### Part 1. What has been implemented
 
-#### Business domain
+#### 1.1 Business domain
 
 We decided to select an old role play game style business domain for our project, but a bit more fancy.  
 
@@ -15,9 +15,9 @@ We decided to select an old role play game style business domain for our project
 
 ![uml](./img/domain_uml.png)
 
-#### Mockups
+#### 1.2 Mockups
 
-To help us visualize the domain, we made mockups of what we through our pages would look like. Here is some of them.
+To help us visualize the domain, we made mockups of what we through our pages would look like. Here are some of them.
 
 The **characters** page :
 

@@ -4,7 +4,7 @@
 
 Building a multi-tiered application, we used the MVC pattern to generate our HTML on the server. Following the recommended time line, we made a first iteration by implementing a login servlet (Controller), a JSP login page (View) and DAOs to access the database (Model).
 
-#### The model
+#### 2.1 The model
 
 Each domain component is represented by a class in Java.
 
@@ -18,7 +18,7 @@ For this to work, the membership must contain both a character and a guild :
 
 ![membership_model](./img/membership_model.png)
 
-#### The controller
+#### 2.2 The controller
 
 The web application is composed of servlets. Each servlet is linked to a specific URL pattern and will handle every requests made on it. For example, the login page can be reached using :
 
@@ -37,7 +37,25 @@ Servlets can process `GET` and `POST` requests. They also can manipulate session
 
 Once they are done processing data - or not -, servlets always delegate the remaining work to JSP.
 
-#### The view 
+There is actually one servlet per page.
+
+![servlets](./img/servlets.png)
+
+##### 2.2.1 Filters
+
+In addition to the servlets, filters have been setup to restrain pages access.
+
+* Session filter : if the session is not set, the user can not access any other page than the login.
+* Admin filter : if the session variable `admin` is set to `true`, the user can access the administration panel.
+* Error parameters empty filter : if a page is accessed with empty parameters, a `404` error is displayed.
+
+##### 2.2.2 Admin
+
+There are special servlets dedicated to the administration panel. They are all located in the same package.
+
+![admin](./img/admin.png)
+
+#### 2.3 The view 
 
 The user can navigate the presentation tier through JSP (JavaServer Pages). Each page, except for the header and the footer, is linked to a servlet responsible for providing all the data needed to display the page correctly.
 
@@ -49,21 +67,31 @@ One useful feature is the possibility to access to request and session scopes. I
 
 
 
-#### The services
+#### 2.4 The services
 
 Services are implemented using Stateless Session Beans. Except for `mount` which need no special management, there is an EJB for each domain component of our model : a `characterManager`, a `classManager`, a  `guildManager` and a `membershipManager`.
 
+There is also an `AuthenticationService` responsible for hashing and checking passwords.
 
+##### 2.4.1 DAO
 
-#### The database
+The DAO interfaces define CRUD (Create Read Update Delete) operations along with other useful methods, like `findIdByName`, etc. There is one DAO per domain component (except Mount).
 
-The project uses a single PostgreSQL database as a resource, hosted in a docker container. The database can be managed by a pgAdmin console, hosted in another container. The tables are the following.
+![daos](./img/daos.png)
+
+##### 2.4.2 JDBC
+
+For the interaction with the relational database to work, each DAO must be injected with the dependency `jdbc/amt`. This represents the JDBC resource provided by the Payara server. Once done, we can get  connections from the pool by querying a DataSource.
+
+#### 2.5 The database
+
+The project uses a single PostgreSQL database called `amt` as a resource, hosted in a docker container. The database can be managed by a pgAdmin console, hosted in another container. The tables are the following.
 
 ![db_tables](./img/db_tables.png)
 
-... uses **EJB** (Enterprise Java Beans) 
+Dungeons & Unicorns comes with a slightly populated database :
 
-- Apply the **MVC pattern to generate markup (HTML)** on the server, and **not** to expose a REST API.
-- Implement business services as **EJBs**.
-- Store data in a **relational** database management system.
-- Implement data access with **JDBC**.
+* There are 12 immutable classes.
+* There are 10 immutable mounts.
+* There are 5 guilds. More can be created, and they all can be modified or deleted by an administrator.
+* There are a lot of test characters. More can be created by an user, and they all can be modified or deleted by an administrator.
