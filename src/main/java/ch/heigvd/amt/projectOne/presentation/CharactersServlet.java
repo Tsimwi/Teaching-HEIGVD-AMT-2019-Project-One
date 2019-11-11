@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(urlPatterns = "/characters")
@@ -44,7 +43,9 @@ public class CharactersServlet extends HttpServlet {
             numberOfUser = characterManager.countRows("character", "");
             characters = characterManager.getCharactersByPage(pageNumberInt - 1);
         }
-        //characters = characterManager.getAllCharacters();
+
+//        characters = characterManager.getCharactersForPaginationTest();
+
         req.setAttribute("numberOfPage", ((numberOfUser - 1) / 25) + 1);
         req.setAttribute("characters", characters);
 
