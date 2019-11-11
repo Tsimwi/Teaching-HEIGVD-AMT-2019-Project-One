@@ -1,8 +1,8 @@
 <%@include file="../includes/header.jsp" %>
 
 <div class="container">
-    <div class="container">
-        <a href="${pageContext.request.contextPath}/admin/guilds/add" class="btn btn-primary">Add new guild</a>
+    <div class="container text-center" style="margin-top: 5px">
+        <a href="${pageContext.request.contextPath}/admin/guilds/add" class="btn btn-danger">Add new guild</a>
     </div>
     <div class="container">
         <c:if test="${sessionScope.deleteStatus != null}">
@@ -45,7 +45,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <a  href="${pageContext.request.contextPath}/admin/guilds/delete?id=${guild.id}" type="button" class="btn btn-danger">Delete</a>
+                        <a href="${pageContext.request.contextPath}/admin/guilds/delete?id=${guild.id}" type="button" class="btn btn-danger">Delete</a>
                     </div>
                 </div>
             </div>

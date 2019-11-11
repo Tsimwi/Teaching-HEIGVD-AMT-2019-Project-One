@@ -1,6 +1,7 @@
 package ch.heigvd.amt.projectOne.presentation.filter;
 
 import ch.heigvd.amt.projectOne.model.Character;
+
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;

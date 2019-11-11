@@ -19,33 +19,33 @@ import java.util.List;
 
 public class ProfileServlet extends HttpServlet {
 
-  @EJB
-  MembershipManagerLocal membershipManager;
-  @EJB
-  CharacterManagerLocal characterManager;
+    @EJB
+    MembershipManagerLocal membershipManager;
+    @EJB
+    CharacterManagerLocal characterManager;
 
-  Character character;
+    Character character;
 
-  @Override
-  protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-    HttpSession session = req.getSession();
+        HttpSession session = req.getSession();
 
-    if (req.getParameterMap().containsKey("id")) {
-      character = characterManager.getCharacterById(Integer.parseInt(req.getParameter("id")));
-    } else {
-      character = (Character) session.getAttribute("character");
+        if (req.getParameterMap().containsKey("id")) {
+            character = characterManager.getCharacterById(Integer.parseInt(req.getParameter("id")));
+        } else {
+            character = (Character) session.getAttribute("character");
+        }
+
+        List<Membership> memberships = membershipManager.getMembershipsByUserId(character.getId());
+
+        req.setAttribute("character", character);
+        req.setAttribute("memberships", memberships);
+        req.getRequestDispatcher("/WEB-INF/pages/profile.jsp").forward(req, resp);
     }
 
-    List<Membership> memberships = membershipManager.getMembershipsByUserId(character.getId());
-
-    req.setAttribute("character", character);
-    req.setAttribute("memberships", memberships);
-    req.getRequestDispatcher("/WEB-INF/pages/profile.jsp").forward(req, resp);
-  }
-
-  @Override
-  protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    super.doPost(req, resp);
-  }
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doPost(req, resp);
+    }
 }

@@ -76,9 +76,11 @@ class AdminCharactersDeleteServletTest {
     @Test
     void weShouldNotBeAbleToDeleteCharacterBecauseIdMissing() throws ServletException, IOException {
         when(request.getParameterMap().containsKey("id")).thenReturn(false);
+        when(request.getRequestDispatcher("/WEB-INF/pages/error_404.jsp")).thenReturn(requestDispatcher);
+
         servlet.doGet(request, response);
 
-        verify(response, atLeastOnce()).sendRedirect(request.getContextPath() + "/admin/characters");
+        verify(requestDispatcher, atLeastOnce()).forward(request, response);
 
     }
 }

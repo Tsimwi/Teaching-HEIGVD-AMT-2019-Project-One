@@ -11,12 +11,13 @@ import org.junit.runner.RunWith;
 
 import javax.ejb.EJB;
 
+import java.sql.SQLException;
+
 import static org.junit.Assert.*;
 
 @RunWith(Arquillian.class)
 @MavenBuild
 @DeploymentParameters(testable = true)
-
 public class CharacterManagerTest {
 
     @EJB
@@ -101,7 +102,7 @@ public class CharacterManagerTest {
 
     @Test
     @Transactional(TransactionMode.ROLLBACK)
-    public void itShouldBePossibleToCheckIfAUsernameIsFree() {
+    public void itShouldBePossibleToCheckIfAUsernameIsFree() throws SQLException {
         String name = "Cake";
         String password = "test";
         boolean isAdmin = false;

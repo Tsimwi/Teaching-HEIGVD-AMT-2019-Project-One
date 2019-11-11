@@ -148,7 +148,7 @@ public class MembershipManagerTest {
 
         membershipManager.addMembership(membership1);
         membershipManager.addMembership(membership2);
-        List<Membership> memberships = membershipManager.getMembershipsByGuildId(guild.getId());
+        List<Membership> memberships = membershipManager.getMembershipsByGuildIdWithPage(guild.getId(), 0);
 
         assertFalse(memberships.isEmpty());
         assertEquals(memberships.size(), characters.size());

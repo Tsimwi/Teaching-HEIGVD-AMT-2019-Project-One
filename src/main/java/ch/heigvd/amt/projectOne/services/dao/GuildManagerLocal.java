@@ -4,10 +4,13 @@ import ch.heigvd.amt.projectOne.model.Character;
 import ch.heigvd.amt.projectOne.model.Guild;
 
 import javax.ejb.Local;
+import java.sql.SQLException;
 import java.util.List;
 
 @Local
 public interface GuildManagerLocal {
+
+    int getNumberOfGuild();
 
     List<Guild> getAllGuilds();
 

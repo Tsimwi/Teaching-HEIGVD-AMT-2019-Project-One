@@ -22,10 +22,10 @@ public class MembershipManager implements MembershipManagerLocal {
     @Resource(lookup = "jdbc/amt")
     private DataSource dataSource;
 
-    public int getNumberOfMembershipsForGuild(int id){
-
+    public int getNumberOfMembershipsForGuild(int id) {
+        Connection connection = null;
         try {
-            Connection connection = dataSource.getConnection();
+            connection = dataSource.getConnection();
             PreparedStatement pstmt = connection.prepareStatement("SELECT COUNT(*) AS counter FROM membership WHERE guild_id=?");
             pstmt.setObject(1, id);
             ResultSet rs = pstmt.executeQuery();
@@ -37,6 +37,8 @@ public class MembershipManager implements MembershipManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            closeConnection(connection);
         }
 
         return -1;
@@ -45,9 +47,9 @@ public class MembershipManager implements MembershipManagerLocal {
 
     @Override
     public boolean addMembership(Membership membership) {
-
+        Connection connection = null;
         try {
-            Connection connection = dataSource.getConnection();
+            connection = dataSource.getConnection();
             PreparedStatement pstmt = connection.prepareStatement("INSERT INTO membership(character_id, guild_id, rank) VALUES (?, ?, ?);");
             pstmt.setObject(1, membership.getCharacter().getId());
             pstmt.setObject(2, membership.getGuild().getId());
@@ -60,6 +62,8 @@ public class MembershipManager implements MembershipManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            closeConnection(connection);
         }
 
         return false;
@@ -67,10 +71,11 @@ public class MembershipManager implements MembershipManagerLocal {
 
     @Override
     public List<Membership> getMembershipsByUserId(int id) {
+        Connection connection = null;
         List<Membership> memberships = new ArrayList<>();
 
         try {
-            Connection connection = dataSource.getConnection();
+            connection = dataSource.getConnection();
             PreparedStatement pstmt = connection.prepareStatement(
                     "SELECT membership.id, guild_id, rank, name, character_id FROM membership INNER JOIN guild on membership.guild_id = guild.id WHERE character_id=?");
             pstmt.setObject(1, id);
@@ -99,19 +104,23 @@ public class MembershipManager implements MembershipManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            closeConnection(connection);
         }
         return memberships;
     }
 
     @Override
-    public List<Membership> getMembershipsByGuildId(int id) {
+    public List<Membership> getMembershipsByGuildIdWithPage(int id, int pageNumber) {
+        Connection connection = null;
         List<Membership> memberships = new ArrayList<>();
 
         try {
-            Connection connection = dataSource.getConnection();
+            connection = dataSource.getConnection();
             PreparedStatement pstmt = connection.prepareStatement(
-                    "SELECT membership.id, rank, character.name, guild_id, character_id FROM membership INNER JOIN character on membership.character_id = character.id WHERE guild_id=? ORDER BY character.name");
+                    "SELECT membership.id, rank, character.name, guild_id, character_id FROM membership INNER JOIN character on membership.character_id = character.id WHERE guild_id=? ORDER BY character.name LIMIT 25 OFFSET ?");
             pstmt.setObject(1, id);
+            pstmt.setObject(2, pageNumber * 25);
 
             ResultSet rs = pstmt.executeQuery();
 
@@ -137,14 +146,17 @@ public class MembershipManager implements MembershipManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            closeConnection(connection);
         }
         return memberships;
     }
 
     @Override
     public boolean removeMembership(int id) {
+        Connection connection = null;
         try {
-            Connection connection = dataSource.getConnection();
+            connection = dataSource.getConnection();
             PreparedStatement pstmt = connection.prepareStatement("DELETE FROM membership WHERE id=?");
             pstmt.setObject(1, id);
 
@@ -154,6 +166,8 @@ public class MembershipManager implements MembershipManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            closeConnection(connection);
         }
 
         return false;
@@ -161,8 +175,9 @@ public class MembershipManager implements MembershipManagerLocal {
 
     @Override
     public boolean checkCharacterMembership(Character character, Guild guild) {
+        Connection connection = null;
         try {
-            Connection connection = dataSource.getConnection();
+            connection = dataSource.getConnection();
             PreparedStatement pstmt = connection.prepareStatement("SELECT id FROM membership WHERE character_id=? AND guild_id=?");
             pstmt.setObject(1, character.getId());
             pstmt.setObject(2, guild.getId());
@@ -177,8 +192,18 @@ public class MembershipManager implements MembershipManagerLocal {
 
         } catch (SQLException ex) {
             Logger.getLogger(CharacterManager.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            closeConnection(connection);
         }
 
         return false;
+    }
+
+    private void closeConnection(Connection connection) {
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -22,12 +22,13 @@ public class AdminMembershipDeleteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        if (req.getParameterMap().containsKey("id") || req.getParameterMap().containsKey("guildId")) {
+        if (req.getParameterMap().containsKey("id") && req.getParameterMap().containsKey("guildId")) {
             int guildId = Integer.parseInt(req.getParameter("guildId"));
             membershipManager.removeMembership(Integer.parseInt(req.getParameter("id")));
             resp.sendRedirect(req.getContextPath() + "/admin/guilds/update?id=" + guildId);
+        } else {
+            req.getRequestDispatcher("/WEB-INF/pages/error_404.jsp").forward(req, resp);
         }
-        resp.sendRedirect(req.getContextPath() + "/admin/guilds");
 
     }
 
