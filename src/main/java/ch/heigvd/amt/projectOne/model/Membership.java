@@ -13,5 +13,5 @@ public class Membership {
     private Character character;
     private Guild guild;
     private String rank;
-
 }
+

@@ -10,18 +10,20 @@ You'll need to have `docker` and `docker-compose` and installed on your machine 
 
 ### Build the application
 
-First, populate the database by launching the following script from the root of the project :
+The following script will populate the database, build the containers and launch the site :
 
 ```bash
-$ ./populateDB.sh
+$ ./
 ```
 
-Then, launch the following script to build the containers:
+### Report
 
-```bash
-$ ./build_image.sh
-```
+Follow these links to learn more about the project :
 
-
+* **Part 1.** What has been implemented
+* **Part 2.** How it has been implemented
+* **Part 3.** The testing strategy behind it
+* **Part 4.** The experiment made to answer the performance tests
+* **Part 5.** Known bugs and limitations
 
  
