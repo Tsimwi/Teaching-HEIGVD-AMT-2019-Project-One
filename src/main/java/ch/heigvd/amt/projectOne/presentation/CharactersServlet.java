@@ -44,7 +44,7 @@ public class CharactersServlet extends HttpServlet {
             characters = characterManager.getCharactersByPage(pageNumberInt - 1);
         }
 
-//        characters = characterManager.getCharactersForPaginationTest();
+        //characters = characterManager.getCharactersForPaginationTest();
 
         req.setAttribute("numberOfPage", ((numberOfUser - 1) / 25) + 1);
         req.setAttribute("characters", characters);

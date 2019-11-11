@@ -1,0 +1,6 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1573467875205,119,login_request,200,OK,Thread Group 1-1,text,true,,4462,422,1,1,http://localhost:8080/projectOne/home,111,0,19
+1573467875205,111,login_request-0,302,Found,Thread Group 1-1,text,true,,594,243,1,1,http://localhost:8080/projectOne/login,111,0,19
+1573467875318,6,login_request-1,200,OK,Thread Group 1-1,text,true,,3868,179,1,1,http://localhost:8080/projectOne/home,6,0,0
+1573467875630,4290,character_request,200,OK,Thread Group 1-1,text,true,,41112629,185,1,1,http://localhost:8080/projectOne/characters,464,0,0
+1573467879919,1,character_request-0,200,OK,Thread Group 1-1,text,true,,501,0,0,0,null,0,0,0

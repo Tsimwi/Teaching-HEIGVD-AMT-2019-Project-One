@@ -1,0 +1,501 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1573475233556,1420,login_request,200,OK,Thread Group 1-18,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,174,0,37
+1573475233550,1431,login_request,200,OK,Thread Group 1-5,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,189,0,42
+1573475233550,189,login_request-0,302,Found,Thread Group 1-5,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,189,0,42
+1573475233738,1243,login_request-1,200,OK,Thread Group 1-5,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1243,0,0
+1573475233550,1432,login_request,200,OK,Thread Group 1-21,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,172,0,43
+1573475233575,1407,login_request,200,OK,Thread Group 1-25,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,144,0,16
+1573475233550,172,login_request-0,302,Found,Thread Group 1-21,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,172,0,43
+1573475233575,144,login_request-0,302,Found,Thread Group 1-25,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,144,0,16
+1573475233725,1257,login_request-1,200,OK,Thread Group 1-25,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1257,0,0
+1573475233565,1412,login_request,200,OK,Thread Group 1-24,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,157,0,28
+1573475233565,157,login_request-0,302,Found,Thread Group 1-24,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,157,0,28
+1573475233724,1253,login_request-1,200,OK,Thread Group 1-24,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1253,0,0
+1573475233724,1258,login_request-1,200,OK,Thread Group 1-21,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1258,0,0
+1573475233556,174,login_request-0,302,Found,Thread Group 1-18,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,174,0,37
+1573475233730,1246,login_request-1,200,OK,Thread Group 1-18,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1245,0,0
+1573475233556,1566,login_request,200,OK,Thread Group 1-14,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,282,0,35
+1573475233556,283,login_request-0,302,Found,Thread Group 1-14,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,282,0,35
+1573475233839,1283,login_request-1,200,OK,Thread Group 1-14,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1282,0,0
+1573475233600,1584,login_request,200,OK,Thread Group 1-27,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,240,0,1
+1573475233600,240,login_request-0,302,Found,Thread Group 1-27,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,240,0,1
+1573475233841,1343,login_request-1,200,OK,Thread Group 1-27,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1343,0,0
+1573475233550,1637,login_request,200,OK,Thread Group 1-7,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,297,0,54
+1573475233550,297,login_request-0,302,Found,Thread Group 1-7,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,297,0,54
+1573475233847,1340,login_request-1,200,OK,Thread Group 1-7,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1340,0,0
+1573475233556,1632,login_request,200,OK,Thread Group 1-20,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,284,0,37
+1573475233556,284,login_request-0,302,Found,Thread Group 1-20,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,284,0,37
+1573475233841,1347,login_request-1,200,OK,Thread Group 1-20,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1347,0,0
+1573475233549,1656,login_request,200,OK,Thread Group 1-9,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,313,0,45
+1573475233549,313,login_request-0,302,Found,Thread Group 1-9,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,313,0,45
+1573475233861,1344,login_request-1,200,OK,Thread Group 1-9,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1343,0,0
+1573475233556,1863,login_request,200,OK,Thread Group 1-23,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,420,0,37
+1573475233556,421,login_request-0,302,Found,Thread Group 1-23,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,420,0,37
+1573475233978,1441,login_request-1,200,OK,Thread Group 1-23,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1441,0,0
+1573475233551,1877,login_request,200,OK,Thread Group 1-6,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,424,0,50
+1573475233551,424,login_request-0,302,Found,Thread Group 1-6,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,424,0,50
+1573475233976,1452,login_request-1,200,OK,Thread Group 1-6,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1452,0,0
+1573475233548,1885,login_request,200,OK,Thread Group 1-19,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,435,0,45
+1573475233548,435,login_request-0,302,Found,Thread Group 1-19,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,435,0,45
+1573475233983,1450,login_request-1,200,OK,Thread Group 1-19,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1450,0,0
+1573475233557,1879,login_request,200,OK,Thread Group 1-2,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,428,0,47
+1573475233557,429,login_request-0,302,Found,Thread Group 1-2,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,428,0,47
+1573475233985,1451,login_request-1,200,OK,Thread Group 1-2,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1450,0,0
+1573475233548,1957,login_request,200,OK,Thread Group 1-13,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,464,0,45
+1573475233548,464,login_request-0,302,Found,Thread Group 1-13,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,464,0,45
+1573475234012,1493,login_request-1,200,OK,Thread Group 1-13,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1493,0,0
+1573475233550,2149,login_request,200,OK,Thread Group 1-11,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,537,0,54
+1573475233550,537,login_request-0,302,Found,Thread Group 1-11,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,537,0,54
+1573475234087,1612,login_request-1,200,OK,Thread Group 1-11,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1611,0,0
+1573475233556,2163,login_request,200,OK,Thread Group 1-8,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,532,0,48
+1573475233556,532,login_request-0,302,Found,Thread Group 1-8,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,532,0,48
+1573475234087,1632,login_request-1,200,OK,Thread Group 1-8,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1631,0,0
+1573475233551,2174,login_request,200,OK,Thread Group 1-10,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,540,0,50
+1573475233551,540,login_request-0,302,Found,Thread Group 1-10,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,540,0,50
+1573475234090,1635,login_request-1,200,OK,Thread Group 1-10,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1634,0,0
+1573475233550,2195,login_request,200,OK,Thread Group 1-4,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,552,0,54
+1573475233550,552,login_request-0,302,Found,Thread Group 1-4,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,552,0,54
+1573475234101,1644,login_request-1,200,OK,Thread Group 1-4,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1644,0,0
+1573475233551,2217,login_request,200,OK,Thread Group 1-16,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,573,0,49
+1573475233551,573,login_request-0,302,Found,Thread Group 1-16,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,573,0,49
+1573475234125,1643,login_request-1,200,OK,Thread Group 1-16,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1643,0,0
+1573475233549,2388,login_request,200,OK,Thread Group 1-15,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,630,0,51
+1573475233549,630,login_request-0,302,Found,Thread Group 1-15,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,630,0,51
+1573475234180,1757,login_request-1,200,OK,Thread Group 1-15,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1756,0,0
+1573475233550,2400,login_request,200,OK,Thread Group 1-3,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,644,0,51
+1573475233550,644,login_request-0,302,Found,Thread Group 1-3,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,644,0,51
+1573475234193,1757,login_request-1,200,OK,Thread Group 1-3,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1757,0,0
+1573475233550,2412,login_request,200,OK,Thread Group 1-12,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,643,0,54
+1573475233550,643,login_request-0,302,Found,Thread Group 1-12,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,643,0,54
+1573475234194,1768,login_request-1,200,OK,Thread Group 1-12,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1768,0,0
+1573475233547,2486,login_request,200,OK,Thread Group 1-22,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,659,0,57
+1573475233547,660,login_request-0,302,Found,Thread Group 1-22,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,659,0,57
+1573475234207,1826,login_request-1,200,OK,Thread Group 1-22,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1826,0,0
+1573475233552,2492,login_request,200,OK,Thread Group 1-1,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,676,0,53
+1573475233552,676,login_request-0,302,Found,Thread Group 1-1,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,676,0,53
+1573475234228,1816,login_request-1,200,OK,Thread Group 1-1,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1815,0,0
+1573475233545,2632,login_request,200,OK,Thread Group 1-17,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,726,0,59
+1573475233545,726,login_request-0,302,Found,Thread Group 1-17,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,726,0,59
+1573475234271,1906,login_request-1,200,OK,Thread Group 1-17,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1906,0,0
+1573475233585,2682,login_request,200,OK,Thread Group 1-26,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,714,0,19
+1573475233585,714,login_request-0,302,Found,Thread Group 1-26,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,714,0,19
+1573475234299,1968,login_request-1,200,OK,Thread Group 1-26,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1967,0,0
+1573475233604,2666,login_request,200,OK,Thread Group 1-28,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,696,0,1
+1573475233604,696,login_request-0,302,Found,Thread Group 1-28,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,696,0,1
+1573475234300,1970,login_request-1,200,OK,Thread Group 1-28,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1970,0,0
+1573475233615,2678,login_request,200,OK,Thread Group 1-29,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,696,0,0
+1573475233615,696,login_request-0,302,Found,Thread Group 1-29,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,696,0,0
+1573475234312,1981,login_request-1,200,OK,Thread Group 1-29,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1981,0,0
+1573475233625,2730,login_request,200,OK,Thread Group 1-30,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,707,0,15
+1573475233625,707,login_request-0,302,Found,Thread Group 1-30,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,707,0,15
+1573475234333,2022,login_request-1,200,OK,Thread Group 1-30,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,2022,0,0
+1573475233634,2730,login_request,200,OK,Thread Group 1-31,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,727,0,7
+1573475233634,727,login_request-0,302,Found,Thread Group 1-31,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,727,0,7
+1573475234362,2002,login_request-1,200,OK,Thread Group 1-31,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,2001,0,0
+1573475233669,2698,login_request,200,OK,Thread Group 1-34,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,732,0,1
+1573475233669,732,login_request-0,302,Found,Thread Group 1-34,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,732,0,1
+1573475234401,1966,login_request-1,200,OK,Thread Group 1-34,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1966,0,0
+1573475233661,2710,login_request,200,OK,Thread Group 1-33,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,745,0,2
+1573475233661,745,login_request-0,302,Found,Thread Group 1-33,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,745,0,2
+1573475234406,1965,login_request-1,200,OK,Thread Group 1-33,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1965,0,0
+1573475233653,2722,login_request,200,OK,Thread Group 1-32,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,753,0,1
+1573475233677,2698,login_request,200,OK,Thread Group 1-35,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,744,0,1
+1573475233653,753,login_request-0,302,Found,Thread Group 1-32,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,753,0,1
+1573475233677,744,login_request-0,302,Found,Thread Group 1-35,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,744,0,1
+1573475234406,1969,login_request-1,200,OK,Thread Group 1-32,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1969,0,0
+1573475234422,1953,login_request-1,200,OK,Thread Group 1-35,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1953,0,0
+1573475233716,2664,login_request,200,OK,Thread Group 1-39,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,806,0,1
+1573475233697,2684,login_request,200,OK,Thread Group 1-36,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,760,0,0
+1573475233716,806,login_request-0,302,Found,Thread Group 1-39,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,806,0,1
+1573475233697,760,login_request-0,302,Found,Thread Group 1-36,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,760,0,0
+1573475234523,1857,login_request-1,200,OK,Thread Group 1-39,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1857,0,0
+1573475234457,1924,login_request-1,200,OK,Thread Group 1-36,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1923,0,0
+1573475233711,2673,login_request,200,OK,Thread Group 1-38,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,825,0,0
+1573475233701,2683,login_request,200,OK,Thread Group 1-37,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,820,0,1
+1573475233711,825,login_request-0,302,Found,Thread Group 1-38,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,825,0,0
+1573475233701,820,login_request-0,302,Found,Thread Group 1-37,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,820,0,1
+1573475234539,1845,login_request-1,200,OK,Thread Group 1-38,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1845,0,0
+1573475234522,1862,login_request-1,200,OK,Thread Group 1-37,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1862,0,0
+1573475233728,2659,login_request,200,OK,Thread Group 1-40,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,960,0,0
+1573475233734,2653,login_request,200,OK,Thread Group 1-41,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,1083,0,1
+1573475233728,960,login_request-0,302,Found,Thread Group 1-40,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,960,0,0
+1573475233734,1084,login_request-0,302,Found,Thread Group 1-41,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,1083,0,1
+1573475234818,1569,login_request-1,200,OK,Thread Group 1-41,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1569,0,0
+1573475234688,1699,login_request-1,200,OK,Thread Group 1-40,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1699,0,0
+1573475233787,2609,login_request,200,OK,Thread Group 1-46,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,1294,0,1
+1573475233787,1294,login_request-0,302,Found,Thread Group 1-46,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,1294,0,1
+1573475235082,1314,login_request-1,200,OK,Thread Group 1-46,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1313,0,0
+1573475233779,2620,login_request,200,OK,Thread Group 1-45,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,1307,0,0
+1573475233779,1307,login_request-0,302,Found,Thread Group 1-45,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,1307,0,0
+1573475235087,1312,login_request-1,200,OK,Thread Group 1-45,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1311,0,0
+1573475233758,2645,login_request,200,OK,Thread Group 1-43,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,1333,0,1
+1573475233758,1333,login_request-0,302,Found,Thread Group 1-43,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,1333,0,1
+1573475235092,1311,login_request-1,200,OK,Thread Group 1-43,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1311,0,0
+1573475233764,2649,login_request,200,OK,Thread Group 1-44,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,1340,0,1
+1573475233752,2661,login_request,200,OK,Thread Group 1-42,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,1366,0,1
+1573475233764,1340,login_request-0,302,Found,Thread Group 1-44,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,1340,0,1
+1573475233752,1366,login_request-0,302,Found,Thread Group 1-42,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,1366,0,1
+1573475235105,1308,login_request-1,200,OK,Thread Group 1-44,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1307,0,0
+1573475235118,1295,login_request-1,200,OK,Thread Group 1-42,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1294,0,0
+1573475233815,2601,login_request,200,OK,Thread Group 1-49,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,1366,0,1
+1573475233815,1367,login_request-0,302,Found,Thread Group 1-49,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,1366,0,1
+1573475235182,1234,login_request-1,200,OK,Thread Group 1-49,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1233,0,0
+1573475233824,2596,login_request,200,OK,Thread Group 1-50,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,1381,0,1
+1573475233824,1381,login_request-0,302,Found,Thread Group 1-50,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,1381,0,1
+1573475235205,1215,login_request-1,200,OK,Thread Group 1-50,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1215,0,0
+1573475233815,2608,login_request,200,OK,Thread Group 1-48,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,1387,0,1
+1573475233815,1387,login_request-0,302,Found,Thread Group 1-48,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,1387,0,1
+1573475235202,1221,login_request-1,200,OK,Thread Group 1-48,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1220,0,0
+1573475233840,2585,login_request,200,OK,Thread Group 1-51,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,1383,0,1
+1573475233840,1383,login_request-0,302,Found,Thread Group 1-51,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,1383,0,1
+1573475235223,1202,login_request-1,200,OK,Thread Group 1-51,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1201,0,0
+1573475233858,2569,login_request,200,OK,Thread Group 1-53,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,1422,0,0
+1573475233858,1422,login_request-0,302,Found,Thread Group 1-53,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,1422,0,0
+1573475235280,1147,login_request-1,200,OK,Thread Group 1-53,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1147,0,0
+1573475233794,2635,login_request,200,OK,Thread Group 1-47,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,1389,0,2
+1573475233794,1389,login_request-0,302,Found,Thread Group 1-47,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,1389,0,2
+1573475235184,1245,login_request-1,200,OK,Thread Group 1-47,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1238,0,0
+1573475233884,2564,login_request,200,OK,Thread Group 1-56,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,1425,0,1
+1573475233884,1425,login_request-0,302,Found,Thread Group 1-56,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,1425,0,1
+1573475235309,1139,login_request-1,200,OK,Thread Group 1-56,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1139,0,0
+1573475233877,2578,login_request,200,OK,Thread Group 1-55,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,1432,0,1
+1573475233877,1432,login_request-0,302,Found,Thread Group 1-55,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,1432,0,1
+1573475235309,1146,login_request-1,200,OK,Thread Group 1-55,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1146,0,0
+1573475233855,2604,login_request,200,OK,Thread Group 1-52,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,1425,0,2
+1573475233855,1425,login_request-0,302,Found,Thread Group 1-52,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,1425,0,2
+1573475235280,1179,login_request-1,200,OK,Thread Group 1-52,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1179,0,0
+1573475233865,2602,login_request,200,OK,Thread Group 1-54,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,1444,0,0
+1573475233865,1444,login_request-0,302,Found,Thread Group 1-54,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,1444,0,0
+1573475235309,1158,login_request-1,200,OK,Thread Group 1-54,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,1157,0,0
+1573475233908,12040,login_request,200,OK,Thread Group 1-58,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,1464,0,2
+1573475233908,1464,login_request-0,302,Found,Thread Group 1-58,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,1464,0,2
+1573475235372,10576,login_request-1,200,OK,Thread Group 1-58,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,10571,0,0
+1573475233902,12048,login_request,200,OK,Thread Group 1-57,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,1475,0,1
+1573475233902,1475,login_request-0,302,Found,Thread Group 1-57,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,1475,0,1
+1573475235377,10573,login_request-1,200,OK,Thread Group 1-57,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,10573,0,0
+1573475233938,12183,login_request,200,OK,Thread Group 1-61,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,1478,0,2
+1573475233938,1478,login_request-0,302,Found,Thread Group 1-61,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,1478,0,2
+1573475235418,10703,login_request-1,200,OK,Thread Group 1-61,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,10703,0,0
+1573475233918,12204,login_request,200,OK,Thread Group 1-59,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,1496,0,2
+1573475233918,1496,login_request-0,302,Found,Thread Group 1-59,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,1496,0,2
+1573475235415,10707,login_request-1,200,OK,Thread Group 1-59,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,10707,0,0
+1573475233928,12195,login_request,200,OK,Thread Group 1-60,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,1472,0,1
+1573475233928,1472,login_request-0,302,Found,Thread Group 1-60,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,1472,0,1
+1573475235401,10722,login_request-1,200,OK,Thread Group 1-60,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,10722,0,0
+1573475233957,12190,login_request,200,OK,Thread Group 1-62,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,1527,0,8
+1573475233957,1527,login_request-0,302,Found,Thread Group 1-62,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,1527,0,8
+1573475235484,10663,login_request-1,200,OK,Thread Group 1-62,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,10663,0,0
+1573475233961,12193,login_request,200,OK,Thread Group 1-63,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,1538,0,0
+1573475233961,1538,login_request-0,302,Found,Thread Group 1-63,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,1538,0,0
+1573475235500,10654,login_request-1,200,OK,Thread Group 1-63,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,10653,0,0
+1573475233965,12206,login_request,200,OK,Thread Group 1-64,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,1555,0,1
+1573475233965,1555,login_request-0,302,Found,Thread Group 1-64,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,1555,0,1
+1573475235521,10650,login_request-1,200,OK,Thread Group 1-64,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,10650,0,0
+1573475233979,12208,login_request,200,OK,Thread Group 1-65,text,true,,4462,422,100,100,http://localhost:8080/projectOne/home,1562,0,1
+1573475233979,1562,login_request-0,302,Found,Thread Group 1-65,text,true,,594,243,100,100,http://localhost:8080/projectOne/login,1562,0,1
+1573475235542,10645,login_request-1,200,OK,Thread Group 1-65,text,true,,3868,179,100,100,http://localhost:8080/projectOne/home,10645,0,0
+1573475235237,31730,character_request,200,OK,Thread Group 1-21,text,true,,41112630,185,100,100,http://localhost:8080/projectOne/characters,5847,0,0
+1573475266966,2,character_request-0,200,OK,Thread Group 1-21,text,true,,502,0,0,0,null,0,0,0
+1573475235342,31759,character_request,200,OK,Thread Group 1-25,text,true,,41112630,185,100,100,http://localhost:8080/projectOne/characters,5733,0,0
+1573475267101,1,character_request-0,200,OK,Thread Group 1-25,text,true,,502,0,0,0,null,0,0,0
+1573475234094,49372,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-77,text,false,,3152,243,98,98,http://localhost:8080/projectOne/home,1738,0,0
+1573475234284,49182,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-96,text,false,,3152,243,98,98,http://localhost:8080/projectOne/home,2087,0,0
+1573475234094,1738,login_request-0,302,Found,Thread Group 1-77,text,true,,594,243,98,98,http://localhost:8080/projectOne/login,1738,0,0
+1573475234284,2087,login_request-0,302,Found,Thread Group 1-96,text,true,,594,243,98,98,http://localhost:8080/projectOne/login,2087,0,0
+1573475235832,47634,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-77,text,false,,2558,0,98,98,http://localhost:8080/projectOne/home,0,0,0
+1573475236372,47094,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-96,text,false,,2558,0,98,98,http://localhost:8080/projectOne/home,0,0,0
+1573475236260,47208,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-12,text,false,Response was null,2359,0,98,98,http://localhost:8080/projectOne/characters,0,0,1
+1573475283468,0,character_request-0,200,OK,Thread Group 1-12,text,true,,292,0,0,0,null,0,0,0
+1573475234073,49394,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-74,text,false,,3152,243,98,98,http://localhost:8080/projectOne/home,1665,0,1
+1573475234073,1665,login_request-0,302,Found,Thread Group 1-74,text,true,,594,243,98,98,http://localhost:8080/projectOne/login,1665,0,1
+1573475235739,47728,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-74,text,false,,2558,0,98,98,http://localhost:8080/projectOne/home,0,0,0
+1573475234230,49238,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-89,text,false,,3152,243,97,97,http://localhost:8080/projectOne/home,1943,0,1
+1573475234230,1943,login_request-0,302,Found,Thread Group 1-89,text,true,,594,243,97,97,http://localhost:8080/projectOne/login,1943,0,1
+1573475236174,47294,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-89,text,false,,2558,0,97,97,http://localhost:8080/projectOne/home,0,0,0
+1573475235769,47703,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-2,text,false,Response was null,2358,0,98,98,http://localhost:8080/projectOne/characters,0,0,1
+1573475283472,0,character_request-0,200,OK,Thread Group 1-2,text,true,,291,0,0,0,null,0,0,0
+1573475246350,37265,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-63,text,false,Response was null,2359,0,97,97,http://localhost:8080/projectOne/characters,0,0,1
+1573475283615,0,character_request-0,200,OK,Thread Group 1-63,text,true,,292,0,0,0,null,0,0,0
+1573475235809,47845,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-23,text,false,Response was null,2358,0,97,97,http://localhost:8080/projectOne/characters,0,0,1
+1573475236514,47140,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-28,text,false,Response was null,2359,0,97,97,http://localhost:8080/projectOne/characters,0,0,1
+1573475283616,38,character_request-0,200,OK,Thread Group 1-23,text,true,,291,0,0,0,null,0,0,0
+1573475283616,38,character_request-0,200,OK,Thread Group 1-28,text,true,,292,0,0,0,null,0,0,0
+1573475236407,47250,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-1,text,false,Response was null,2358,0,97,96,http://localhost:8080/projectOne/characters,0,0,0
+1573475283657,0,character_request-0,200,OK,Thread Group 1-1,text,true,,291,0,0,0,null,0,0,0
+1573475246410,37247,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-60,text,false,Response was null,2359,0,97,96,http://localhost:8080/projectOne/characters,0,0,1
+1573475283657,0,character_request-0,200,OK,Thread Group 1-60,text,true,,292,0,0,0,null,0,0,0
+1573475246648,37032,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-62,text,false,Response was null,2359,0,97,95,http://localhost:8080/projectOne/characters,0,0,1
+1573475283680,0,character_request-0,200,OK,Thread Group 1-62,text,true,,292,0,0,0,null,0,0,0
+1573475246442,37241,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-64,text,false,Response was null,2359,0,97,95,http://localhost:8080/projectOne/characters,0,0,1
+1573475283683,0,character_request-0,200,OK,Thread Group 1-64,text,true,,292,0,0,0,null,0,0,0
+1573475246408,37277,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-65,text,false,Response was null,2359,0,97,93,http://localhost:8080/projectOne/characters,0,0,1
+1573475283685,0,character_request-0,200,OK,Thread Group 1-65,text,true,,292,0,0,0,null,0,0,0
+1573475234154,49449,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-83,text,false,,3152,243,97,92,http://localhost:8080/projectOne/home,1844,0,1
+1573475234154,1844,login_request-0,302,Found,Thread Group 1-83,text,true,,594,243,97,92,http://localhost:8080/projectOne/login,1844,0,1
+1573475235998,47605,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-83,text,false,,2558,0,97,92,http://localhost:8080/projectOne/home,0,0,0
+1573475246473,37216,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-59,text,false,Response was null,2359,0,97,92,http://localhost:8080/projectOne/characters,0,0,1
+1573475234184,49417,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-86,text,false,,3152,243,97,92,http://localhost:8080/projectOne/home,1947,0,0
+1573475283689,0,character_request-0,200,OK,Thread Group 1-59,text,true,,292,0,0,0,null,0,0,0
+1573475234184,1947,login_request-0,302,Found,Thread Group 1-86,text,true,,594,243,97,92,http://localhost:8080/projectOne/login,1947,0,0
+1573475236132,47469,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-86,text,false,,2558,0,97,92,http://localhost:8080/projectOne/home,0,0,0
+1573475236742,46951,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-48,text,false,Response was null,2359,0,97,92,http://localhost:8080/projectOne/characters,0,0,1
+1573475283693,0,character_request-0,200,OK,Thread Group 1-48,text,true,,292,0,0,0,null,0,0,0
+1573475236615,47088,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-37,text,false,Response was null,2359,0,97,92,http://localhost:8080/projectOne/characters,0,0,1
+1573475283703,0,character_request-0,200,OK,Thread Group 1-37,text,true,,292,0,0,0,null,0,0,0
+1573475234026,49571,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-70,text,false,,3152,243,97,92,http://localhost:8080/projectOne/home,1615,0,1
+1573475234026,1615,login_request-0,302,Found,Thread Group 1-70,text,true,,594,243,97,92,http://localhost:8080/projectOne/login,1615,0,1
+1573475235642,47955,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-70,text,false,,2558,0,97,92,http://localhost:8080/projectOne/home,0,0,0
+1573475234204,49391,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-88,text,false,,3152,243,97,92,http://localhost:8080/projectOne/home,1915,0,0
+1573475234204,1915,login_request-0,302,Found,Thread Group 1-88,text,true,,594,243,97,92,http://localhost:8080/projectOne/login,1915,0,0
+1573475236119,47476,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-88,text,false,,2558,0,97,92,http://localhost:8080/projectOne/home,0,0,0
+1573475234104,49361,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-78,text,false,,3152,243,97,92,http://localhost:8080/projectOne/home,1758,0,0
+1573475234104,1758,login_request-0,302,Found,Thread Group 1-78,text,true,,594,243,97,92,http://localhost:8080/projectOne/login,1758,0,0
+1573475234144,49321,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-82,text,false,,3152,243,97,92,http://localhost:8080/projectOne/home,1801,0,1
+1573475234144,1801,login_request-0,302,Found,Thread Group 1-82,text,true,,594,243,97,92,http://localhost:8080/projectOne/login,1801,0,1
+1573475235946,47519,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-82,text,false,,2558,0,97,92,http://localhost:8080/projectOne/home,0,0,0
+1573475246003,37722,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-58,text,false,Response was null,2359,0,97,92,http://localhost:8080/projectOne/characters,0,0,1
+1573475246243,37482,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-57,text,false,Response was null,2359,0,97,92,http://localhost:8080/projectOne/characters,0,0,0
+1573475283725,0,character_request-0,200,OK,Thread Group 1-58,text,true,,292,0,0,0,null,0,0,0
+1573475283725,0,character_request-0,200,OK,Thread Group 1-57,text,true,,292,0,0,0,null,0,0,0
+1573475236986,46740,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-44,text,false,Response was null,2359,0,97,92,http://localhost:8080/projectOne/characters,0,0,0
+1573475283725,1,character_request-0,200,OK,Thread Group 1-44,text,true,,292,0,0,0,null,0,0,0
+1573475235862,47603,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-78,text,false,,2558,0,97,92,http://localhost:8080/projectOne/home,0,0,0
+1573475234324,49270,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-100,text,false,,3152,243,97,90,http://localhost:8080/projectOne/home,2160,0,1
+1573475234037,49428,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-71,text,false,,3152,243,97,92,http://localhost:8080/projectOne/home,1636,0,1
+1573475234324,2160,login_request-0,302,Found,Thread Group 1-100,text,true,,594,243,97,90,http://localhost:8080/projectOne/login,2160,0,1
+1573475234037,1636,login_request-0,302,Found,Thread Group 1-71,text,true,,594,243,97,92,http://localhost:8080/projectOne/login,1636,0,1
+1573475236484,47110,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-100,text,false,,2558,0,97,90,http://localhost:8080/projectOne/home,0,0,1
+1573475235673,47792,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-71,text,false,,2558,0,97,92,http://localhost:8080/projectOne/home,0,0,0
+1573475233994,49599,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-66,text,false,,3152,243,97,90,http://localhost:8080/projectOne/home,1556,0,0
+1573475233994,1556,login_request-0,302,Found,Thread Group 1-66,text,true,,594,243,97,90,http://localhost:8080/projectOne/login,1556,0,0
+1573475235550,48043,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-66,text,false,,2558,0,97,90,http://localhost:8080/projectOne/home,0,0,0
+1573475236554,47207,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-45,text,false,Response was null,2358,0,97,89,http://localhost:8080/projectOne/characters,0,0,1
+1573475283760,1,character_request-0,200,OK,Thread Group 1-45,text,true,,291,0,0,0,null,0,0,0
+1573475236161,47602,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-11,text,false,Response was null,2359,0,97,88,http://localhost:8080/projectOne/characters,0,0,0
+1573475283763,0,character_request-0,200,OK,Thread Group 1-11,text,true,,292,0,0,0,null,0,0,0
+1573475234254,49337,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-93,text,false,,3152,243,97,87,http://localhost:8080/projectOne/home,2009,0,1
+1573475234254,2009,login_request-0,302,Found,Thread Group 1-93,text,true,,594,243,97,87,http://localhost:8080/projectOne/login,2009,0,1
+1573475236263,47328,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-93,text,false,,2558,0,97,87,http://localhost:8080/projectOne/home,0,0,1
+1573475234060,49531,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-72,text,false,,3152,243,97,87,http://localhost:8080/projectOne/home,1699,0,0
+1573475234060,1700,login_request-0,302,Found,Thread Group 1-72,text,true,,594,243,97,87,http://localhost:8080/projectOne/login,1699,0,0
+1573475235760,47831,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-72,text,false,,2558,0,97,87,http://localhost:8080/projectOne/home,0,0,0
+1573475236093,47674,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-4,text,false,Response was null,2358,0,97,87,http://localhost:8080/projectOne/characters,0,0,1
+1573475283766,1,character_request-0,200,OK,Thread Group 1-4,text,true,,291,0,0,0,null,0,0,0
+1573475235861,47908,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-6,text,false,Response was null,2358,0,97,86,http://localhost:8080/projectOne/characters,0,0,0
+1573475236649,47120,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-46,text,false,Response was null,2359,0,97,86,http://localhost:8080/projectOne/characters,0,0,0
+1573475283768,1,character_request-0,200,OK,Thread Group 1-6,text,true,,291,0,0,0,null,0,0,0
+1573475283768,1,character_request-0,200,OK,Thread Group 1-46,text,true,,292,0,0,0,null,0,0,0
+1573475236672,47099,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-35,text,false,Response was null,2359,0,97,84,http://localhost:8080/projectOne/characters,0,0,0
+1573475283771,0,character_request-0,200,OK,Thread Group 1-35,text,true,,292,0,0,0,null,0,0,0
+1573475236622,47151,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-38,text,false,Response was null,2359,0,97,83,http://localhost:8080/projectOne/characters,0,0,1
+1573475283773,0,character_request-0,200,OK,Thread Group 1-38,text,true,,292,0,0,0,null,0,0,0
+1573475234126,49461,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-80,text,false,,3152,243,97,82,http://localhost:8080/projectOne/home,1769,0,1
+1573475234126,1769,login_request-0,302,Found,Thread Group 1-80,text,true,,594,243,97,82,http://localhost:8080/projectOne/login,1769,0,1
+1573475235896,47691,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-80,text,false,,2558,0,97,82,http://localhost:8080/projectOne/home,0,0,0
+1573475234054,49533,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-73,text,false,,3152,243,97,82,http://localhost:8080/projectOne/home,1637,0,0
+1573475234054,1637,login_request-0,302,Found,Thread Group 1-73,text,true,,594,243,97,82,http://localhost:8080/projectOne/login,1637,0,0
+1573475235692,47895,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-73,text,false,,2558,0,97,82,http://localhost:8080/projectOne/home,0,0,0
+1573475236665,47146,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-26,text,false,Response was null,2359,0,97,82,http://localhost:8080/projectOne/characters,0,0,1
+1573475283811,0,character_request-0,200,OK,Thread Group 1-26,text,true,,292,0,0,0,null,0,0,0
+1573475234085,49496,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-76,text,false,,3152,243,97,81,http://localhost:8080/projectOne/home,1748,0,1
+1573475234239,49340,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-90,text,false,,3152,243,97,81,http://localhost:8080/projectOne/home,1934,0,0
+1573475234085,1748,login_request-0,302,Found,Thread Group 1-76,text,true,,594,243,97,81,http://localhost:8080/projectOne/login,1748,0,1
+1573475234239,1934,login_request-0,302,Found,Thread Group 1-90,text,true,,594,243,97,81,http://localhost:8080/projectOne/login,1934,0,0
+1573475235833,47748,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-76,text,false,,2558,0,97,81,http://localhost:8080/projectOne/home,0,0,0
+1573475236174,47405,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-90,text,false,,2558,0,97,81,http://localhost:8080/projectOne/home,0,0,0
+1573475234136,49428,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-81,text,false,,3152,243,97,81,http://localhost:8080/projectOne/home,1795,0,1
+1573475234136,1795,login_request-0,302,Found,Thread Group 1-81,text,true,,594,243,97,81,http://localhost:8080/projectOne/login,1795,0,1
+1573475235931,47633,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-81,text,false,,2558,0,97,81,http://localhost:8080/projectOne/home,0,0,0
+1573475234305,49257,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-98,text,false,,3152,243,97,81,http://localhost:8080/projectOne/home,2088,0,0
+1573475234305,2088,login_request-0,302,Found,Thread Group 1-98,text,true,,594,243,97,81,http://localhost:8080/projectOne/login,2088,0,0
+1573475236393,47169,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-98,text,false,,2558,0,97,81,http://localhost:8080/projectOne/home,0,0,1
+1573475236821,46995,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-33,text,false,Response was null,2359,0,97,81,http://localhost:8080/projectOne/characters,0,0,1
+1573475236774,47042,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-51,text,false,Response was null,2359,0,97,81,http://localhost:8080/projectOne/characters,0,0,1
+1573475283815,1,character_request-0,200,OK,Thread Group 1-33,text,true,,292,0,0,0,null,0,0,0
+1573475283815,1,character_request-0,200,OK,Thread Group 1-51,text,true,,292,0,0,0,null,0,0,0
+1573475236762,47054,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-32,text,false,Response was null,2359,0,97,81,http://localhost:8080/projectOne/characters,0,0,1
+1573475236844,46973,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-50,text,false,Response was null,2359,0,97,81,http://localhost:8080/projectOne/characters,0,0,1
+1573475283815,1,character_request-0,200,OK,Thread Group 1-32,text,true,,292,0,0,0,null,0,0,0
+1573475283816,1,character_request-0,200,OK,Thread Group 1-50,text,true,,292,0,0,0,null,0,0,0
+1573475236037,47782,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-16,text,false,Response was null,2359,0,97,78,http://localhost:8080/projectOne/characters,0,0,1
+1573475283819,0,character_request-0,200,OK,Thread Group 1-16,text,true,,292,0,0,0,null,0,0,0
+1573475234315,49216,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-99,text,false,,3152,243,97,76,http://localhost:8080/projectOne/home,2102,0,0
+1573475234315,2102,login_request-0,302,Found,Thread Group 1-99,text,true,,594,243,97,76,http://localhost:8080/projectOne/login,2102,0,0
+1573475236418,47113,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-99,text,false,,2558,0,97,76,http://localhost:8080/projectOne/home,0,0,0
+1573475236755,47067,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-41,text,false,Response was null,2359,0,97,76,http://localhost:8080/projectOne/characters,0,0,1
+1573475283822,0,character_request-0,200,OK,Thread Group 1-41,text,true,,292,0,0,0,null,0,0,0
+1573475236049,47775,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-13,text,false,Response was null,2359,0,97,75,http://localhost:8080/projectOne/characters,0,0,0
+1573475235903,47921,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-10,text,false,Response was null,2359,0,97,75,http://localhost:8080/projectOne/characters,0,0,1
+1573475283824,0,character_request-0,200,OK,Thread Group 1-13,text,true,,292,0,0,0,null,0,0,0
+1573475283824,0,character_request-0,200,OK,Thread Group 1-10,text,true,,292,0,0,0,null,0,0,0
+1573475236688,47138,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-29,text,false,Response was null,2359,0,97,75,http://localhost:8080/projectOne/characters,0,0,1
+1573475234281,49245,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-95,text,false,,3152,243,97,74,http://localhost:8080/projectOne/home,2005,0,1
+1573475234281,2005,login_request-0,302,Found,Thread Group 1-95,text,true,,594,243,97,74,http://localhost:8080/projectOne/login,2005,0,1
+1573475236287,47239,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-95,text,false,,2558,0,97,74,http://localhost:8080/projectOne/home,0,0,0
+1573475283826,0,character_request-0,200,OK,Thread Group 1-29,text,true,,292,0,0,0,null,0,0,0
+1573475236527,47300,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-56,text,false,Response was null,2359,0,97,73,http://localhost:8080/projectOne/characters,0,0,0
+1573475283827,0,character_request-0,200,OK,Thread Group 1-56,text,true,,292,0,0,0,null,0,0,0
+1573475234120,49404,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-79,text,false,,3152,243,97,71,http://localhost:8080/projectOne/home,1769,0,0
+1573475234120,1769,login_request-0,302,Found,Thread Group 1-79,text,true,,594,243,97,71,http://localhost:8080/projectOne/login,1769,0,0
+1573475235890,47634,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-79,text,false,,2558,0,97,71,http://localhost:8080/projectOne/home,0,0,0
+1573475234245,49277,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-92,text,false,,3152,243,97,71,http://localhost:8080/projectOne/home,1989,0,0
+1573475234245,1989,login_request-0,302,Found,Thread Group 1-92,text,true,,594,243,97,71,http://localhost:8080/projectOne/login,1989,0,0
+1573475236234,47288,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-92,text,false,,2558,0,97,71,http://localhost:8080/projectOne/home,0,0,0
+1573475234196,49324,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-87,text,false,,3152,243,97,71,http://localhost:8080/projectOne/home,1940,0,1
+1573475234196,1940,login_request-0,302,Found,Thread Group 1-87,text,true,,594,243,97,71,http://localhost:8080/projectOne/login,1940,0,1
+1573475236136,47384,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-87,text,false,,2558,0,97,71,http://localhost:8080/projectOne/home,0,0,0
+1573475236864,46967,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-49,text,false,Response was null,2359,0,97,71,http://localhost:8080/projectOne/characters,0,0,1
+1573475283831,0,character_request-0,200,OK,Thread Group 1-49,text,true,,292,0,0,0,null,0,0,0
+1573475236531,47303,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-36,text,false,Response was null,2359,0,97,70,http://localhost:8080/projectOne/characters,0,0,0
+1573475283834,0,character_request-0,200,OK,Thread Group 1-36,text,true,,292,0,0,0,null,0,0,0
+1573475236854,46983,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-42,text,false,Response was null,2359,0,97,69,http://localhost:8080/projectOne/characters,0,0,1
+1573475283836,1,character_request-0,200,OK,Thread Group 1-42,text,true,,292,0,0,0,null,0,0,0
+1573475236115,47724,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-3,text,false,Response was null,2358,0,97,68,http://localhost:8080/projectOne/characters,0,0,1
+1573475236362,47477,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-22,text,false,Response was null,2359,0,97,68,http://localhost:8080/projectOne/characters,0,0,1
+1573475283838,1,character_request-0,200,OK,Thread Group 1-3,text,true,,291,0,0,0,null,0,0,0
+1573475283839,0,character_request-0,200,OK,Thread Group 1-22,text,true,,292,0,0,0,null,0,0,0
+1573475236535,47305,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-30,text,false,Response was null,2359,0,97,68,http://localhost:8080/projectOne/characters,0,0,1
+1573475283840,0,character_request-0,200,OK,Thread Group 1-30,text,true,,292,0,0,0,null,0,0,0
+1573475234014,49473,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-69,text,false,,3152,243,97,65,http://localhost:8080/projectOne/home,1621,0,0
+1573475234014,1621,login_request-0,302,Found,Thread Group 1-69,text,true,,594,243,97,65,http://localhost:8080/projectOne/login,1621,0,0
+1573475234173,49300,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-84,text,false,,3152,243,97,65,http://localhost:8080/projectOne/home,1878,0,0
+1573475235637,47850,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-69,text,false,,2558,0,97,65,http://localhost:8080/projectOne/home,0,0,0
+1573475234173,1878,login_request-0,302,Found,Thread Group 1-84,text,true,,594,243,97,65,http://localhost:8080/projectOne/login,1878,0,0
+1573475234078,49568,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-75,text,false,,3152,243,96,58,http://localhost:8080/projectOne/home,1682,0,1
+1573475234078,1683,login_request-0,302,Found,Thread Group 1-75,text,true,,594,243,96,58,http://localhost:8080/projectOne/login,1682,0,1
+1573475235761,47885,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-75,text,false,,2558,0,96,58,http://localhost:8080/projectOne/home,0,0,0
+1573475236610,47245,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-47,text,false,Response was null,2358,0,97,65,http://localhost:8080/projectOne/characters,0,0,1
+1573475283855,0,character_request-0,200,OK,Thread Group 1-47,text,true,,291,0,0,0,null,0,0,0
+1573475236693,47162,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-54,text,false,Response was null,2358,0,97,65,http://localhost:8080/projectOne/characters,0,0,0
+1573475283855,0,character_request-0,200,OK,Thread Group 1-54,text,true,,291,0,0,0,null,0,0,0
+1573475236865,46991,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-43,text,false,Response was null,2359,0,97,65,http://localhost:8080/projectOne/characters,0,0,0
+1573475283856,0,character_request-0,200,OK,Thread Group 1-43,text,true,,292,0,0,0,null,0,0,0
+1573475236605,47251,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-55,text,false,Response was null,2359,0,96,58,http://localhost:8080/projectOne/characters,0,0,1
+1573475283856,0,character_request-0,200,OK,Thread Group 1-55,text,true,,292,0,0,0,null,0,0,0
+1573475234299,49342,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-97,text,false,,3152,243,96,58,http://localhost:8080/projectOne/home,2051,0,1
+1573475235681,48164,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-19,text,false,Response was null,2358,0,97,65,http://localhost:8080/projectOne/characters,0,0,0
+1573475234299,2051,login_request-0,302,Found,Thread Group 1-97,text,true,,594,243,96,58,http://localhost:8080/projectOne/login,2051,0,1
+1573475234179,49292,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-85,text,false,,3152,243,97,64,http://localhost:8080/projectOne/home,1842,0,0
+1573475236052,47421,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-84,text,false,,2558,0,97,65,http://localhost:8080/projectOne/home,0,0,0
+1573475234179,1842,login_request-0,302,Found,Thread Group 1-85,text,true,,594,243,97,64,http://localhost:8080/projectOne/login,1842,0,0
+1573475233998,49487,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-67,text,false,,3152,243,97,65,http://localhost:8080/projectOne/home,1592,0,0
+1573475236022,47449,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-85,text,false,,2558,0,97,64,http://localhost:8080/projectOne/home,0,0,0
+1573475233998,1592,login_request-0,302,Found,Thread Group 1-67,text,true,,594,243,97,65,http://localhost:8080/projectOne/login,1592,0,0
+1573475235590,47895,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-67,text,false,,2558,0,97,65,http://localhost:8080/projectOne/home,0,0,0
+1573475236705,47138,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-17,text,false,Response was null,2359,0,97,65,http://localhost:8080/projectOne/characters,0,0,0
+1573475283843,0,character_request-0,200,OK,Thread Group 1-17,text,true,,292,0,0,0,null,0,0,0
+1573475236661,47200,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-34,text,false,Response was null,2359,0,97,64,http://localhost:8080/projectOne/characters,0,0,1
+1573475236803,47039,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-31,text,false,Response was null,2358,0,97,65,http://localhost:8080/projectOne/characters,0,0,0
+1573475283842,0,character_request-0,200,OK,Thread Group 1-31,text,true,,291,0,0,0,null,0,0,0
+1573475283858,3,character_request-0,200,OK,Thread Group 1-34,text,true,,292,0,0,0,null,0,0,0
+1573475236893,46969,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-52,text,false,Response was null,2359,0,97,65,http://localhost:8080/projectOne/characters,0,0,1
+1573475283857,5,character_request-0,200,OK,Thread Group 1-52,text,true,,292,0,0,0,null,0,0,0
+1573475246414,37447,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-61,text,false,Response was null,2359,0,96,58,http://localhost:8080/projectOne/characters,0,0,1
+1573475283860,1,character_request-0,200,OK,Thread Group 1-61,text,true,,292,0,0,0,null,0,0,0
+1573475236351,47290,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-97,text,false,,2558,0,96,58,http://localhost:8080/projectOne/home,0,0,0
+1573475283845,0,character_request-0,200,OK,Thread Group 1-19,text,true,,291,0,0,0,null,0,0,0
+1573475236906,46949,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-53,text,false,Response was null,2359,0,96,58,http://localhost:8080/projectOne/characters,0,0,1
+1573475283855,0,character_request-0,200,OK,Thread Group 1-53,text,true,,292,0,0,0,null,0,0,0
+1573475234265,49205,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-94,text,false,,3152,243,97,64,http://localhost:8080/projectOne/home,2020,0,1
+1573475236216,47633,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-15,text,false,Response was null,2359,0,96,58,http://localhost:8080/projectOne/characters,0,0,3
+1573475234265,2021,login_request-0,302,Found,Thread Group 1-94,text,true,,594,243,97,64,http://localhost:8080/projectOne/login,2020,0,1
+1573475283849,0,character_request-0,200,OK,Thread Group 1-15,text,true,,292,0,0,0,null,0,0,0
+1573475236286,47184,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-94,text,false,,2558,0,97,64,http://localhost:8080/projectOne/home,0,0,0
+1573475236865,46984,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-39,text,false,Response was null,2359,0,96,58,http://localhost:8080/projectOne/characters,0,0,0
+1573475283849,0,character_request-0,200,OK,Thread Group 1-39,text,true,,292,0,0,0,null,0,0,0
+1573475236749,47099,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-40,text,false,Response was null,2358,0,96,58,http://localhost:8080/projectOne/characters,0,0,0
+1573475283848,0,character_request-0,200,OK,Thread Group 1-40,text,true,,291,0,0,0,null,0,0,0
+1573475234241,49404,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-91,text,false,,3152,243,96,58,http://localhost:8080/projectOne/home,1998,0,0
+1573475234241,1998,login_request-0,302,Found,Thread Group 1-91,text,true,,594,243,96,58,http://localhost:8080/projectOne/login,1998,0,0
+1573475236239,47406,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-91,text,false,,2558,0,96,58,http://localhost:8080/projectOne/home,0,0,0
+1573475236018,47829,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-8,text,false,Response was null,2358,0,96,58,http://localhost:8080/projectOne/characters,0,0,0
+1573475234014,49473,login_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-68,text,false,,3152,243,97,65,http://localhost:8080/projectOne/home,1635,0,0
+1573475283846,1,character_request-0,200,OK,Thread Group 1-8,text,true,,291,0,0,0,null,0,0,0
+1573475234014,1636,login_request-0,302,Found,Thread Group 1-68,text,true,,594,243,97,65,http://localhost:8080/projectOne/login,1635,0,0
+1573475235650,47837,login_request-1,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-68,text,false,,2558,0,97,65,http://localhost:8080/projectOne/home,0,0,0
+1573475235394,49935,character_request,500,Internal Server Error,Thread Group 1-7,text,false,Response was null,3125,185,43,43,http://localhost:8080/projectOne/characters,49934,0,0
+1573475285329,0,character_request-0,200,OK,Thread Group 1-7,text,true,,291,0,0,0,null,0,0,0
+1573475235372,51184,character_request,200,OK,Thread Group 1-14,text,true,,41112630,185,100,100,http://localhost:8080/projectOne/characters,5724,0,0
+1573475286554,2,character_request-0,200,OK,Thread Group 1-14,text,true,,502,0,0,0,null,0,0,0
+1573475235320,52870,character_request,200,OK,Thread Group 1-18,text,true,,41112630,185,100,100,http://localhost:8080/projectOne/characters,5757,0,0
+1573475288183,7,character_request-0,200,OK,Thread Group 1-18,text,true,,502,0,0,0,null,0,0,0
+1573475235364,54208,character_request,200,OK,Thread Group 1-24,text,true,,41112630,185,100,100,http://localhost:8080/projectOne/characters,5728,0,0
+1573475289573,0,character_request-0,200,OK,Thread Group 1-24,text,true,,502,0,0,0,null,0,0,0
+1573475284096,30790,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-92,text,false,Response was null,2360,0,39,39,http://localhost:8080/projectOne/characters,0,0,2
+1573475284075,30811,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-68,text,false,Response was null,2360,0,39,39,http://localhost:8080/projectOne/characters,0,0,1
+1573475314886,0,character_request-0,200,OK,Thread Group 1-92,text,true,,293,0,0,0,null,0,0,0
+1573475314886,0,character_request-0,200,OK,Thread Group 1-68,text,true,,293,0,0,0,null,0,0,0
+1573475284232,30655,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-94,text,false,Response was null,2360,0,39,39,http://localhost:8080/projectOne/characters,0,0,1
+1573475314887,0,character_request-0,200,OK,Thread Group 1-94,text,true,,293,0,0,0,null,0,0,0
+1573475284049,30839,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-95,text,false,Response was null,2360,0,39,39,http://localhost:8080/projectOne/characters,0,0,1
+1573475314888,0,character_request-0,200,OK,Thread Group 1-95,text,true,,293,0,0,0,null,0,0,0
+1573475284068,30820,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-76,text,false,Response was null,2360,0,39,39,http://localhost:8080/projectOne/characters,0,0,1
+1573475314887,1,character_request-0,200,OK,Thread Group 1-76,text,true,,293,0,0,0,null,0,0,0
+1573475284098,30790,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-79,text,false,Response was null,2360,0,38,38,http://localhost:8080/projectOne/characters,0,0,2
+1573475314888,0,character_request-0,200,OK,Thread Group 1-79,text,true,,293,0,0,0,null,0,0,0
+1573475284213,30676,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-85,text,false,Response was null,2360,0,37,37,http://localhost:8080/projectOne/characters,0,0,1
+1573475314889,0,character_request-0,200,OK,Thread Group 1-85,text,true,,293,0,0,0,null,0,0,0
+1573475284197,30693,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-71,text,false,Response was null,2360,0,33,33,http://localhost:8080/projectOne/characters,0,0,1
+1573475314890,0,character_request-0,200,OK,Thread Group 1-71,text,true,,293,0,0,0,null,0,0,0
+1573475284140,30750,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-100,text,false,Response was null,2361,0,33,33,http://localhost:8080/projectOne/characters,0,0,1
+1573475284074,30816,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-87,text,false,Response was null,2360,0,33,33,http://localhost:8080/projectOne/characters,0,0,1
+1573475314890,0,character_request-0,200,OK,Thread Group 1-100,text,true,,294,0,0,0,null,0,0,0
+1573475284248,30642,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-97,text,false,Response was null,2360,0,33,33,http://localhost:8080/projectOne/characters,0,0,1
+1573475314890,0,character_request-0,200,OK,Thread Group 1-97,text,true,,293,0,0,0,null,0,0,0
+1573475314890,0,character_request-0,200,OK,Thread Group 1-87,text,true,,293,0,0,0,null,0,0,0
+1573475284238,30653,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-69,text,false,Response was null,2360,0,32,32,http://localhost:8080/projectOne/characters,0,0,1
+1573475314891,0,character_request-0,200,OK,Thread Group 1-69,text,true,,293,0,0,0,null,0,0,0
+1573475284204,30687,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-66,text,false,Response was null,2360,0,30,30,http://localhost:8080/projectOne/characters,0,0,2
+1573475284073,30818,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-86,text,false,Response was null,2359,0,30,30,http://localhost:8080/projectOne/characters,0,0,2
+1573475314891,0,character_request-0,200,OK,Thread Group 1-66,text,true,,293,0,0,0,null,0,0,0
+1573475314891,0,character_request-0,200,OK,Thread Group 1-86,text,true,,292,0,0,0,null,0,0,0
+1573475284122,30769,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-81,text,false,Response was null,2360,0,29,29,http://localhost:8080/projectOne/characters,0,0,1
+1573475314891,0,character_request-0,200,OK,Thread Group 1-81,text,true,,293,0,0,0,null,0,0,0
+1573475284109,30782,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-98,text,false,Response was null,2360,0,29,29,http://localhost:8080/projectOne/characters,0,0,1
+1573475314891,0,character_request-0,200,OK,Thread Group 1-98,text,true,,293,0,0,0,null,0,0,0
+1573475284273,30619,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-84,text,false,Response was null,2360,0,26,26,http://localhost:8080/projectOne/characters,0,0,1
+1573475314892,0,character_request-0,200,OK,Thread Group 1-84,text,true,,293,0,0,0,null,0,0,0
+1573475284117,30775,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-75,text,false,Response was null,2360,0,23,23,http://localhost:8080/projectOne/characters,0,0,1
+1573475314892,0,character_request-0,200,OK,Thread Group 1-75,text,true,,293,0,0,0,null,0,0,0
+1573475284155,30738,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-91,text,false,Response was null,2360,0,33,33,http://localhost:8080/projectOne/characters,0,0,1
+1573475314893,0,character_request-0,200,OK,Thread Group 1-91,text,true,,293,0,0,0,null,0,0,0
+1573475284126,30760,character_request,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: localhost:8080 failed to respond,Thread Group 1-93,text,false,Response was null,2360,0,39,39,http://localhost:8080/projectOne/characters,0,0,1
+1573475314886,0,character_request-0,200,OK,Thread Group 1-93,text,true,,293,0,0,0,null,0,0,0
+1573475235550,80446,character_request,200,OK,Thread Group 1-27,text,true,,41112630,185,41,41,http://localhost:8080/projectOne/characters,48597,0,0
+1573475315996,0,character_request-0,200,OK,Thread Group 1-27,text,true,,502,0,0,0,null,0,0,0
+1573475235463,80937,character_request,200,OK,Thread Group 1-20,text,true,,41112630,185,41,41,http://localhost:8080/projectOne/characters,47944,0,0
+1573475316400,0,character_request-0,200,OK,Thread Group 1-20,text,true,,502,0,0,0,null,0,0,0
+1573475235400,81298,character_request,200,OK,Thread Group 1-5,text,true,,41112629,185,41,41,http://localhost:8080/projectOne/characters,46698,0,0
+1573475316698,0,character_request-0,200,OK,Thread Group 1-5,text,true,,501,0,0,0,null,0,0,0
+1573475235550,81405,character_request,200,OK,Thread Group 1-9,text,true,,41112629,185,41,41,http://localhost:8080/projectOne/characters,47959,0,0
+1573475316955,0,character_request-0,200,OK,Thread Group 1-9,text,true,,501,0,0,0,null,0,0,0
+1573475283719,41205,character_request,200,OK,Thread Group 1-74,text,true,,41112630,185,39,39,http://localhost:8080/projectOne/characters,2438,0,1
+1573475324924,0,character_request-0,200,OK,Thread Group 1-74,text,true,,502,0,0,0,null,0,0,0
+1573475283927,43200,character_request,200,OK,Thread Group 1-82,text,true,,41112631,185,39,39,http://localhost:8080/projectOne/characters,8064,0,1
+1573475327127,0,character_request-0,200,OK,Thread Group 1-82,text,true,,503,0,0,0,null,0,0,0
+1573475283802,46218,character_request,200,OK,Thread Group 1-96,text,true,,41112631,185,39,39,http://localhost:8080/projectOne/characters,4516,0,1
+1573475330020,0,character_request-0,200,OK,Thread Group 1-96,text,true,,503,0,0,0,null,0,0,0
+1573475283908,46262,character_request,200,OK,Thread Group 1-77,text,true,,41112631,185,39,39,http://localhost:8080/projectOne/characters,8032,0,1
+1573475330170,0,character_request-0,200,OK,Thread Group 1-77,text,true,,503,0,0,0,null,0,0,0
+1573475283803,47546,character_request,200,OK,Thread Group 1-89,text,true,,41112631,185,39,39,http://localhost:8080/projectOne/characters,10024,0,0
+1573475331349,0,character_request-0,200,OK,Thread Group 1-89,text,true,,503,0,0,0,null,0,0,0
+1573475283962,49328,character_request,200,OK,Thread Group 1-90,text,true,,41112631,185,39,39,http://localhost:8080/projectOne/characters,11371,0,1
+1573475333290,0,character_request-0,200,OK,Thread Group 1-90,text,true,,503,0,0,0,null,0,0,0
+1573475283977,51755,character_request,200,OK,Thread Group 1-78,text,true,,41112631,185,39,39,http://localhost:8080/projectOne/characters,14994,0,1
+1573475335733,0,character_request-0,200,OK,Thread Group 1-78,text,true,,503,0,0,0,null,0,0,0
+1573475283995,52168,character_request,200,OK,Thread Group 1-70,text,true,,41112631,185,39,39,http://localhost:8080/projectOne/characters,19846,0,1
+1573475336164,0,character_request-0,200,OK,Thread Group 1-70,text,true,,503,0,0,0,null,0,0,0
+1573475284010,52290,character_request,200,OK,Thread Group 1-83,text,true,,41112631,185,39,39,http://localhost:8080/projectOne/characters,21006,0,2
+1573475336301,0,character_request-0,200,OK,Thread Group 1-83,text,true,,503,0,0,0,null,0,0,0
+1573475283985,52480,character_request,200,OK,Thread Group 1-67,text,true,,41112631,185,39,39,http://localhost:8080/projectOne/characters,16637,0,1
+1573475336466,0,character_request-0,200,OK,Thread Group 1-67,text,true,,503,0,0,0,null,0,0,0
+1573475284013,52804,character_request,200,OK,Thread Group 1-88,text,true,,41112631,185,19,19,http://localhost:8080/projectOne/characters,21774,0,1
+1573475336818,0,character_request-0,200,OK,Thread Group 1-88,text,true,,503,0,0,0,null,0,0,0
+1573475284042,53451,character_request,200,OK,Thread Group 1-73,text,true,,41112631,185,15,15,http://localhost:8080/projectOne/characters,31450,0,1
+1573475337494,0,character_request-0,200,OK,Thread Group 1-73,text,true,,503,0,0,0,null,0,0,0
+1573475284024,53528,character_request,200,OK,Thread Group 1-99,text,true,,41112630,185,15,15,http://localhost:8080/projectOne/characters,26662,0,1
+1573475337553,0,character_request-0,200,OK,Thread Group 1-99,text,true,,502,0,0,0,null,0,0,0
+1573475284029,53987,character_request,200,OK,Thread Group 1-72,text,true,,41112631,185,15,15,http://localhost:8080/projectOne/characters,30904,0,2
+1573475338017,0,character_request-0,200,OK,Thread Group 1-72,text,true,,503,0,0,0,null,0,0,0
+1573475284038,54233,character_request,200,OK,Thread Group 1-80,text,true,,41112631,185,15,15,http://localhost:8080/projectOne/characters,31142,0,1
+1573475338271,1,character_request-0,200,OK,Thread Group 1-80,text,true,,503,0,0,0,null,0,0,0

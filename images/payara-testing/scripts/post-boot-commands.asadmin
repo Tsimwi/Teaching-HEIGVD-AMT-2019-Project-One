@@ -1,0 +1,7 @@
+!#/bin/bash
+
+create-jdbc-connection-pool --datasourceclassname org.postgresql.ds.PGConnectionPoolDataSource --restype javax.sql.ConnectionPoolDataSource --property user=postgres:password=example:DatabaseName=amt:ServerName=postgres:port=5432 amt_pool
+
+create-jdbc-resource --connectionpoolid "amt_pool" "jdbc/amt"
+
+deploy /opt/payara/deployments/projectOne.war

@@ -1,6 +1,6 @@
 package ch.heigvd.amt.projectOne.services.dao;
 
-import ch.heigvd.amt.projectOne.business.IAuthenticationService;
+import ch.heigvd.amt.projectOne.services.business.IAuthenticationService;
 import ch.heigvd.amt.projectOne.model.Character;
 import ch.heigvd.amt.projectOne.model.Class;
 import ch.heigvd.amt.projectOne.model.Mount;
