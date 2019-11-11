@@ -13,6 +13,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Manage to display admin menu
+ */
 @WebServlet(urlPatterns = "/admin")
 public class AdminServlet extends HttpServlet {
 

@@ -15,6 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Manage to display all guilds
+ */
 @WebServlet(urlPatterns = "/guilds")
 public class GuildsServlet extends HttpServlet {
 

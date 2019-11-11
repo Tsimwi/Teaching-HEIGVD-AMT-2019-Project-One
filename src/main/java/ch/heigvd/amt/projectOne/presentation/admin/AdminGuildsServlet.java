@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Manage to display all guild
+ */
 @WebServlet(urlPatterns = "/admin/guilds")
 public class AdminGuildsServlet extends HttpServlet {
 

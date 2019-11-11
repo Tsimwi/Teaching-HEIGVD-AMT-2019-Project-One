@@ -14,6 +14,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Manage to add a character
+ */
 @WebServlet(urlPatterns = "/admin/characters/add")
 public class AdminCharactersAddServlet extends HttpServlet {
 

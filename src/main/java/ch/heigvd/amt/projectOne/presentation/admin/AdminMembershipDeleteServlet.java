@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * Manage to delete a mebership
+ */
 @WebServlet(urlPatterns = "/admin/guilds/memberships/delete")
 public class AdminMembershipDeleteServlet extends HttpServlet {
 

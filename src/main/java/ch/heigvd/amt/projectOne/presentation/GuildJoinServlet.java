@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Manage the feature to join a guild
+ */
 @WebServlet(urlPatterns = "/guilds/join")
 public class GuildJoinServlet extends HttpServlet {
 

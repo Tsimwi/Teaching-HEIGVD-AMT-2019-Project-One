@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Manage to display the home page
+ */
 @WebServlet(urlPatterns = "/home")
 public class HomeServlet extends HttpServlet {
 

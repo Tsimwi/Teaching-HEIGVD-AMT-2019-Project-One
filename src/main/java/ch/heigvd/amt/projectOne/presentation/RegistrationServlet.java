@@ -14,6 +14,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Manage the registration part
+ */
 @WebServlet(urlPatterns = "/register")
 public class RegistrationServlet extends HttpServlet {
 
@@ -28,6 +31,7 @@ public class RegistrationServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
+            // Get parameters
             String name = req.getParameter("name");
             String password = req.getParameter("password");
             String passwordVerify = req.getParameter("passwordVerify");

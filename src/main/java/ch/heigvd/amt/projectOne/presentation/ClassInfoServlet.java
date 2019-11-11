@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Manage to display info on a particular class
+ */
 @WebServlet(urlPatterns = "/classes/info")
 public class ClassInfoServlet extends HttpServlet {
 
@@ -21,6 +24,7 @@ public class ClassInfoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        // if id not set or greater than the number of class we send a 404
         if (!req.getParameterMap().containsKey("id") || Integer.parseInt(req.getParameter("id")) > classManager.getNumberOfClasses()) {
             req.getRequestDispatcher("/WEB-INF/pages/error_404.jsp").forward(req, resp);
         } else {

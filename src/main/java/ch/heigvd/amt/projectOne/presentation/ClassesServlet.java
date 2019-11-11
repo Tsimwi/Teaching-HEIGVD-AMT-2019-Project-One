@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Manage classes, it will display all classes
+ */
 @WebServlet(urlPatterns = "/classes")
 public class ClassesServlet extends HttpServlet {
 

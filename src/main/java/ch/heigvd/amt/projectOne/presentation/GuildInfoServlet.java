@@ -5,7 +5,6 @@ import ch.heigvd.amt.projectOne.model.Guild;
 import ch.heigvd.amt.projectOne.model.Membership;
 import ch.heigvd.amt.projectOne.services.dao.GuildManagerLocal;
 import ch.heigvd.amt.projectOne.services.dao.MembershipManagerLocal;
-import com.google.gson.Gson;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -15,9 +14,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * Manage to display info on a particular guild
+ */
 @WebServlet(urlPatterns = "/guilds/info")
 public class GuildInfoServlet extends HttpServlet {
 
@@ -61,6 +62,7 @@ public class GuildInfoServlet extends HttpServlet {
         StringBuilder table = new StringBuilder();
         List<Membership> memberships = membershipManager.getMembershipsByGuildIdWithPage(guildId, pageNumber - 1);
 
+        // We build the table with new memberships and we send it to the client
         for (Membership membership : memberships) {
 
             String line = String.format("<tr style=\"background-color: black\"><td><h5><a href=\"%s/profile?id=%d\">%s</a></h5></td><td class=\"rankColumn\"><h5>%s</h5></td></tr>",
