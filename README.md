@@ -10,7 +10,7 @@ You'll need to have `docker` and `docker-compose` and installed on your machine 
 
 ### Build the application
 
-The following script will launch the test environment, make all tests, populate the database, build the production containers and launch the site :
+The following script will launch the test environment, launch all the tests, populate the database, build the production containers and launch the site :
 
 ```bash
 $ ./launch_project.sh
