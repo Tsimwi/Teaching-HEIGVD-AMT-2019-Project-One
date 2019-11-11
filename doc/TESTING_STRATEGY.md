@@ -2,37 +2,37 @@
 
 ### Part 3. Testing strategy
 
-We had to set up several ways to test our different components, such as DAO, models and servlets. To do this we used severals tool as Mockito, Arquillian and JUnit.
+We had to set up several ways to test our components, such as DAO, models and servlets. To do so, we used tools like Mockito, Arquillian and JUnit.
 
-#### Mockito tests
+#### 3.1 Mockito tests
 
-We used Mockito to test servlets. The main part of servlet testing to to be sure that we reach the point that we want with behaviors that we defined. For this, we need to mock all objects that we will need, as `request` or `RequestDispatcher` for example.
+Mockito is used to test servlets. The main part of servlet testing is to be sure that we reach the point that we wanted with the behaviors we defined. For this, we need to mock all needed objects, for example `request` or `RequestDispatcher`.
 
 ![mockito_variables](./img/mockito_variables.png)
 
-In this project we tested almost all servlet with all case. For example for login page we tested that if username is missing we have the corresponding message in the request. 
+In this project, we tested almost all servlet with all cases. For example, the login page must send a specific error in case the user name is missing.
 
 ![mockito_test](./img/mockito_test.png)
 
-We can see that we define the return values of each object, when `request.getParameter("username")` is called we want that the return value is empty and then we verify that `request.setAttribut("error", errors)` has been called at least on time.
+We can see that the return value of each object is defined. When `request.getParameter("username")` is called, we want the return value to be empty. Then, we verify that `request.setAttribut("error", errors)` has been called at least one time.
 
-So for summary Mockito tests is a part where we defined behaviors and then test that we reach the right destination.
+#### 3.2 Arquillian tests
 
-#### Arquillian tests
+Arquillian is used to test objects managed by the application server. It will package our tests, send them to the server and execute them. 
 
-Arquillian is used to test object that is normally managed by the application server. Arquillian will package our tests, send them on the application server and execute them. To do thet we will need that the application server and the database containers are up and ready. We need to import the ssl certificate of the application server in our JDK keystore so that Arquillian is able to upload tests.
+First, the application server and the database containers must be up and ready. Then, Payara's self-signed certificate has to be added to the JDK keystore in order to make Arquillian upload the tests (this has to be done once).
 
 ![arquillian_test](./img/arquillian_test.png)
 
-We can see that with  Arquillian we use the EJB as usually. We can set the transactionMode to `ROLLBACK` or`COMMIT`.
+Here is a simple test where a character should be created on the database.  Arquillian uses the EJB as we do it in the main part of the application. Note that the `TransactionMode` is set to `ROLLBACK`, meaning that the state of the database is reverted after the test. Another option would be to`COMMIT` the changes.
 
-#### JUnit tests
+#### 3.3 JUnit tests
 
-We used JUnit to make tests on the models tier. 
+We used JUnit to make tests on the model tier. 
 
 ![junit_test](./img/junit_test.png)
 
-The tests are creating object and test that values match with assertion test. 
+These are simple unit tests, checking if objects and method calls fulfill our assertions.
 
 
 
