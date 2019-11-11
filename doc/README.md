@@ -6,14 +6,14 @@ Welcome on our AMT project. The main objective of this is to apply the patterns 
 
 ### Requirements
 
-You'll need to have `docker` and `docker-compose` and installed on your machine in order to launch the containers. You will also need `maven` and `python` to generate a .war file and run the scripts.
+You'll need to have `docker` and `docker-compose` installed on your machine in order to launch the containers. You will also need `maven` and `python` to generate a .war file and run the scripts.
 
 ### Build the application
 
-The following script will populate the database, build the containers and launch the site :
+The following script will launch the test environment, make all tests, populate the database, build the production containers and launch the site :
 
 ```bash
-$ ./
+$ ./launch_project.sh
 ```
 
 ### Report
