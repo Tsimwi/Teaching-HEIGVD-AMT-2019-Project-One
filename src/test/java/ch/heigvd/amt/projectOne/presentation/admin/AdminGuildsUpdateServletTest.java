@@ -87,7 +87,6 @@ class AdminGuildsUpdateServletTest {
         when(request.getParameterMap()).thenReturn(map);
         when(request.getParameterMap().containsKey("updateGuild")).thenReturn(true);
         when(request.getParameterMap().containsKey("id")).thenReturn(true);
-        when(request.getParameterMap().containsKey("guildId")).thenReturn(true);
         when(request.getParameter("id")).thenReturn("1");
         when(guildManager.getGuildById(1)).thenReturn(guild);
         when(guild.getName()).thenReturn("Guild's name");
@@ -104,7 +103,6 @@ class AdminGuildsUpdateServletTest {
         when(request.getParameterMap()).thenReturn(map);
         when(request.getParameterMap().containsKey("updateGuild")).thenReturn(true);
         when(request.getParameterMap().containsKey("id")).thenReturn(true);
-        when(request.getParameterMap().containsKey("guildId")).thenReturn(true);
 
         when(request.getParameter("id")).thenReturn("1");
         when(guildManager.getGuildById(1)).thenReturn(guild);
@@ -126,7 +124,6 @@ class AdminGuildsUpdateServletTest {
         when(request.getParameterMap()).thenReturn(map);
         when(request.getParameterMap().containsKey("updateGuild")).thenReturn(true);
         when(request.getParameterMap().containsKey("id")).thenReturn(true);
-        when(request.getParameterMap().containsKey("guildId")).thenReturn(true);
 
         when(request.getParameter("id")).thenReturn("1");
         when(guildManager.getGuildById(1)).thenReturn(guild);

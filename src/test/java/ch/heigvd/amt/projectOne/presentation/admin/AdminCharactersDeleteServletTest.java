@@ -56,7 +56,7 @@ class AdminCharactersDeleteServletTest {
         when(request.getSession()).thenReturn(session);
         servlet.doGet(request, response);
 
-        verify(session, atLeastOnce()).setAttribute("deleteStatus", "User deleted");
+        verify(session, atLeastOnce()).setAttribute("error", "false");
         verify(response, atLeastOnce()).sendRedirect(request.getContextPath() + "/admin/characters");
 
     }
@@ -69,7 +69,7 @@ class AdminCharactersDeleteServletTest {
         when(request.getSession()).thenReturn(session);
         servlet.doGet(request, response);
 
-        verify(session, atLeastOnce()).setAttribute("deleteStatus", "Unable to delete the user");
+        verify(session, atLeastOnce()).setAttribute("error", "true");
         verify(response, atLeastOnce()).sendRedirect(request.getContextPath() + "/admin/characters");
 
     }
