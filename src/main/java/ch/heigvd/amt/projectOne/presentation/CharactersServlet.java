@@ -22,6 +22,7 @@ public class CharactersServlet extends HttpServlet {
     int pageNumberInt;
 
     int numberOfUser;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -43,7 +44,7 @@ public class CharactersServlet extends HttpServlet {
             numberOfUser = characterManager.countRows("character", "");
             characters = characterManager.getCharactersByPage(pageNumberInt - 1);
         }
-
+        //characters = characterManager.getAllCharacters();
         req.setAttribute("numberOfPage", ((numberOfUser - 1) / 25) + 1);
         req.setAttribute("characters", characters);
 

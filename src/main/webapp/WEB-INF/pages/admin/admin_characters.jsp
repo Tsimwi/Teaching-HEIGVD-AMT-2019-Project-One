@@ -22,7 +22,7 @@
                    name="searchBar">
         </form>
         <div class="text-center">
-            <a href="${pageContext.request.contextPath}/characters">All</a>
+            <a href="${pageContext.request.contextPath}/admin/characters">All</a>
             <c:set var="alphabet" value="a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z"/>
             <c:forTokens var="letter" items="${alphabet}" delims=",">
                 /<a href="${pageContext.request.contextPath}/admin/characters?letter=${letter}">${letter}</a>
@@ -54,13 +54,16 @@
             </c:if>
 
             <a class="btn btn-primary"
-               href="${pageContext.request.contextPath}/admin/characters?<%=parameters%>page=${numberOfPage}">Last page</a>
+               href="${pageContext.request.contextPath}/admin/characters?<%=parameters%>page=${numberOfPage}">Last
+                page</a>
         </div>
 
     </div>
+
     <table class="table" style="margin-top: 10px">
         <thead>
         <tr class="bg-danger">
+            <th></th>
             <th><h3>Character name</h3></th>
             <th><h3>Is admin</h3></th>
             <th><h3>Actions</h3></th>
@@ -68,8 +71,10 @@
         </thead>
         <c:forEach items="${characters}" var="character" varStatus="loop">
             <tr>
-                <td><h5 style="color: white">${character.name}</h5></td>
-                <td><i class="fas fa-${(character.isadmin ?  "check" : "times")}"></i></td>
+                <td>${loop.index+1}</td>
+                <td><a href="${pageContext.request.contextPath}/profile?id=${character.id}"><h5
+                        style="color: white">${character.name}</h5></a></td>
+                <td>${(character.isadmin ?  '<i class="fas fa-check"></i>' : "")}</td>
                 <td>
                     <c:if test="${character.id != sessionScope.character.id}">
                         <a href="${pageContext.request.contextPath}/admin/characters/delete?id=${character.id}"><i
@@ -82,12 +87,17 @@
             </tr>
         </c:forEach>
     </table>
-
-    <c:if test="${sessionScope.deleteStatus != null}">
-        ${sessionScope.deleteStatus}
-    </c:if>
-    <c:remove var="deleteStatus"/>
-
+    <h5 class="text-center">Page <i id="pageNumberDisplayed">${(pageContext.request.getParameter("page") == null ? '1': pageContext.request.getParameter("page")) } / ${numberOfPage}</i></h5>
 </div>
+<c:if test="${sessionScope.error != null}">
+    <script type="text/javascript">
+        $(function() {
+            toastr.${(sessionScope.error == "false" ? 'success': 'error')}("${(sessionScope.error == "false" ? 'User deleted': 'Unable to delete this user')}", "Delete status", {positionClass: "toast-bottom-full-width", timeout: 2});
+        });
+
+    </script>
+    <c:remove var="error"/>
+</c:if>
+
 
 <%@include file="../includes/footer.jsp" %>

@@ -22,16 +22,15 @@ public class AdminGuildsDeleteServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if (req.getParameterMap().containsKey("id")) {
             HttpSession session = req.getSession();
-            if (!guildManager.deleteGuild(Guild.builder().id(Integer.parseInt(req.getParameter("id"))).build())){
+            if (!guildManager.deleteGuild(Guild.builder().id(Integer.parseInt(req.getParameter("id"))).build())) {
                 session.setAttribute("deleteStatus", "Unable to delete the guild");
-            }else{
+            } else {
                 session.setAttribute("deleteStatus", "Guild deleted");
             }
-
+            resp.sendRedirect(req.getContextPath() + "/admin/guilds");
+        } else {
+            req.getRequestDispatcher("/WEB-INF/pages/error_404.jsp").forward(req, resp);
         }
-
-        resp.sendRedirect(req.getContextPath() + "/admin/guilds");
-
     }
 
     @Override

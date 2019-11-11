@@ -29,7 +29,6 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <link rel="stylesheet" type="text/css" href="./dataTables/datatables.min.css"/>
 
-    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css?family=Risque&display=swap');
@@ -41,34 +40,31 @@
 <div class="wrapper">
 
     <div class="container-fluid">
-        <div class="container-absolute">
-            <c:if test="${sessionScope.character.isadmin}">
-                <a href="${pageContext.request.contextPath}/admin" style="color: orange">Administration</a>  /
-            </c:if>
-            <a href="${pageContext.request.contextPath}/logout" style="color: orange">Logout</a>
-        </div>
+
         <img class="mySlides" src="./images/banner.jpg" style="width:100%">
 
-        <ul class="nav nav-pills nav-fill" style="background-color: orange">
-            <li class="nav-item">
-                <a href="${pageContext.request.contextPath}/home" class="nav-link"><h3>Home</h3>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="${pageContext.request.contextPath}/characters" class="nav-link"><h3>
-                    Characters</h3></a>
-            </li>
-            <li class="nav-item">
-                <a href="${pageContext.request.contextPath}/classes" class="nav-link"><h3>
-                    Classes</h3></a>
-            </li>
-            <li class="nav-item">
-                <a href="${pageContext.request.contextPath}/guilds" class="nav-link"><h3>Guilds</h3>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="${pageContext.request.contextPath}/profile" class="nav-link"><h3>
-                    MyProfile</h3></a>
-            </li>
-        </ul>
+        <div class="container text-center" style="margin-top: 50px">
+            <h1>Oups ! An error 500 occurred. Contact an administrator.</h1>
+            <div class="container text-center"><a href="${pageContext.request.contextPath}/home" class="btn btn-primary" style="margin-bottom: 10px">Go back home</a></div>
 
+        </div>
+
+    </div>
+</div>
+</body>
+
+<script src="./bootstrap4/js/bootstrap.js" type="text/javascript"></script>
+<script src="./bootstrap4/js/bootstrap.bundle.js" type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="./select2/js/select2.full.js"></script>
+<script type="text/javascript" src="./dataTables/datatables.min.js"></script>
+<script>
+    $('.nav .nav-link').click(function(){
+        $('.nav .nav-link').removeClass('active');
+        $(this).addClass('active');
+    })
+</script>
+
+
+</html>

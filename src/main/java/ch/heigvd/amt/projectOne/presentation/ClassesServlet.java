@@ -15,18 +15,18 @@ import java.util.List;
 @WebServlet(urlPatterns = "/classes")
 public class ClassesServlet extends HttpServlet {
 
-  @EJB
-  ClassManagerLocal classManager;
+    @EJB
+    ClassManagerLocal classManager;
 
-  @Override
-  protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    List<Class> classes = classManager.fetchAllClasses();
-    req.setAttribute("classes", classes);
-    req.getRequestDispatcher("/WEB-INF/pages/classes.jsp").forward(req, resp);
-  }
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<Class> classes = classManager.fetchAllClasses();
+        req.setAttribute("classes", classes);
+        req.getRequestDispatcher("/WEB-INF/pages/classes.jsp").forward(req, resp);
+    }
 
-  @Override
-  protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    super.doPost(req, resp);
-  }
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doPost(req, resp);
+    }
 }

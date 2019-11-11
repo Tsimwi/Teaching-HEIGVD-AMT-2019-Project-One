@@ -26,6 +26,9 @@ class AdminMembershipDeleteServletTest {
     HttpServletResponse response;
 
     @Mock
+    RequestDispatcher requestDispatcher;
+
+    @Mock
     MembershipManagerLocal membershipManager;
     @Mock
     Map<String, String[]> map;
@@ -55,17 +58,20 @@ class AdminMembershipDeleteServletTest {
     @Test
     void itShouldFailedBecauseIdIsMissing() throws IOException, ServletException {
         when(request.getParameterMap().containsKey("id")).thenReturn(false);
+        when(request.getRequestDispatcher("/WEB-INF/pages/error_404.jsp")).thenReturn(requestDispatcher);
         servlet.doGet(request, response);
 
-        verify(response, atLeastOnce()).sendRedirect(request.getContextPath()+"/admin/guilds");
+        verify(requestDispatcher, atLeastOnce()).forward(request, response);
     }
 
     @Test
     void itShouldFailedBecauseGuildIdIsMissing() throws IOException, ServletException {
         when(request.getParameterMap().containsKey("id")).thenReturn(true);
         when(request.getParameterMap().containsKey("guildId")).thenReturn(false);
+        when(request.getRequestDispatcher("/WEB-INF/pages/error_404.jsp")).thenReturn(requestDispatcher);
+
         servlet.doGet(request, response);
 
-        verify(response, atLeastOnce()).sendRedirect(request.getContextPath()+"/admin/guilds");
+        verify(requestDispatcher, atLeastOnce()).forward(request, response);
     }
 }

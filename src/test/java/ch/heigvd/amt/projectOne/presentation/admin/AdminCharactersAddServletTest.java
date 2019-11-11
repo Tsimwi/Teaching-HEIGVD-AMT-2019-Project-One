@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,7 +53,7 @@ class AdminCharactersAddServletTest {
     }
 
     @Test
-    void WeShouldBeAbleToAddAdminCharacter() throws ServletException, IOException {
+    void WeShouldBeAbleToAddAdminCharacter() throws ServletException, IOException, SQLException {
         when(request.getParameter("name")).thenReturn("test");
         when(request.getParameter("password")).thenReturn("password");
         when(request.getParameter("passwordVerify")).thenReturn("password");
@@ -65,7 +66,7 @@ class AdminCharactersAddServletTest {
     }
 
     @Test
-    void WeShouldBeAbleToAddCharacter() throws ServletException, IOException {
+    void WeShouldBeAbleToAddCharacter() throws ServletException, IOException, SQLException {
         when(request.getParameter("name")).thenReturn("test");
         when(request.getParameter("password")).thenReturn("password");
         when(request.getParameter("passwordVerify")).thenReturn("password");
@@ -78,7 +79,7 @@ class AdminCharactersAddServletTest {
     }
 
     @Test
-    void addCharacterShouldFailedBecauseUsernameIsEmpty() throws ServletException, IOException {
+    void addCharacterShouldFailedBecauseUsernameIsEmpty() throws ServletException, IOException, SQLException {
         when(request.getRequestDispatcher("/WEB-INF/pages/admin/admin_characters_add.jsp")).thenReturn(requestDispatcher);
         errors.add("Username cannot be empty");
         when(request.getParameter("name")).thenReturn("");
@@ -93,7 +94,7 @@ class AdminCharactersAddServletTest {
     }
 
     @Test
-    void addCharacterShouldFailedBecausePasswordIsEmpty() throws ServletException, IOException {
+    void addCharacterShouldFailedBecausePasswordIsEmpty() throws ServletException, IOException, SQLException {
         when(request.getRequestDispatcher("/WEB-INF/pages/admin/admin_characters_add.jsp")).thenReturn(requestDispatcher);
         errors.add("Password cannot be empty");
         when(request.getParameter("name")).thenReturn("test");
@@ -108,7 +109,7 @@ class AdminCharactersAddServletTest {
     }
 
     @Test
-    void addCharacterShouldFailedBecausePasswordDoesNotMatch() throws ServletException, IOException {
+    void addCharacterShouldFailedBecausePasswordDoesNotMatch() throws ServletException, IOException, SQLException {
         when(request.getRequestDispatcher("/WEB-INF/pages/admin/admin_characters_add.jsp")).thenReturn(requestDispatcher);
         errors.add("Password are not the same");
         when(request.getParameter("name")).thenReturn("test");
@@ -123,7 +124,7 @@ class AdminCharactersAddServletTest {
     }
 
     @Test
-    void addCharacterShouldFailedBecauseUsernameIsNotFree() throws ServletException, IOException {
+    void addCharacterShouldFailedBecauseUsernameIsNotFree() throws ServletException, IOException, SQLException {
         when(request.getRequestDispatcher("/WEB-INF/pages/admin/admin_characters_add.jsp")).thenReturn(requestDispatcher);
         errors.add("This name is already taken");
         when(request.getParameter("name")).thenReturn("test");
@@ -138,7 +139,7 @@ class AdminCharactersAddServletTest {
     }
 
     @Test
-    void addCharacterShouldFailedBecauseUnableToAddInDatabase() throws ServletException, IOException {
+    void addCharacterShouldFailedBecauseUnableToAddInDatabase() throws ServletException, IOException, SQLException {
         when(request.getRequestDispatcher("/WEB-INF/pages/admin/admin_characters_add.jsp")).thenReturn(requestDispatcher);
         errors.add("Unable to create Character, contact an administrator");
         when(request.getParameter("name")).thenReturn("test");

@@ -26,9 +26,8 @@ public class AdminMembershipDeleteServlet extends HttpServlet {
             int guildId = Integer.parseInt(req.getParameter("guildId"));
             membershipManager.removeMembership(Integer.parseInt(req.getParameter("id")));
             resp.sendRedirect(req.getContextPath() + "/admin/guilds/update?id=" + guildId);
-        }else{
-
-            resp.sendRedirect(req.getContextPath() + "/admin/guilds");
+        } else {
+            req.getRequestDispatcher("/WEB-INF/pages/error_404.jsp").forward(req, resp);
         }
 
     }

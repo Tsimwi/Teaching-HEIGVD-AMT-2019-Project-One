@@ -29,6 +29,9 @@ class AdminGuildsDeleteServletTest {
     HttpServletResponse response;
 
     @Mock
+    RequestDispatcher requestDispatcher;
+
+    @Mock
     GuildManagerLocal guildManager;
 
     @Mock
@@ -72,8 +75,8 @@ class AdminGuildsDeleteServletTest {
     @Test
     void itShouldFailedBecauseIdIsMissing() throws ServletException, IOException {
         when(request.getParameterMap().containsKey("id")).thenReturn(false);
-
+        when(request.getRequestDispatcher("/WEB-INF/pages/error_404.jsp")).thenReturn(requestDispatcher);
         servlet.doGet(request, response);
-        verify(response, atLeastOnce()).sendRedirect(request.getContextPath() + "/admin/guilds");
+        verify(requestDispatcher, atLeastOnce()).forward(request, response);
     }
 }
