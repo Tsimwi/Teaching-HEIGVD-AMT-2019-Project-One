@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Manage character. Make the paging with the page number and/or search option
+ */
 @WebServlet(urlPatterns = "/characters")
 public class CharactersServlet extends HttpServlet {
 
@@ -27,6 +30,8 @@ public class CharactersServlet extends HttpServlet {
 
         List<Character> characters;
 
+
+        // If the parameter "page" is not set we set it to 1 as first/default page
         if (!req.getParameterMap().containsKey("page")) {
             pageNumberInt = 1;
         } else {
@@ -44,6 +49,7 @@ public class CharactersServlet extends HttpServlet {
             characters = characterManager.getCharactersByPage(pageNumberInt - 1);
         }
 
+        // This is if you need to test the project without paging
         //characters = characterManager.getCharactersForPaginationTest();
 
         req.setAttribute("numberOfPage", ((numberOfUser - 1) / 25) + 1);

@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * Manage to delete a guild
+ */
 @WebServlet(urlPatterns = "/admin/guilds/delete")
 public class AdminGuildsDeleteServlet extends HttpServlet {
 

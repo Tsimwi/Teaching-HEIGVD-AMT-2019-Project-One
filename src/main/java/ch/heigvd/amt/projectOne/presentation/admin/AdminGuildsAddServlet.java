@@ -14,6 +14,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Manage to add a guild
+ */
 @WebServlet(urlPatterns = "/admin/guilds/add")
 public class AdminGuildsAddServlet extends HttpServlet {
 

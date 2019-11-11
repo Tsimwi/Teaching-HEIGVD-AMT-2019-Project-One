@@ -14,6 +14,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Manage to delete a character
+ */
 @WebServlet(urlPatterns = "/admin/characters/delete")
 public class AdminCharactersDeleteServlet extends HttpServlet {
 

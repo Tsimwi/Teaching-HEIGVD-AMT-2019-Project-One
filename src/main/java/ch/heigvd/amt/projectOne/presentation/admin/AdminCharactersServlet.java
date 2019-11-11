@@ -13,6 +13,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Display users on admi menu with action (delete, update)
+ */
 @WebServlet(urlPatterns = "/admin/characters")
 public class AdminCharactersServlet extends HttpServlet {
 

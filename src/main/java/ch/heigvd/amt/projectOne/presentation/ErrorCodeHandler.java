@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * If we have an error that occurred we display the error page corresponding
+ */
 @WebServlet("/ErrorCodeHandler")
 public class ErrorCodeHandler extends HttpServlet {
 

@@ -16,6 +16,9 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Manage to update a guild
+ */
 @WebServlet(urlPatterns = "/admin/guilds/update")
 public class AdminGuildsUpdateServlet extends HttpServlet {
 
@@ -102,6 +105,7 @@ public class AdminGuildsUpdateServlet extends HttpServlet {
             StringBuilder table = new StringBuilder();
             List<Membership> memberships = membershipManager.getMembershipsByGuildIdWithPage(guildId, pageNumber - 1);
             int i = 1;
+            // We construct the table for the AJAX call
             for (Membership membership : memberships) {
 
                 String line = String.format("<tr style=\"background-color: black\"><td>%d</td><td><h5><a href=\"%s/profile?id=%d\">%s</a></h5></td><td><h5>%s</h5></td>" +

@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Manage the feature to leave a guild
+ */
 @WebServlet(urlPatterns = "/guilds/leave")
 public class GuildLeaveServlet extends HttpServlet {
 

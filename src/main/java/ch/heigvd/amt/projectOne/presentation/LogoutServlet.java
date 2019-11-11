@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * Manage to logout the user. We destroy the session
+ */
 @WebServlet(urlPatterns = "/logout")
 public class LogoutServlet extends HttpServlet {
     @Override

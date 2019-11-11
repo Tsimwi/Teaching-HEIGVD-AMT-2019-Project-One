@@ -21,6 +21,9 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Manage to update a user
+ */
 @WebServlet(urlPatterns = "/admin/characters/update")
 public class AdminCharactersUpdateServlet extends HttpServlet {
 
@@ -38,6 +41,7 @@ public class AdminCharactersUpdateServlet extends HttpServlet {
         if (req.getParameterMap().containsKey("id")) {
             String id = req.getParameter("id");
             Character character = characterManager.getCharacterById(Integer.parseInt(id));
+            // We fetch his memebership
             List<Membership> memberships = membershipManager.getMembershipsByUserId(Integer.parseInt(id));
             List<Guild> guilds = guildManager.getAllGuilds();
             req.setAttribute("character", character);
