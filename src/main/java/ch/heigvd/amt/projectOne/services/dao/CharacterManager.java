@@ -407,13 +407,13 @@ public class CharacterManager implements CharacterManagerLocal {
     }
 
     @Override
-    public List<Character> getAllCharacters() {
+    public List<Character> getCharactersForPaginationTest() {
 
         Connection connection = null;
         List<Character> characters = new ArrayList<>();
         try {
             connection = dataSource.getConnection();
-            PreparedStatement pstmt = connection.prepareStatement("SELECT character.*, mount.name AS mount_name, mount.speed AS mount_speed, class.name AS class_name FROM character INNER JOIN mount ON character.mount_id = mount.id INNER JOIN class ON character.class_id = class.id WHERE character.name ORDER BY name");
+            PreparedStatement pstmt = connection.prepareStatement("SELECT character.*, mount.name AS mount_name, mount.speed AS mount_speed, class.name AS class_name FROM character INNER JOIN mount ON character.mount_id = mount.id INNER JOIN class ON character.class_id = class.id ORDER BY name LIMIT 100000");
 
 
             ResultSet rs = pstmt.executeQuery();
