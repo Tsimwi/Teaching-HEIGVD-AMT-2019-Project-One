@@ -28,6 +28,9 @@ public class CharacterManager implements CharacterManagerLocal {
     @EJB
     IAuthenticationService authenticationService;
 
+    /**
+     * Return a random number between from and to.
+     */
     private int getRandomNumber(int from, int to) {
         Random r = new Random();
         return r.nextInt(to - from) + from;

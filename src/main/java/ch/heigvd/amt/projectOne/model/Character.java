@@ -22,5 +22,4 @@ public class Character {
     private Mount mount;
     private Class myClass;
     private LinkedList<Membership> memberships;
-
 }
