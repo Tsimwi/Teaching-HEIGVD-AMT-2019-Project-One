@@ -15,6 +15,7 @@ The following script will launch the test environment, launch all the tests, pop
 ```bash
 $ ./launch_project.sh
 ```
+Before so, the Payara self-signed certificate must be imported in your JDK. Adapt the script in the SSL folder and launch it.
 
 ### Report
 
